@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_kth",
+  "entry_point": "kth",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef kth(arr, k):\n    \"\"\"\n    QuickSelect\n\n    This is an efficient equivalent to sorted(arr)[k].\n\n    Input:\n        arr: A list of ints\n        k: An int\n\n    Precondition:\n        0 <= k < len(arr)\n\n    Output:\n        The kth-lowest element of arr (0-based)\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "kth",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

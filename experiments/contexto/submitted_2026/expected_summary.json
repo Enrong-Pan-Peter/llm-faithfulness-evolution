@@ -1,0 +1,221 @@
+{
+ "source": "final_batch_report_2026-08-17.md (rev 2, 2026-08-19) and README_package_manifest.md of final_batch_outputs_20260817_1; values are copied, not recomputed here",
+ "run_counts": {
+  "A1": 50,
+  "A2": 25,
+  "A3": 25,
+  "A4": 50,
+  "A5": 50,
+  "random_selection_control": 15,
+  "rationale_intervention_events": 754,
+  "rationale_intervention_completions": 3016
+ },
+ "self_reports": {
+  "total": 12249,
+  "gradeable": 11976,
+  "note": "paper-reported totals across reporting arms"
+ },
+ "observer_effect_A1_vs_A3": {
+  "solved": "25/25 both",
+  "generations_p": 0.82,
+  "guesses_p": 0.78
+ },
+ "scaffold_A1_vs_A2": {
+  "abs_bucket_error": {
+   "A1": 0.833,
+   "A2": 1.097,
+   "p": 2.3e-06
+  }
+ },
+ "rank_cache_invalid_entries": {
+  "A1": 141,
+  "A5": 6098,
+  "RQ3_random": 108,
+  "note": "definitive 404s after re-verification"
+ },
+ "rationale_intervention": {
+  "events": 754,
+  "completions": 3016,
+  "paired_median_rank_diff": 0,
+  "clustered_wilcoxon_p_range": [
+   0.13,
+   0.93
+  ],
+  "identical_first_word_rate_range": [
+   0.151,
+   0.163
+  ],
+  "jaccard_range": [
+   0.138,
+   0.142
+  ],
+  "hodges_lehmann_cluster_bootstrap": {
+   "genuine_minus_wrong": {
+    "hl": 73,
+    "ci95": [
+     -5,
+     471.5
+    ]
+   },
+   "genuine_minus_filler": {
+    "hl": 0,
+    "ci95": [
+     -253,
+     122
+    ]
+   },
+   "genuine_minus_absent": {
+    "hl": 50,
+    "ci95": [
+     0,
+     278.5
+    ]
+   }
+  },
+  "conditions": [
+   "genuine",
+   "wrong",
+   "filler",
+   "absent"
+  ]
+ },
+ "selection_response": {
+  "A1_tophalf_10_games": {
+   "binary_error_gap": 0.039,
+   "p": 0.713,
+   "bucket_distance_gap": -0.146,
+   "p_bucket": 0.253,
+   "pairs": 1018
+  },
+  "A1_tophalf_3_control_games": {
+   "binary_error_gap": 0.021,
+   "p": 0.926,
+   "bucket_distance_gap": -0.223,
+   "p_bucket": 0.41,
+   "pairs": 227
+  },
+  "random_selection_3_games": {
+   "binary_error_gap": -0.002,
+   "p": 0.927,
+   "bucket_distance_gap": -0.081,
+   "p_bucket": 0.453,
+   "pairs": 1111
+  },
+  "search_outcome_game_1319_solved": {
+   "tophalf": "5/5",
+   "random": "1/5"
+  },
+  "archive_reselections": {
+   "A1_fitness_selection_10_games": 14,
+   "random_selection_3_games": 542
+  }
+ },
+ "calibration_per_run_medians_n50": {
+  "A1_qwen3_14b": {
+   "rank_agreement_neg_rho": 0.23,
+   "ece": 0.363,
+   "signed_bucket_error": -0.591
+  },
+  "A4_gemma4_12b": {
+   "rank_agreement_neg_rho": 0.45,
+   "ece": 0.644,
+   "signed_bucket_error": -1.506
+  },
+  "A5_ministral3_14b": {
+   "rank_agreement_neg_rho": 0.211,
+   "ece": 0.592,
+   "signed_bucket_error": -1.909
+  }
+ },
+ "calibration_pooled_first_proposed": {
+  "A4": {
+   "n": 881,
+   "spearman_rho": -0.373,
+   "bucket_accuracy": 0.109,
+   "signed_bucket_error": -1.525,
+   "off_by_one": 0.235,
+   "ece": 0.63,
+   "brier": 0.502,
+   "auroc": 0.707,
+   "realized_p_top100": 0.123
+  },
+  "A5": {
+   "n": 3758,
+   "spearman_rho": -0.201,
+   "bucket_accuracy": 0.052,
+   "signed_bucket_error": -2.02,
+   "ece": 0.606,
+   "brier": 0.457,
+   "auroc": 0.629,
+   "realized_p_top100": 0.073,
+   "self_report_parse_failure_rate": 0.025,
+   "basis_word_hallucination_rate": 0.027
+  }
+ },
+ "calibration_a1_vs_a4_paired_wilcoxon_holm": {
+  "spearman": {
+   "A1": -0.226,
+   "A4": -0.438,
+   "p": 0.00018
+  },
+  "bucket_accuracy": {
+   "A1": 0.241,
+   "A4": 0.097,
+   "p": 0.003
+  },
+  "signed_bucket_error": {
+   "A1": -0.591,
+   "A4": -1.5,
+   "p": 2.3e-08
+  },
+  "off_by_one": {
+   "A1": 0.667,
+   "A4": 0.25,
+   "p": 7.8e-09
+  },
+  "ece": {
+   "A1": 0.363,
+   "A4": 0.636,
+   "p": 5.4e-10
+  },
+  "brier": {
+   "A1": 0.242,
+   "A4": 0.502,
+   "p": 2.1e-08
+  },
+  "auroc": {
+   "A1": 0.649,
+   "A4": 0.717,
+   "p": 0.305
+  },
+  "realized_positive_rate": {
+   "A1": 0.117,
+   "A4": 0.129,
+   "p": 0.465
+  }
+ },
+ "calibration_glove_comparison": {
+  "A1": {
+   "glove_vs_real": 0.75,
+   "closeness_vs_real": -0.25,
+   "closeness_vs_glove": -0.2,
+   "note": "approximate; run on author's machine"
+  },
+  "A4": {
+   "glove_vs_real": 0.669,
+   "closeness_vs_real": -0.401,
+   "closeness_vs_glove": -0.317,
+   "words": 783,
+   "runs": 47
+  },
+  "A5": {
+   "glove_vs_real": 0.609,
+   "closeness_vs_real": -0.213,
+   "closeness_vs_glove": -0.181,
+   "words": 2500,
+   "runs": 46
+  }
+ },
+ "prompt_fingerprint": "bd9f2858283673a2",
+ "trace_format_version": 3
+}

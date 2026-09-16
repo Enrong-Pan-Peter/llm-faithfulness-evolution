@@ -1,0 +1,1135 @@
+{
+  "sizes": [
+    3,
+    4,
+    5
+  ],
+  "per_size": 8,
+  "seed": 0,
+  "expansion_cap": 300000,
+  "min_optimal_length": 4,
+  "n_instances": 18,
+  "instances": [
+    {
+      "instance_id": "bw03_s6890",
+      "n_blocks": 3,
+      "seed": 6890,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw03_s0663",
+      "n_blocks": 3,
+      "seed": 663,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw03_s4242",
+      "n_blocks": 3,
+      "seed": 4242,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "c"
+        ],
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw03_s7961",
+      "n_blocks": 3,
+      "seed": 7961,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "b"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw04_s5866",
+      "n_blocks": 4,
+      "seed": 5866,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "goal": [
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw04_s9558",
+      "n_blocks": 4,
+      "seed": 9558,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "c"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw04_s3578",
+      "n_blocks": 4,
+      "seed": 3578,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "d"
+        ],
+        [
+          "on",
+          "d",
+          "b"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "d"
+        ],
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 8,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw04_s8268",
+      "n_blocks": 4,
+      "seed": 8268,
+      "initial_state": [
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "on",
+          "d",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ]
+      ],
+      "goal": [
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw04_s2281",
+      "n_blocks": 4,
+      "seed": 2281,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "b"
+        ],
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw04_s4617",
+      "n_blocks": 4,
+      "seed": 4617,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "on",
+          "d",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw04_s2289",
+      "n_blocks": 4,
+      "seed": 2289,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "b"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw05_s1553",
+      "n_blocks": 5,
+      "seed": 1553,
+      "initial_state": [
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "clear",
+          "e"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "b"
+        ],
+        [
+          "on",
+          "d",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "c"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "b"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 14,
+      "blocks_to_move": 5,
+      "actions_lower_bound": 10
+    },
+    {
+      "instance_id": "bw05_s4104",
+      "n_blocks": 5,
+      "seed": 4104,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "e"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "d"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "on",
+          "e",
+          "b"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "optimal_plan_length": 6,
+      "blocks_to_move": 3,
+      "actions_lower_bound": 6
+    },
+    {
+      "instance_id": "bw05_s9861",
+      "n_blocks": 5,
+      "seed": 9861,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "d"
+        ],
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "on",
+          "d",
+          "e"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 10,
+      "blocks_to_move": 4,
+      "actions_lower_bound": 8
+    },
+    {
+      "instance_id": "bw05_s2407",
+      "n_blocks": 5,
+      "seed": 2407,
+      "initial_state": [
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "clear",
+          "e"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "goal": [
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw05_s5081",
+      "n_blocks": 5,
+      "seed": 5081,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "e"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "on",
+          "c",
+          "d"
+        ],
+        [
+          "on",
+          "d",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "d",
+          "a"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "optimal_plan_length": 4,
+      "blocks_to_move": 2,
+      "actions_lower_bound": 4
+    },
+    {
+      "instance_id": "bw05_s1618",
+      "n_blocks": 5,
+      "seed": 1618,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "c"
+        ],
+        [
+          "on",
+          "b",
+          "e"
+        ],
+        [
+          "on",
+          "c",
+          "d"
+        ],
+        [
+          "on",
+          "d",
+          "b"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "optimal_plan_length": 8,
+      "blocks_to_move": 4,
+      "actions_lower_bound": 8
+    },
+    {
+      "instance_id": "bw05_s1208",
+      "n_blocks": 5,
+      "seed": 1208,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "b"
+        ],
+        [
+          "clear",
+          "c"
+        ],
+        [
+          "clear",
+          "e"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "e"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "d",
+          "b"
+        ],
+        [
+          "on",
+          "e",
+          "c"
+        ],
+        [
+          "ontable",
+          "a"
+        ]
+      ],
+      "optimal_plan_length": 8,
+      "blocks_to_move": 4,
+      "actions_lower_bound": 8
+    }
+  ],
+  "dropped": [
+    {
+      "instance_id": "bw03_s6311",
+      "reason": "optimal plan shorter than 4 actions"
+    },
+    {
+      "instance_id": "bw03_s8376",
+      "reason": "optimal plan shorter than 4 actions"
+    },
+    {
+      "instance_id": "bw03_s6634",
+      "reason": "optimal plan shorter than 4 actions"
+    },
+    {
+      "instance_id": "bw03_s4969",
+      "reason": "optimal plan shorter than 4 actions"
+    },
+    {
+      "instance_id": "bw04_s7808",
+      "reason": "optimal plan shorter than 4 actions"
+    },
+    {
+      "instance_id": "bw05_s8725",
+      "reason": "optimal plan shorter than 4 actions"
+    }
+  ]
+}

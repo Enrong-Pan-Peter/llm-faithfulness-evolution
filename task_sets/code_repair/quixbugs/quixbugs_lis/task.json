@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_lis",
+  "entry_point": "lis",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef lis(arr):\n    \"\"\"\n    Longest Increasing Subsequence\n    longest-increasing-subsequence\n\n\n    Input:\n        arr: A sequence of ints\n\n    Precondition:\n        The ints in arr are unique\n\n    Output:\n        The length of the longest monotonically increasing subsequence of arr\n\n    Example:\n        >>> lis([4, 1, 5, 3, 7, 6, 2])\n        3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "lis",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,44 @@
+# secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+credentials/
+
+# working notes stay local (docs are for the author, not the repository)
+docs/
+CLAUDE.md
+.cursor/
+.cursorrules
+.vscode/
+scratch/
+_incoming/
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# run artifacts: traces, caches, embeddings, model files, logs
+traces/
+!tests/fixtures/traces/
+data/
+out/
+figures/
+logs/
+*.log
+*.tgz
+
+# paper build output (the manuscript lives outside this repository)
+paper/

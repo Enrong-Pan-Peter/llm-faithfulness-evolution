@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_bitcount",
+  "entry_point": "bitcount",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef bitcount(n):\n    \"\"\"\n    Bitcount\n    bitcount\n\n\n    Input:\n        n: a nonnegative int\n\n    Output:\n        The number of 1-bits in the binary encoding of n\n\n    Examples:\n        >>> bitcount(127)\n        7\n        >>> bitcount(128)\n        1\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "bitcount",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

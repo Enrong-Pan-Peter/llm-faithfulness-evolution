@@ -1,0 +1,6 @@
+{
+  "id": "run_length_encode",
+  "entry_point": "run_length_encode",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef run_length_encode(text: str) -> str:\n    \"\"\"Return the run-length encoding of ``text``.\n\n    Each maximal run of one repeated character is written as that character\n    followed by the run length in decimal, so \"aaabcc\" becomes \"a3b1c2\".\n    Runs of length one are still written with an explicit 1. Characters are\n    compared exactly (case matters, spaces count). The empty string encodes\n    to the empty string.\n    \"\"\"\n"
+}

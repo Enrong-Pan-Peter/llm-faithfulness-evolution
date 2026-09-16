@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_rpn_eval",
+  "entry_point": "rpn_eval",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef rpn_eval(tokens):\n    \"\"\"\n    Reverse Polish Notation\n\n    Four-function calculator with input given in Reverse Polish Notation (RPN).\n\n    Input:\n        A list of values and operators encoded as floats and strings\n\n    Precondition:\n        all(\n            isinstance(token, float) or token in ('+', '-', '*', '/') for token in tokens\n        )\n\n    Example:\n        >>> rpn_eval([3.0, 5.0, '+', 2.0, '/'])\n        4.0\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "rpn_eval",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

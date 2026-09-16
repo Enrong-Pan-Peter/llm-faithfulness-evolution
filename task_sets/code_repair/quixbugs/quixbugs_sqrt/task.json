@@ -1,0 +1,13 @@
+{
+  "id": "quixbugs_sqrt",
+  "entry_point": "sqrt",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef sqrt(x, epsilon):\n    \"\"\"\n    Square Root\n\n    Newton-Raphson method implementation.\n\n\n    Input:\n        x: A float\n        epsilon: A float\n\n    Precondition:\n        x >= 1 and epsilon > 0\n\n    Output:\n        A float in the interval [sqrt(x) - epsilon, sqrt(x) + epsilon]\n\n    Example:\n        >>> sqrt(2, 0.01)\n        1.4166666666666665\n    \"\"\"\n",
+  "float_tolerance": 0.5,
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "sqrt",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

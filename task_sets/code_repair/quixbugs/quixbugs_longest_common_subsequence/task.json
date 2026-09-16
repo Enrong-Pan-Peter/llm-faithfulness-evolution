@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_longest_common_subsequence",
+  "entry_point": "longest_common_subsequence",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef longest_common_subsequence(a, b):\n    \"\"\"\n    Longest Common Subsequence\n\n\n    Calculates the longest subsequence common to the two input strings. (A subsequence is any sequence of letters in the same order\n    they appear in the string, possibly skipping letters in between.)\n\n    Input:\n        a: The first string to consider.\n        b: The second string to consider.\n\n    Output:\n        The longest string which is a subsequence of both strings. (If multiple subsequences of equal length exist, either is OK.)\n\n    Example:\n        >>> longest_common_subsequence('headache', 'pentadactyl')\n        'eadac'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "longest_common_subsequence",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

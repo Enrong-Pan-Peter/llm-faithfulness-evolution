@@ -1,0 +1,12 @@
+{
+  "id": "quixbugs_next_palindrome",
+  "entry_point": "next_palindrome",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef next_palindrome(digit_list):\n    \"\"\"\n    Finds the next palindromic integer when given the current integer\n    Integers are stored as arrays of base 10 digits from most significant to least significant\n\n    Input:\n        digit_list: An array representing the current palindrome\n\n    Output:\n        An array which represents the next palindrome\n\n    Preconditions:\n        The initial input array represents a palindrome\n\n    Example\n        >>> next_palindrome([1,4,9,4,1])\n        [1,5,0,5,1]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "next_palindrome",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT"
+  }
+}

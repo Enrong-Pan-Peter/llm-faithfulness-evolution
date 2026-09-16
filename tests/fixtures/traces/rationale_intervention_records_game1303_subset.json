@@ -1,0 +1,1195 @@
+{
+ "metadata": {
+  "created_at": "2026-08-09T18:32:57",
+  "seed": 0,
+  "events_per_trace": 40,
+  "arms": [
+   "genuine",
+   "wrong",
+   "filler",
+   "absent"
+  ],
+  "traces": [
+   {
+    "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+    "game_number": 1303,
+    "llm_model": "qwen3:14b",
+    "llm_provider": "ollama",
+    "provenance_hash": "bd9f2858283673a2",
+    "eligible_events": 7,
+    "sampled_events": 7,
+    "shortfall": 33,
+    "skipped": {}
+   },
+   {
+    "trace_file": "ea_llm_self_adaptive_api_1303_run2_20260721_235308.json",
+    "game_number": 1303,
+    "llm_model": "qwen3:14b",
+    "llm_provider": "ollama",
+    "provenance_hash": "bd9f2858283673a2",
+    "eligible_events": 0,
+    "sampled_events": 0,
+    "shortfall": 40,
+    "skipped": {}
+   },
+   {
+    "trace_file": "ea_llm_self_adaptive_api_1303_run3_20260722_015443.json",
+    "game_number": 1303,
+    "llm_model": "qwen3:14b",
+    "llm_provider": "ollama",
+    "provenance_hash": "bd9f2858283673a2",
+    "eligible_events": 21,
+    "sampled_events": 21,
+    "shortfall": 19,
+    "skipped": {}
+   },
+   {
+    "trace_file": "ea_llm_self_adaptive_api_1303_run4_20260722_032823.json",
+    "game_number": 1303,
+    "llm_model": "qwen3:14b",
+    "llm_provider": "ollama",
+    "provenance_hash": "bd9f2858283673a2",
+    "eligible_events": 16,
+    "sampled_events": 16,
+    "shortfall": 24,
+    "skipped": {}
+   },
+   {
+    "trace_file": "ea_llm_self_adaptive_api_1303_run5_20260722_034211.json",
+    "game_number": 1303,
+    "llm_model": "qwen3:14b",
+    "llm_provider": "ollama",
+    "provenance_hash": "bd9f2858283673a2",
+    "eligible_events": 0,
+    "sampled_events": 0,
+    "shortfall": 40,
+    "skipped": {}
+   }
+  ],
+  "total_events": 44,
+  "total_records": 176,
+  "fixture_note": "Subset of traces/batch/traces/rq2_replay/1303/rq2_replay_records.json from the Contexto repo (first 8 replayed events, all 4 arms). Test fixture only."
+ },
+ "records": [
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "72eacae4fc614f52bed0ae4f5032973e",
+   "generation": 2,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "eaf9399a3082e81efbd34627b584c5ea34958126501d2f2fb0cf8e6c41bed1ae",
+   "prompt_chars": 3747,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "still",
+   "proposed_words": [
+    "still",
+    "stiff",
+    "solid"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 191,
+   "predicted_closeness": 0.5,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "beyond",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Physical states offer a new semantic direction distinct from temperature and existing categories, while words like 'stiff' and 'solid' relate to physical changes caused by cold."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 177,
+   "raw_response": "{\"name\": \"physical_states\", \"description\": \"terms related to physical conditions and states\", \"words\": [\"still\", \"stiff\", \"solid\"], \"basis_words\": [\"cold\"], \"reason\": \"Physical states offer a new semantic direction distinct from temperature and existing categories, while words like 'stiff' and 'solid' relate to physical changes caused by cold.\", \"predicted_bucket\": \"beyond\", \"predicted_closeness\": 0.5}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "72eacae4fc614f52bed0ae4f5032973e",
+   "generation": 2,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "e33437042ecb304f92cf11bd4fb08e2150f792d0a0067105663474668267f671",
+   "prompt_chars": 3681,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "pain",
+   "proposed_words": [
+    "pain",
+    "itch",
+    "pressure"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 5,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Explores physical sensations distinct from temperature states, leveraging 'cold's proximity to bodily experiences while avoiding existing categories."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 149,
+   "raw_response": "{\"name\": \"physical_sensations\", \"description\": \"non-temperature-related physical feelings\", \"words\": [\"pain\", \"itch\", \"pressure\"], \"basis_words\": [\"cold\"], \"reason\": \"Explores physical sensations distinct from temperature states, leveraging 'cold's proximity to bodily experiences while avoiding existing categories.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "72eacae4fc614f52bed0ae4f5032973e",
+   "generation": 2,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "filler",
+   "prompt_sha256": "5af81f6ff182f190f26af99c7d5d2e9362b4ecb9006e69363551f9d9095333c5",
+   "prompt_chars": 3717,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "calm",
+   "proposed_words": [
+    "calm",
+    "still",
+    "quiet"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1384,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Expanding to emotional states as a new direction while staying within the semantic neighborhood of 'cold' which can relate to emotional detachment or calmness."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 159,
+   "raw_response": "{\"name\": \"emotional_states\", \"description\": \"basic emotional-related terms\", \"words\": [\"calm\", \"still\", \"quiet\"], \"basis_words\": [\"cold\"], \"reason\": \"Expanding to emotional states as a new direction while staying within the semantic neighborhood of 'cold' which can relate to emotional detachment or calmness.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "72eacae4fc614f52bed0ae4f5032973e",
+   "generation": 2,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "absent",
+   "prompt_sha256": "bf07d087f3bbe66ed00fe0b4548b40b1942e447b97b527f18e4057977ef9c530",
+   "prompt_chars": 3452,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "frost",
+   "proposed_words": [
+    "frost",
+    "damp",
+    "mold"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2096,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Expanding from temperature to moisture-related terms, which are plausibly connected to cold but in a new semantic area."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 119,
+   "raw_response": "{\"name\": \"moisture_conditions\", \"description\": \"terms related to moisture and dampness\", \"words\": [\"frost\", \"damp\", \"mold\"], \"basis_words\": [\"cold\"], \"reason\": \"Expanding from temperature to moisture-related terms, which are plausibly connected to cold but in a new semantic area.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "6f638e7180d947258db28caaeb891968",
+   "generation": 2,
+   "parent_id": "8aef959ce40a403f8eff23dec59c95d4",
+   "parent_rank": 243,
+   "sampled_op": "l_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "dd78921753ed9a7f422f4383934d1ec5d4b09374b84dc1256f80a6cb7e1467db",
+   "prompt_chars": 3926,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "entity",
+   "proposed_words": [
+    "entity",
+    "existence",
+    "essence"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 10218,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "thing"
+    ],
+    "reason": "Shifting from concrete singular entities to abstract existential concepts, expanding the semantic scope while maintaining relevance to the core meaning of 'thing'."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 163,
+   "raw_response": "{\"name\": \"existential concepts\", \"description\": \"conceptual foundations of existence\", \"words\": [\"entity\", \"existence\", \"essence\"], \"basis_words\": [\"thing\"], \"reason\": \"Shifting from concrete singular entities to abstract existential concepts, expanding the semantic scope while maintaining relevance to the core meaning of 'thing'.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "6f638e7180d947258db28caaeb891968",
+   "generation": 2,
+   "parent_id": "8aef959ce40a403f8eff23dec59c95d4",
+   "parent_rank": 243,
+   "sampled_op": "l_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "6a81524bc8056efa86de21cc62bd867261e3888c1dc70036373beb4eef7bd0b8",
+   "prompt_chars": 3887,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "existence",
+   "proposed_words": [
+    "existence",
+    "essence",
+    "nature"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1955,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "thing"
+    ],
+    "reason": "Moving to abstract concepts related to existence and fundamental properties, which are semantically distinct from current categories but related to 'thing'."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 156,
+   "raw_response": "{\"name\": \"abstract existence concepts\", \"description\": \"fundamental properties and states of being\", \"words\": [\"existence\", \"essence\", \"nature\"], \"basis_words\": [\"thing\"], \"reason\": \"Moving to abstract concepts related to existence and fundamental properties, which are semantically distinct from current categories but related to 'thing'.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "6f638e7180d947258db28caaeb891968",
+   "generation": 2,
+   "parent_id": "8aef959ce40a403f8eff23dec59c95d4",
+   "parent_rank": 243,
+   "sampled_op": "l_mutation",
+   "arm": "filler",
+   "prompt_sha256": "95065233debece8892ccaf264625cc0555e5587b0ce50b181c55ecc75b04aedc",
+   "prompt_chars": 3918,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "element",
+   "proposed_words": [
+    "element",
+    "matter",
+    "substance"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1244,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "thing"
+    ],
+    "reason": "Shifts to a foundational category of physical and abstract components, diverging from existing categories while maintaining relevance to 'thing' as a basic entity."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 163,
+   "raw_response": "{\"name\": \"fundamental_elements\", \"description\": \"basic building blocks of existence\", \"words\": [\"element\", \"matter\", \"substance\"], \"basis_words\": [\"thing\"], \"reason\": \"Shifts to a foundational category of physical and abstract components, diverging from existing categories while maintaining relevance to 'thing' as a basic entity.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "6f638e7180d947258db28caaeb891968",
+   "generation": 2,
+   "parent_id": "8aef959ce40a403f8eff23dec59c95d4",
+   "parent_rank": 243,
+   "sampled_op": "l_mutation",
+   "arm": "absent",
+   "prompt_sha256": "23661c0cac5d8bd79ed4a394eadb3a03007241eb8e13cee09770d3d88d3e9c6c",
+   "prompt_chars": 3653,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "idea",
+   "proposed_words": [
+    "idea",
+    "notion",
+    "principle"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 840,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "thing"
+    ],
+    "reason": "Moving to abstract concepts which are not in current categories but related to 'thing' as a general entity."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 107,
+   "raw_response": "{\"name\": \"abstract concepts\", \"description\": \"exploring non-physical, conceptual entities\", \"words\": [\"idea\", \"notion\", \"principle\"], \"basis_words\": [\"thing\"], \"reason\": \"Moving to abstract concepts which are not in current categories but related to 'thing' as a general entity.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "35c9311f781f4856ae738676479c8c60",
+   "generation": 3,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "l_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "a94c46478774db6e72addb7f373a605f766b6f0eee711ead40a8d3f6d27ce131",
+   "prompt_chars": 4195,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "toxin",
+   "proposed_words": [
+    "toxin",
+    "contaminant",
+    "emission"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2103,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "Shifts focus from internal medical states to external environmental elements that could impact health, expanding the search beyond body-centric terms."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 150,
+   "raw_response": "{\"name\": \"environmental_factors\", \"description\": \"terms related to external influences on health\", \"words\": [\"toxin\", \"contaminant\", \"emission\"], \"basis_words\": [\"infection\"], \"reason\": \"Shifts focus from internal medical states to external environmental elements that could impact health, expanding the search beyond body-centric terms.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "35c9311f781f4856ae738676479c8c60",
+   "generation": 3,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "l_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "9548baf10baeef2d972b6f4a834b53248d4a3e3fb24765a00fc43e265f9e66ff",
+   "prompt_chars": 4188,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "environmental",
+   "proposed_words": [
+    "environmental",
+    "contaminant",
+    "exposure"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2095,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "The new hypothesis explores external factors that influence infection, moving beyond direct medical terms to broader environmental contexts."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 140,
+   "raw_response": "{\"name\": \"Environmental Influences\", \"description\": \"factors affecting spread and occurrence of infections\", \"words\": [\"environmental\", \"contaminant\", \"exposure\"], \"basis_words\": [\"infection\"], \"reason\": \"The new hypothesis explores external factors that influence infection, moving beyond direct medical terms to broader environmental contexts.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "35c9311f781f4856ae738676479c8c60",
+   "generation": 3,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "l_mutation",
+   "arm": "filler",
+   "prompt_sha256": "86b4d1a5f85904a8fbb6521338183a581eb954b1d5e0f402f0e116bea421531c",
+   "prompt_chars": 4181,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "ecosystem",
+   "proposed_words": [
+    "ecosystem",
+    "habitat",
+    "symbiosis"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 6327,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "This direction shifts focus from medical terminology to ecological concepts, maintaining a biological context while exploring new territory outside existing categories."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 168,
+   "raw_response": "{\"name\": \"ecological_interactions\", \"description\": \"ecological interactions and environmental factors\", \"words\": [\"ecosystem\", \"habitat\", \"symbiosis\"], \"basis_words\": [\"infection\"], \"reason\": \"This direction shifts focus from medical terminology to ecological concepts, maintaining a biological context while exploring new territory outside existing categories.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "35c9311f781f4856ae738676479c8c60",
+   "generation": 3,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "l_mutation",
+   "arm": "absent",
+   "prompt_sha256": "b2d23bf6e2fefce0ba20f133851a89863d62d244d608d393794ce9f11c02c950",
+   "prompt_chars": 3953,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "ecosystem",
+   "proposed_words": [
+    "ecosystem",
+    "habitat",
+    "network"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 6327,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "Shifts focus from medical terminology to environmental contexts, which are indirectly related to infection's spread but distinct from existing categories."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 154,
+   "raw_response": "{\"name\": \"ecological systems\", \"description\": \"interactions within natural environments\", \"words\": [\"ecosystem\", \"habitat\", \"network\"], \"basis_words\": [\"infection\"], \"reason\": \"Shifts focus from medical terminology to environmental contexts, which are indirectly related to infection's spread but distinct from existing categories.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "0751a115cfb24b3d924ea614bde4f7fc",
+   "generation": 3,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "s_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "29c7530014b258819e0e115a37a997a6ff425c2f8b255b70282e02641ce401b8",
+   "prompt_chars": 4045,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "frost",
+   "proposed_words": [
+    "frost",
+    "frigid",
+    "icy"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2096,
+   "predicted_closeness": 0.5,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "These words are semantic neighbors of 'cold,' refining the hypothesis to focus on more specific temperature-related descriptors."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 128,
+   "raw_response": "{\"name\": \"cold descriptors\", \"description\": \"terms describing coldness\", \"words\": [\"frost\", \"frigid\", \"icy\"], \"basis_words\": [\"cold\"], \"reason\": \"These words are semantic neighbors of 'cold,' refining the hypothesis to focus on more specific temperature-related descriptors.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.5}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "0751a115cfb24b3d924ea614bde4f7fc",
+   "generation": 3,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "s_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "3a5ab8ef6b16138d6ce40d727ae7612cd6019dc5b1c2f1a28a2afe6d713e2ac4",
+   "prompt_chars": 3977,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "chilly",
+   "proposed_words": [
+    "chilly",
+    "frosty",
+    "icy"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1064,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "These words are semantic neighbors of 'cold', narrowing the focus to more specific temperature-related terms."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 109,
+   "raw_response": "{\"name\": \"cold_synonyms\", \"description\": \"synonyms and related terms for cold\", \"words\": [\"chilly\", \"frosty\", \"icy\"], \"basis_words\": [\"cold\"], \"reason\": \"These words are semantic neighbors of 'cold', narrowing the focus to more specific temperature-related terms.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "0751a115cfb24b3d924ea614bde4f7fc",
+   "generation": 3,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "s_mutation",
+   "arm": "filler",
+   "prompt_sha256": "94d729cd9796cdb5aac7016369eecb714ca1434f93548e38449dfd16c9a65f77",
+   "prompt_chars": 4015,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "chilly",
+   "proposed_words": [
+    "chilly",
+    "frigid",
+    "icy"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1064,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Narrowing focus to synonyms and close semantic neighbors of 'cold' to refine the temperature-related terms hypothesis."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 118,
+   "raw_response": "{\"name\": \"cold_variants\", \"description\": \"synonyms and related terms for cold temperature\", \"words\": [\"chilly\", \"frigid\", \"icy\"], \"basis_words\": [\"cold\"], \"reason\": \"Narrowing focus to synonyms and close semantic neighbors of 'cold' to refine the temperature-related terms hypothesis.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "0751a115cfb24b3d924ea614bde4f7fc",
+   "generation": 3,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "s_mutation",
+   "arm": "absent",
+   "prompt_sha256": "5aa5d9e3b82cb8b7b35f50b174c680650f085b0db9a957007a05850eae539eb1",
+   "prompt_chars": 3750,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "frigid",
+   "proposed_words": [
+    "frigid",
+    "frosty",
+    "icy"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2111,
+   "predicted_closeness": 0.6,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "selected synonyms and related terms to 'cold' that are not already in the original hypothesis"
+   },
+   "basis_words_count": 1,
+   "reason_chars": 93,
+   "raw_response": "{\"name\": \"cold_refinement\", \"description\": \"refined temperature terms focusing on coldness\", \"words\": [\"frigid\", \"frosty\", \"icy\"], \"basis_words\": [\"cold\"], \"reason\": \"selected synonyms and related terms to 'cold' that are not already in the original hypothesis\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.6}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "1bc868f73f374ee1a13083e3bb9ad656",
+   "generation": 4,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "s_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "539fb8334084121a3b97d2eaddc8ec12e5cabe87f5a53bcb15531d322e755033",
+   "prompt_chars": 4430,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "sepsis",
+   "proposed_words": [
+    "sepsis",
+    "mycosis",
+    "mildew"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1163,
+   "predicted_closeness": 0.6,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "These words are closely related to infection, representing specific types of infectious conditions or pathogens."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 112,
+   "raw_response": "{\"name\": \"infectious diseases\", \"description\": \"medical terms related to infectious conditions and pathogens\", \"words\": [\"sepsis\", \"mycosis\", \"mildew\"], \"basis_words\": [\"infection\"], \"reason\": \"These words are closely related to infection, representing specific types of infectious conditions or pathogens.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.6}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "1bc868f73f374ee1a13083e3bb9ad656",
+   "generation": 4,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "s_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "4344b92cf218945b3b8cab369b3fe9e1b0a52a07a17cea8a361662105d26844f",
+   "prompt_chars": 4423,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "contagion",
+   "proposed_words": [
+    "contagion",
+    "fever",
+    "pathogen"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 5053,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "Selected synonyms and related terms of 'infection' that are common medical descriptors"
+   },
+   "basis_words_count": 1,
+   "reason_chars": 86,
+   "raw_response": "{\"name\": \"infectious diseases\", \"description\": \"terms related to contagious or infectious medical conditions\", \"words\": [\"contagion\", \"fever\", \"pathogen\"], \"basis_words\": [\"infection\"], \"reason\": \"Selected synonyms and related terms of 'infection' that are common medical descriptors\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "1bc868f73f374ee1a13083e3bb9ad656",
+   "generation": 4,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "s_mutation",
+   "arm": "filler",
+   "prompt_sha256": "d14179e8619392baa21bd0390f2c4a0275f76c14078f4bc433d9ec3d822193b4",
+   "prompt_chars": 4416,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "epidemic",
+   "proposed_words": [
+    "epidemic",
+    "sepsis",
+    "pus"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 129,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "Narrowing focus to terms directly associated with contagious or severe infections, using synonyms and related pathological terms."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 129,
+   "raw_response": "{\"name\": \"infectious diseases\", \"description\": \"terms related to contagious medical conditions\", \"words\": [\"epidemic\", \"sepsis\", \"pus\"], \"basis_words\": [\"infection\"], \"reason\": \"Narrowing focus to terms directly associated with contagious or severe infections, using synonyms and related pathological terms.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "1bc868f73f374ee1a13083e3bb9ad656",
+   "generation": 4,
+   "parent_id": "35e0bbb0b64846679664e3e587cdea13",
+   "parent_rank": 8,
+   "sampled_op": "s_mutation",
+   "arm": "absent",
+   "prompt_sha256": "b7bf8775f06dbd5b71f2f6617a8483546e36820d5f1d6b905d69cd51a691080d",
+   "prompt_chars": 4188,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "contagion",
+   "proposed_words": [
+    "contagion",
+    "sepsis",
+    "pathogen"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 5053,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "infection"
+    ],
+    "reason": "these words are synonyms or closely related to infection, focusing on disease-causing agents and systemic infection states"
+   },
+   "basis_words_count": 1,
+   "reason_chars": 122,
+   "raw_response": "{\"name\": \"infectious agents\", \"description\": \"medical terms related to infectious diseases\", \"words\": [\"contagion\", \"sepsis\", \"pathogen\"], \"basis_words\": [\"infection\"], \"reason\": \"these words are synonyms or closely related to infection, focusing on disease-causing agents and systemic infection states\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "f38d640eb6e14e048b8766e49da18305",
+   "generation": 4,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "16f3683c46da3a62038b95863b88fc17b8915a0e100972fc5a89acf850d0713a",
+   "prompt_chars": 4711,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "numb",
+   "proposed_words": [
+    "numb",
+    "tingling",
+    "prickling"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2098,
+   "predicted_closeness": 0.3,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Sensory experiences encompass physical sensations that can be related to 'cold' (e.g., numbness, tingling) but diverge from temperature states, medical conditions, and other active categories. This direction explores tactile and neurologically driven sensations."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 262,
+   "raw_response": "{\"name\": \"sensory_experiences\", \"description\": \"terms related to physical sensations beyond temperature\", \"words\": [\"numb\", \"tingling\", \"prickling\"], \"basis_words\": [\"cold\"], \"reason\": \"Sensory experiences encompass physical sensations that can be related to 'cold' (e.g., numbness, tingling) but diverge from temperature states, medical conditions, and other active categories. This direction explores tactile and neurologically driven sensations.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.3}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "f38d640eb6e14e048b8766e49da18305",
+   "generation": 4,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "a5b69252a8cd572f6d2e92c79d959e11adf629b962702550c3e9b2fa61a55f26",
+   "prompt_chars": 4627,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "shiver",
+   "proposed_words": [
+    "shiver",
+    "numb",
+    "tremor"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1633,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "These words describe physical responses that can be associated with cold but are not temperature states, opening a new semantic direction focused on bodily sensations rather than medical or climatic categories."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 210,
+   "raw_response": "{\"name\": \"physical_sensations\", \"description\": \"terms related to bodily feelings and reactions not tied to temperature or medical conditions\", \"words\": [\"shiver\", \"numb\", \"tremor\"], \"basis_words\": [\"cold\"], \"reason\": \"These words describe physical responses that can be associated with cold but are not temperature states, opening a new semantic direction focused on bodily sensations rather than medical or climatic categories.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "f38d640eb6e14e048b8766e49da18305",
+   "generation": 4,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "filler",
+   "prompt_sha256": "7eee1f27e228a8464fb401f647e81fadc92e27365415b44ba301668e1c277ad6",
+   "prompt_chars": 4681,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "loneliness",
+   "proposed_words": [
+    "loneliness",
+    "isolation",
+    "solitude"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 3256,
+   "predicted_closeness": 0.2,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "beyond",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Exploring emotional states provides a new semantic direction that is plausibly connected to 'cold' as an emotional experience."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 126,
+   "raw_response": "{\"name\": \"emotional_states\", \"description\": \"terms related to feelings of isolation and emotional temperature\", \"words\": [\"loneliness\", \"isolation\", \"solitude\"], \"basis_words\": [\"cold\"], \"reason\": \"Exploring emotional states provides a new semantic direction that is plausibly connected to 'cold' as an emotional experience.\", \"predicted_bucket\": \"beyond\", \"predicted_closeness\": 0.2}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "f38d640eb6e14e048b8766e49da18305",
+   "generation": 4,
+   "parent_id": "63944195fae743948f2c10ae0bb1874d",
+   "parent_rank": 10,
+   "sampled_op": "l_mutation",
+   "arm": "absent",
+   "prompt_sha256": "315a454b3bd44e6052423d49c6edc0457ecf36a3fad0cdb1b82c857acb8cda21",
+   "prompt_chars": 4416,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "calm",
+   "proposed_words": [
+    "calm",
+    "serenity",
+    "peace"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1384,
+   "predicted_closeness": 0.4,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "cold"
+    ],
+    "reason": "Moves to emotional states, a semantically distinct category but related to 'cold' as a metaphorical term."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 105,
+   "raw_response": "{\"name\": \"emotional_states\", \"description\": \"emotional conditions and states\", \"words\": [\"calm\", \"serenity\", \"peace\"], \"basis_words\": [\"cold\"], \"reason\": \"Moves to emotional states, a semantically distinct category but related to 'cold' as a metaphorical term.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.4}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "4295b960c78343ccb760090cee32343a",
+   "generation": 4,
+   "parent_id": "fec6c4c384a74907a283729ac3df683d",
+   "parent_rank": 77,
+   "sampled_op": "m_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "1303b0e05817720232145f98a012591984d22390c656dfd652019f1e198c5bdb",
+   "prompt_chars": 4498,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "rank",
+   "proposed_words": [
+    "rank",
+    "tier",
+    "layer"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 4578,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "level"
+    ],
+    "reason": "interpreting 'level' through the lens of hierarchy rather than progression, focusing on order and rank instead of stages."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 121,
+   "raw_response": "{\"name\": \"hierarchy\", \"description\": \"hierarchical order or ranking\", \"words\": [\"rank\", \"tier\", \"layer\"], \"basis_words\": [\"level\"], \"reason\": \"interpreting 'level' through the lens of hierarchy rather than progression, focusing on order and rank instead of stages.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "4295b960c78343ccb760090cee32343a",
+   "generation": 4,
+   "parent_id": "fec6c4c384a74907a283729ac3df683d",
+   "parent_rank": 77,
+   "sampled_op": "m_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "56b389a4c3f380f5154b4b8b1d863bf6c65fbca0252ac241599d38cd13cffd9e",
+   "prompt_chars": 4486,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "rank",
+   "proposed_words": [
+    "rank",
+    "scale",
+    "depth"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 4578,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "level"
+    ],
+    "reason": "Shifts focus from sequential stages to quantitative or hierarchical measures, reinterpreting 'level' as a degree or rank rather than a process phase."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 149,
+   "raw_response": "{\"name\": \"degrees\", \"description\": \"degrees of intensity or hierarchy\", \"words\": [\"rank\", \"scale\", \"depth\"], \"basis_words\": [\"level\"], \"reason\": \"Shifts focus from sequential stages to quantitative or hierarchical measures, reinterpreting 'level' as a degree or rank rather than a process phase.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "4295b960c78343ccb760090cee32343a",
+   "generation": 4,
+   "parent_id": "fec6c4c384a74907a283729ac3df683d",
+   "parent_rank": 77,
+   "sampled_op": "m_mutation",
+   "arm": "filler",
+   "prompt_sha256": "d9595fbb1ce0ac4e28f3d99fd64a941b109dc8a8c3f8666869a606d26bea0fe7",
+   "prompt_chars": 4512,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "bench",
+   "proposed_words": [
+    "bench",
+    "grade",
+    "depth"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 4706,
+   "predicted_closeness": 0.6,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "level"
+    ],
+    "reason": "Shifts 'level' from stages to evaluation metrics, using synonyms related to measurement and hierarchy."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 102,
+   "raw_response": "{\"name\": \"measurement\", \"description\": \"benchmarks or measurements in context\", \"words\": [\"bench\", \"grade\", \"depth\"], \"basis_words\": [\"level\"], \"reason\": \"Shifts 'level' from stages to evaluation metrics, using synonyms related to measurement and hierarchy.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.6}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run1_20260721_233700.json",
+   "game_number": 1303,
+   "child_id": "4295b960c78343ccb760090cee32343a",
+   "generation": 4,
+   "parent_id": "fec6c4c384a74907a283729ac3df683d",
+   "parent_rank": 77,
+   "sampled_op": "m_mutation",
+   "arm": "absent",
+   "prompt_sha256": "cdfcb92cde671e3440b543590f19c271bfebde744b1e89d1b696360584438a1d",
+   "prompt_chars": 4247,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "depth",
+   "proposed_words": [
+    "depth",
+    "intensity",
+    "scale"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 1914,
+   "predicted_closeness": 0.7,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top100",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "level"
+    ],
+    "reason": "Reinterprets 'level' as a measure of intensity or scale, shifting focus from progression to quantification."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 107,
+   "raw_response": "{\"name\": \"degrees\", \"description\": \"degrees of intensity or measurement\", \"words\": [\"depth\", \"intensity\", \"scale\"], \"basis_words\": [\"level\"], \"reason\": \"Reinterprets 'level' as a measure of intensity or scale, shifting focus from progression to quantification.\", \"predicted_bucket\": \"top100\", \"predicted_closeness\": 0.7}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run3_20260722_015443.json",
+   "game_number": 1303,
+   "child_id": "d34190c7c0c144e3b8e6af8b17aa5dc1",
+   "generation": 2,
+   "parent_id": "87cb2f1713dc48118c552236deb96574",
+   "parent_rank": 170,
+   "sampled_op": "s_mutation",
+   "arm": "genuine",
+   "prompt_sha256": "72faf7d066c2db39bd7aef454e5f571ff85e24cbcfed91a2d45332d0d47eb889",
+   "prompt_chars": 3560,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "marker",
+   "proposed_words": [
+    "marker",
+    "token",
+    "badge"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2853,
+   "predicted_closeness": 0.6,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "sign"
+    ],
+    "reason": "These words are close semantic neighbors of 'sign' and may yield more specific results within the same conceptual neighborhood."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 127,
+   "raw_response": "{\"name\": \"markers\", \"description\": \"visual indicators or tokens\", \"words\": [\"marker\", \"token\", \"badge\"], \"basis_words\": [\"sign\"], \"reason\": \"These words are close semantic neighbors of 'sign' and may yield more specific results within the same conceptual neighborhood.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.6}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run3_20260722_015443.json",
+   "game_number": 1303,
+   "child_id": "d34190c7c0c144e3b8e6af8b17aa5dc1",
+   "generation": 2,
+   "parent_id": "87cb2f1713dc48118c552236deb96574",
+   "parent_rank": 170,
+   "sampled_op": "s_mutation",
+   "arm": "wrong",
+   "prompt_sha256": "3f731b1f008281da365f53fb966edf42d8d40485b976b02f9d1ebe59ed80c18f",
+   "prompt_chars": 3562,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "marker",
+   "proposed_words": [
+    "marker",
+    "token",
+    "glyph"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2853,
+   "predicted_closeness": 0.8,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "sign"
+    ],
+    "reason": "These words are synonyms or related terms to 'sign' and may represent a more specific category of symbols."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 106,
+   "raw_response": "{\"name\": \"visual markers\", \"description\": \"symbols that indicate meaning\", \"words\": [\"marker\", \"token\", \"glyph\"], \"basis_words\": [\"sign\"], \"reason\": \"These words are synonyms or related terms to 'sign' and may represent a more specific category of symbols.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.8}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run3_20260722_015443.json",
+   "game_number": 1303,
+   "child_id": "d34190c7c0c144e3b8e6af8b17aa5dc1",
+   "generation": 2,
+   "parent_id": "87cb2f1713dc48118c552236deb96574",
+   "parent_rank": 170,
+   "sampled_op": "s_mutation",
+   "arm": "filler",
+   "prompt_sha256": "a6cf659c8faf742f7607fb0d68d2b6f0b0ac42233aa93e79b9fa449bab74fab1",
+   "prompt_chars": 3561,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "marker",
+   "proposed_words": [
+    "marker",
+    "banner",
+    "token"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 2853,
+   "predicted_closeness": 0.5,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "sign"
+    ],
+    "reason": "The hypothesis narrows to specific types of signs using synonyms like 'marker' and 'banner', which are close semantic neighbors of 'sign'."
+   },
+   "basis_words_count": 1,
+   "reason_chars": 138,
+   "raw_response": "{\"name\": \"visual indicators\", \"description\": \"types of visual signs\", \"words\": [\"marker\", \"banner\", \"token\"], \"basis_words\": [\"sign\"], \"reason\": \"The hypothesis narrows to specific types of signs using synonyms like 'marker' and 'banner', which are close semantic neighbors of 'sign'.\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.5}"
+  },
+  {
+   "trace_file": "ea_llm_self_adaptive_api_1303_run3_20260722_015443.json",
+   "game_number": 1303,
+   "child_id": "d34190c7c0c144e3b8e6af8b17aa5dc1",
+   "generation": 2,
+   "parent_id": "87cb2f1713dc48118c552236deb96574",
+   "parent_rank": 170,
+   "sampled_op": "s_mutation",
+   "arm": "absent",
+   "prompt_sha256": "b0a9646a2ae697390a694198bddbada77935b62d9105e6c95b4e509828bc8e69",
+   "prompt_chars": 3333,
+   "llm_parse_failed": false,
+   "llm_error": null,
+   "proposed_word": "token",
+   "proposed_words": [
+    "token",
+    "glyph",
+    "marker"
+   ],
+   "proposed_word_invalid": false,
+   "realized_rank": 12272,
+   "predicted_closeness": 0.6,
+   "predicted_closeness_clamped": false,
+   "predicted_bucket": "top500",
+   "self_report_parse_failed": false,
+   "rationale": {
+    "basis_words": [
+     "sign"
+    ],
+    "reason": "selected semantic neighbors of 'sign' that denote symbolic representations without overlapping with existing tried words"
+   },
+   "basis_words_count": 1,
+   "reason_chars": 120,
+   "raw_response": "{\"name\": \"symbolic tokens\", \"description\": \"markers or representations with meaning\", \"words\": [\"token\", \"glyph\", \"marker\"], \"basis_words\": [\"sign\"], \"reason\": \"selected semantic neighbors of 'sign' that denote symbolic representations without overlapping with existing tried words\", \"predicted_bucket\": \"top500\", \"predicted_closeness\": 0.6}"
+  }
+ ]
+}

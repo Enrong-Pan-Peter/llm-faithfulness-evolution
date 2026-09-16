@@ -1,0 +1,20 @@
+[project]
+name = "llm-faithfulness-evolution"
+version = "0.1.0"
+description = "Evaluating LLM search-operator self-reports against environment feedback inside evolutionary search (Contexto, Blocksworld planning, code repair)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["requests>=2.31", "numpy>=1.26", "scipy>=1.11"]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.8"]
+test = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["contexto_solver", "contexto_solver.methods", "contexto_solver.calibration", "environments", "environments.planning", "environments.code_repair", "environments.code_repair.benchmarks", "search"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

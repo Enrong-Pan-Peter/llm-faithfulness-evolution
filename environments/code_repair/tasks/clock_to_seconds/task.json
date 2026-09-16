@@ -1,0 +1,6 @@
+{
+  "id": "clock_to_seconds",
+  "entry_point": "clock_to_seconds",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef clock_to_seconds(text: str) -> int:\n    \"\"\"Convert a colon-separated duration to a total number of seconds.\n\n    ``text`` contains one, two or three fields separated by \":\". Read from\n    the right, the fields are seconds, minutes and hours: \"1:02:03\" is\n    3723, \"02:03\" is 123 and \"45\" is 45. Every field is a non-negative\n    integer that may have leading zeros; fields are not range-checked, so\n    \"90:00\" is 5400. The input is always well formed.\n    \"\"\"\n"
+}

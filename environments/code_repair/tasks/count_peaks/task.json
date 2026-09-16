@@ -1,0 +1,6 @@
+{
+  "id": "count_peaks",
+  "entry_point": "count_peaks",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef count_peaks(values: list[int]) -> int:\n    \"\"\"Count the strict local maxima of an integer sequence.\n\n    An element is a peak when it is strictly greater than both of its\n    neighbours. The first and last elements have only one neighbour and are\n    never peaks, so sequences with fewer than three elements have no peaks.\n    Equal neighbours never form a peak: [1, 3, 3, 2] has none.\n    \"\"\"\n"
+}

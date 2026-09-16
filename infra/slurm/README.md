@@ -1,0 +1,3 @@
+# Cluster scripts
+
+`run_rationale_intervention.sh` is the Slurm array job that produced the rationale-intervention outputs (one task per A1 game, node-local Ollama on a random port, the A1 rank cache). It is the original script with two cluster-specific absolute paths replaced by the variables `CONTEXTO_REPO_DIR` and `CONTEXTO_VENV`; everything else (resources, port scheme, metadata capture, the `rationale_intervention_run.py` invocation) is verbatim. The search conditions were launched from the command sheet in `experiments/contexto/submitted_2026/`, one job per game, with the same Ollama-per-node pattern.

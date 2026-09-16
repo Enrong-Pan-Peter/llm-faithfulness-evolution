@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_156",
+  "entry_point": "int_to_mini_roman",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef int_to_mini_roman(number):\n    \"\"\"\n    Given a positive integer, obtain its roman numeral equivalent as a string,\n    and return it in lowercase.\n    Restrictions: 1 <= num <= 1000\n\n    Examples:\n    >>> int_to_mini_roman(19) == 'xix'\n    >>> int_to_mini_roman(152) == 'clii'\n    >>> int_to_mini_roman(426) == 'cdxxvi'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/156",
+    "humaneval_id": "HumanEval/156",
+    "bug_type": "missing logic",
+    "failure_symptoms": "infinite loop",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

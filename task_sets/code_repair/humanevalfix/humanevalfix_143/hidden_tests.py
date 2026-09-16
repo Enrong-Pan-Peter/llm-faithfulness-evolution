@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Hi I am Hussein',), 'Hi am Hussein'),
+    (('lets go for swimming',), 'go for'),
+    (('go for it',), 'go for it'),
+    (('here is',), 'is'),
+    (('abcppipeThears',), ''),
+    (('twnipipckedumboneers',), ''),
+    (('twPrroo',), 'twPrroo'),
+    (('aaaaapeppeatestersaaaaaaaakeepsatwPeteroapaquipriisiimofinekekA',), ''),
+    (('browrnjumps',), 'browrnjumps'),
+    (('pecck',), 'pecck'),
+    (('tesst',), 'tesst'),
+    (('doaa aaaa aaaaaaa aaaaaaaa aaaaaaaaaaaa aaaAnaaapeppersckleedaaaaaaaaaaaaaactor',), 'aaaaaaa'),
+    (('quicniscienthee has inbrsentencehesek',), 'has inbrsentencehesek'),
+    (('nine',), ''),
+    (('An apple a day keeps the doctor away',), 'An apple day keeps the'),
+    (('Ther quick brown fox jumps over the lazy do g',), 'quick brown fox jumps the do'),
+    (('pekkck',), ''),
+    (('ELBDOeWCp',), ''),
+    (('qnuicniscience',), ''),
+    (('mahthematics can be easy',), 'can be'),
+    (('I am ad deveo per',), 'am ad deveo per'),
+    (('PythothisI am a dquick sort algorithm is efficienteveloperchayllenge is trickyng is fun',), 'am is is is fun'),
+    (('ofinekpr',), ''),
+    (('scPeterienscience some has branches ofce',), 'scPeterienscience has'),
+]

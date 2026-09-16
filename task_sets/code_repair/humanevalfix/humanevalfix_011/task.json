@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_011",
+  "entry_point": "string_xor",
+  "language": "python",
+  "prompt": "Implement the function below.\n\nfrom typing import List\n\n\ndef string_xor(a: str, b: str) -> str:\n    \"\"\" Input are two strings a and b consisting only of 1s and 0s.\n    Perform binary XOR on these inputs and return result also as a string.\n    >>> string_xor('010', '110')\n    '100'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/11",
+    "humaneval_id": "HumanEval/11",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

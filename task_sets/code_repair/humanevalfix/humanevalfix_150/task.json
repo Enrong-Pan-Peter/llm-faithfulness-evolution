@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_150",
+  "entry_point": "x_or_y",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef x_or_y(n, x, y):\n    \"\"\"A simple program which should return the value of x if n is \n    a prime number and should return the value of y otherwise.\n\n    Examples:\n    for x_or_y(7, 34, 12) == 34\n    for x_or_y(15, 8, 5) == 5\n    \n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/150",
+    "humaneval_id": "HumanEval/150",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_016",
+  "entry_point": "count_distinct_characters",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef count_distinct_characters(string: str) -> int:\n    \"\"\" Given a string, find out how many distinct characters (regardless of case) does it consist of\n    >>> count_distinct_characters('xyzXYZ')\n    3\n    >>> count_distinct_characters('Jerry')\n    4\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/16",
+    "humaneval_id": "HumanEval/16",
+    "bug_type": "missing logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

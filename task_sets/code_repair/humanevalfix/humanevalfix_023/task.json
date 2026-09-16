@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_023",
+  "entry_point": "strlen",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef strlen(string: str) -> int:\n    \"\"\" Return length of given string\n    >>> strlen('')\n    0\n    >>> strlen('abc')\n    3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/23",
+    "humaneval_id": "HumanEval/23",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

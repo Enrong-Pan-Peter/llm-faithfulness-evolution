@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((['x', 'yyy', 'zzzz', 'www', 'kkkk', 'abc'],), 'zzzz'),
+    ((['  a  ', 'bb', 'defop', 'ccc', 'bb', 'bb', 'привет, Hola, Bonjour, こんにちは, Helbblo', 'bb', 'defop'],), 'привет, Hola, Bonjour, こんにちは, Helbblo'),
+    ((['Apple', 'Avocado', 'Banana', 'Blueberry', 'Cyherry', 'Durian', 'F', 'Grape', 'Kiwi', '333', 'Lemon', 'Mango', 'Orange'],), 'Blueberry'),
+    ((['hello', 'HOW', 'uyOuggggggggMangoggggg', 'are', '   \t', 'DOiNG', 'tziuahijklmnopODAY?', 'DOiNG', 'DOiNG'],), 'uyOuggggggggMangoggggg'),
+    ((['Apple', 'Banana', 'lo,', 'Blueberry', 'Cherry', 'Durian', 'Fig', 'defghijklminop', 'Kiwi', 'Lemon', 'Mango', 'Orange'],), 'defghijklminop'),
+    ((['こんにちは,', 'yOu', 'aaaa', 'aaaa ', 'yOu'],), 'こんにちは,'),
+    ((['', '◯◯◯', 'bună ziua', ' ', '😀😀😀', '55555         ', '◯◯◯'],), '55555         '),
+    ((['Apple', 'Avocado', 'Banana', 'Blueberry', 'Cherry', 'Durian', 'Fig', 'Grrape', 'Grape', 'Kiwi', 'Lemon', 'Mango', 'Orange'],), 'Blueberry'),
+    ((['', '        ', '   ', '     ', '\t'],), '        '),
+    ((['  a  ', '  a  '],), '  a  '),
+    ((['Hello, Bonjour, こんにちは, Hola, привет', 'こんにちは,e Bonjour, Hello, Hola, привет', 'ສະບາຍດີ, Bonjour, こんにちは, Hola,Mango привет'],), 'ສະບາຍດີ, Bonjour, こんにちは, Hola,Mango привет'),
+    ((['bb', 'HW', 'ccc'],), 'ccc'),
+    ((['abc', 'Blueberry', 'defghijklmnop', 'Helbblo', 'hello', 'r', 'defghijkilmnop', '◯◯', 'defghijklmnop', 'defghijklmnop'],), 'defghijkilmnop'),
+    ((['', '        ', '     ', '22', '   \t'],), '        '),
+    ((['dog', 'cat', 'horse', 'cow', 'cat'],), 'horse'),
+    ((['aa', 'bb', 'cc', 'aaa', '123', 'cccc', 'cc', '123', '12345'],), '12345'),
+    ((['bc', 'hhhhhhhhhhhhhhhhhhello', 'eeeeeeee', 'hhhhhhhhhhhhhhhhhello', 'eeeeeeeeee', ''],), 'hhhhhhhhhhhhhhhhhhello'),
+    ((['  a   '],), '  a   '),
+    ((['cccc', 'TSNvGfDd', 'ccKiwic', 'ccc'],), 'TSNvGfDd'),
+    ((['defopß', 'üöäü', 'ß', 'æ', 'œ', '\uf8ff'],), 'defopß'),
+    ((['defghijdefghijklmnpopklmnop', '', 'привет, Hola, Bonjour, こんにちは, Helbblo', 'defghijklmnop', 'yOu'],), 'привет, Hola, Bonjour, こんにちは, Helbblo'),
+]

@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('bYe',), 1),
+    (('abcde',), 2),
+    (('key',), 2),
+    (('ACEDY',), 3),
+    (('abss',), 1),
+    (('cpsyccrypaeiioiaeaeiocpsyccryptographyhoglogyuyfacetiousnessioouyuyennstograpahyhology',), 35),
+    (('aedizzineAsaAAaaabstemiousnessAaaAaaaaa',), 26),
+    (('eapple',), 3),
+    (('ctieme',), 3),
+    (('aedicryptaedizzaAAcrypcaeiouyryptopgriaphytoaeioaeiocryiptofacbckdfghjklmnpqrstvwxyzetiousnesspgyuyfacetieousnesspgraphyaAaaAaaaaainessiouyoegraphyzzinessioeuy',), 68),
+    (('hello',), 2),
+    (('aeioiaeaeiocpsyccryptographyholaogyuyfacetiousnessioouyuyennns',), 29),
+    (('aieiaOAEIOUYXfazcetioubcdffghjklAEIOUYXWmnpqrstvwxyzsnnessWouyouy',), 27),
+    (('aeioaAAaAaaAaafacetioubcdffghjklmnpqrswxyzsnesaisaaauyfacfacetiousnessetiousness',), 38),
+    (('aAAaAaaAaaa',), 11),
+    (('bcdfghjklmnpabstemiousnessqrsstvwxyz',), 6),
+    (('dizziness',), 3),
+    (('facetifoubcdffghjklfmnpqrustvwxyzsness',), 7),
+    (('afacetineousnesss',), 8),
+    (('tbcdfghjklmnvwxyzcryptoaphty',), 3),
+    (('bcdfghjklmnaeioaeiocryiptofacetiousnesspgyuycrypteaedizzinessiouyoegratvwxyz',), 29),
+    (('crypteaedizzinoessiouyoegratbcdfghjklmnpoKyvCyptograAEIOUYaeeioaeioAEIOUYaeioaeiouyaAAcrypauyXWuyuaedizzinessiouzphy',), 60),
+    (('aOAEIOUYXfazcetioubcdffghjklAEIOUYXWmnpqrstvwxaeiouyffazcetioubcsnessyeyuy',), 31),
+    (('aeictiemeoappleuyaeiouy',), 16),
+]

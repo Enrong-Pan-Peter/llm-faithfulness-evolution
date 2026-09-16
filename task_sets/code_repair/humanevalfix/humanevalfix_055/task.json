@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_055",
+  "entry_point": "fib",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/55",
+    "humaneval_id": "HumanEval/55",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

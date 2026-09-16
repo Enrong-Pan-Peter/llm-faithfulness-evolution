@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('hellomyfriend',), 'lippsqcjvmirh'),
+    (('a',), 'e'),
+    (('yzyzzzzzzzzzzzz',), 'cdcdddddddddddd'),
+    (('eehia',), 'iilme'),
+    (('thequickbrownfoxjumpsoverthelazyd',), 'xliuymgofvsarjsbnyqtwszivxlipedch'),
+    (('heyzzzbcdhibc&^%',), 'licdddfghlmfg&^%'),
+    (('hellomyfrietnhelb&cd&^lod',), 'lippsqcjvmixrlipf&gh&^psh'),
+    (('yzzzzzzzzzzzzzzzzzzzzzzzzhel',), 'cddddddddddddddddddddddddlip'),
+    (('helelooywxyhi    eiend',), 'lipipsscabclm    imirh'),
+    (('uvutvwxyzwxzyz',), 'yzyxzabcdabdcd'),
+    (('bythequickbrownfhi    et a gf helbcd&^%lomyfriendoxjumpsoheti    get a gf hellomyferienhellodd&d^',), 'fcxliuymgofvsarjlm    ix e kj lipfgh&^%psqcjvmirhsbnyqtwslixm    kix e kj lippsqcjivmirlippshh&h^'),
+    (('%bcdhelwxyl%',), '%fghlipabcp%'),
+    (('helloetmthequickbrowoxjumpsoverthelazydoyfrieunhellodget',), 'lippsixqxliuymgofvsasbnyqtwszivxlipedchscjvmiyrlippshkix'),
+    (('theqcuickbrownfoxjumpsoverthelazydbc&thequicerttheworwethorldlazydotheqcuickabcdefghihjklmnopqrstuvxyzbrownfoxjumpsoverthelhellogmyfriendazydogg^%og',), 'xliugymgofvsarjsbnyqtwszivxlipedchfg&xliuymgivxxliasvaixlsvphpedchsxliugymgoefghijklmlnopqrstuvwxyzbcdfvsarjsbnyqtwszivxliplippskqcjvmirhedchskk^%sk'),
+    (('bcbcmd&^%lobc&^%',), 'fgfgqh&^%psfg&^%'),
+    (('hehi    ehi    et a gf hellomyfrietrogf hhellomyfrienhellodlothequickbrownfoxumpsoverthelazydo',), 'lilm    ilm    ix e kj lippsqcjvmixvskj llippsqcjvmirlippshpsxliuymgofvsarjsbyqtwszivxlipedchs'),
+    (('hellthequiuckbrownfoxjumpsoverthelazydoaaogfa worl d',), 'lippxliuymygofvsarjsbnyqtwszivxlipedchseeskje asvp h'),
+    (('bc&^%thequicerthela^zydoghelbcmd&&^%lobc&^%',), 'fg&^%xliuymgivxlipe^dchsklipfgqh&&^%psfg&^%'),
+    (('thequickbrthequicqerthelazydogownfoxjumpsovelazydo',), 'xliuymgofvxliuymguivxlipedchsksarjsbnyqtwszipedchs'),
+    (('worwethorld^%',), 'asvaixlsvph^%'),
+    (('thequickbrownfoxjumpsovworwethorlderthelazyd',), 'xliuymgofvsarjsbnyqtwszasvaixlsvphivxlipedch'),
+    (('herienduvxyz',), 'livmirhyzbcd'),
+]

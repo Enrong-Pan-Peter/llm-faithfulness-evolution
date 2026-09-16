@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((8,), True),
+    ((-75,), False),
+    ((59,), False),
+    ((97,), False),
+    ((-15,), False),
+    ((-96,), False),
+    ((-94,), False),
+    ((77,), False),
+    ((53,), False),
+    ((-102,), False),
+    ((56,), False),
+    ((20,), True),
+    ((-58,), False),
+    ((90,), False),
+    ((-72,), False),
+    ((15,), False),
+    ((17,), False),
+    ((57,), False),
+    ((-37,), False),
+    ((25,), False),
+    ((61,), False),
+]

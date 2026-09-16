@@ -1,0 +1,46 @@
+"""Print the ids of the tasks a model solves least often in one shot.
+
+Reads the JSON written by ``planning_direct_solve_check.py`` or
+``code_repair_memorization_check.py`` and prints, space-separated, the ``--count``
+ids with the lowest one-shot solve rate (ties: the highest mean progress /
+hidden pass fraction first, so instances with a fitness gradient are preferred).
+
+    python scripts/pick_hard_tasks.py out/pilot_a/memorization_quixbugs_repair/memorization_check.json --count 5
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+
+def pick(rows: list[dict], count: int, max_rate: float) -> list[str]:
+    def key(row: dict):
+        progress = row.get("mean_progress")
+        if progress is None:
+            progress = row.get("mean_hidden_pass_fraction")
+        return (row["solve_rate"], -(progress if progress is not None else 0.0))
+
+    eligible = [row for row in rows if row["solve_rate"] <= max_rate]
+    chosen = sorted(eligible, key=key)[:count]
+    return [row.get("instance_id") or row.get("task_id") for row in chosen]
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("summary", help="direct_solve_check.json or memorization_check.json")
+    parser.add_argument("--count", type=int, default=5)
+    parser.add_argument("--max-rate", type=float, default=1.0, help="ignore tasks solved more often than this")
+    args = parser.parse_args(argv)
+    data = json.loads(Path(args.summary).read_text(encoding="utf-8"))
+    ids = pick(data["rows"], args.count, args.max_rate)
+    if not ids:
+        raise SystemExit("no task below the requested solve rate")
+    print(" ".join(ids))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

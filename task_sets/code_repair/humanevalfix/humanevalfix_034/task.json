@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_034",
+  "entry_point": "unique",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef unique(l: list):\n    \"\"\"Return sorted unique elements in a list\n    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [0, 2, 3, 5, 9, 123]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/34",
+    "humaneval_id": "HumanEval/34",
+    "bug_type": "missing logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

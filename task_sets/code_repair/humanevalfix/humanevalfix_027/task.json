@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_027",
+  "entry_point": "flip_case",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef flip_case(string: str) -> str:\n    \"\"\" For a given string, flip lowercase characters to uppercase and uppercase to lowercase.\n    >>> flip_case('Hello')\n    'hELLO'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/27",
+    "humaneval_id": "HumanEval/27",
+    "bug_type": "function misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

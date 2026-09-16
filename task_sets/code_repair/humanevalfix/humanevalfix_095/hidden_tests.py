@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (({'p': 'pineapple', '5': 'banana', 'a': 'apple'},), False),
+    (({'p': 'pineapple', 'b': 'banana'},), True),
+    (({'STATE': 'NC', 'ZIP': '12345'},), True),
+    (({},), False),
+    (({'firstName': 'John', 'LASTNAME': 'DOE', 'Age': 'D', 'cItY': 'new yorAgekcolor', 'Income': '$50,000', 'firstN': 'JohaJgeage', 'cItAGEY': 'JJoDooehhnohaJgeage'},), False),
+    (({'first_name': 'John', 'Age': 36, 'Income': '$50,,000', 'Aege': 35},), False),
+    (({'FIRST_NAME': 'Jane', 'AAge': 'Jchenrrohn'},), False),
+    (({'first_name': 'John', 'city': 'New York', 'Income': '$50,000', '1': 36, 'Incyellowome': '2$0,000', 'cityyorA$0,000geIncIomrek': 'JJohn'},), True),
+    (({'firstName': 'John', 'LASTNAME': 'DDOE', 'Age': 'D', 'cItY': 'new yorAgek', 'Income': '$50,000', 'IncIome': 'FIRST_NAME', 'LASTENAME': 'Anew yorAgek', 'cItcY': 'DD'},), False),
+    (({'PI': 1.7300435058060522, 'New YorkLAST_NAMEPI': 2.6189164796316335, 'cItIY': 2.6443947966293897, 'I': 2.496132463875833, 'CyellOME': 1.6243371737850312},), False),
+    (({'firstName': 'John', 'LASTNAME': 'DOE', 'Age': 'D', 'cItY': 'new york'},), False),
+    (({'first_name': 'John', 'Age': 35, 'city': 'New York', 'FIRST_NAME': 'Jane', 'Incyellowome': 'INCOMEJohn'},), False),
+    (({'2': 'banana', '3': 'cherry', '$50,000': 'chrerry', 'Inconme': 'bana'},), False),
+    (({'first_name': 'John', 'Last_Name': 'Doe', 'city': 'new yorAgek', 'Income': '$50,000', 'FIRST_NAME': 'Jane'},), False),
+    (({'firstName': 'John', 'LASTNAME': 'DOE', 'Age': 'D', 'cItY': 'new yorAgek', 'Income': '$50,000'},), False),
+    (({'FIRST_NAME': '2019n', 'LAST_NAME': 'OE', 'AGE': 35, 'CITY': 'NEW YORK', 'COME': '$50,0000', 'LASTNAECOME': 37},), True),
+    (({'LAST_NAME': 'oJoh', 'CITY': 'Anew yorrk', '1': 35},), True),
+    (({'PI': 1.7300435058060522, 'New YorkLAST_NAMEPI': 2.6189164796316335, 'cItIY': 2.6443947966293897, 'I': 2.7107068449059466},), False),
+    (({'orange': 'fruurit', 'or$50,00ange': 'fruui', 'orYoincomerk$50,00ange': 'fruuritt'},), True),
+    (({'firstName': 'John', 'LASTNAME': 'DDOE', 'Age': 'D', 'cItY': 'new yorAgek', 'Income': '$50,000', 'IncIome': 'FIRST_NAME', 'LASTENAME': 'Anew yorAgek', 'IncYorkLASTcity_NAMEPIIome': 'Anenew yorAgeIncIomekw yorAgek', 'ageage': 'cItYnew yorAgek', '2019n': 'IPI', '12019n': 'DJohnew yorAgekhn'},), False),
+    (({'first_name': 'John', 'Age': 35, 'city': 'New York', 'Income': '$50,000', 'FIRST_NAME': 'Jane', '1': 36, 'Incyellowome': 'INCOMEJohn', 'Anenew': 'INCOMEJJohn'},), False),
+    (({'first_name': 'John', 'Last_Name': 'Do', 'Age': 35, 'city': 'New York', 'Income': '$50,000', 'FIRST_NAME': 'Anew', '1': 36, 'Incyellowome': 'INCOMEJohn', 'chINCEOMEerryAge': '$50,00', 'Last_Namme': 'fruit'},), False),
+    (({'Age': 35, 'city': 'New York', 'FIRST_NAME': 'nJane', '1': 36, 'Incyellowome': 'INCOMEJohn'},), False),
+    (({'FIRST_NAME': 'John', 'LAST_NAME': 'DOE', 'AGE': 35, 'CITY': 'NEW YORK', 'COME': '$50,0000'},), True),
+]

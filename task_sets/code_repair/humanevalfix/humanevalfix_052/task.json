@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_052",
+  "entry_point": "below_threshold",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef below_threshold(l: list, t: int):\n    \"\"\"Return True if all numbers in the list l are below threshold t.\n    >>> below_threshold([1, 2, 4, 10], 100)\n    True\n    >>> below_threshold([1, 20, 4, 10], 5)\n    False\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/52",
+    "humaneval_id": "HumanEval/52",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

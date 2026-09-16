@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('These violent delights have violent ends',), 'tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS'),
+    (('',), ''),
+    (('ABCDEFAaBbThe Quick Brown FOX JUMPμχῃS Over the lazy dogএএটি একটি ণউদাহরণক্t্ত কpমo co.্ষেত্রccDkEfFgHiIjJKkLMmnnoOPpqQrRSstTuUVvwWXxyYZzGHIJnKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',), 'abcdefaAbBtHE qUICK bROWN fox jumpΜΧΗΙs oVER THE LAZY DOGএএটি একটি ণউদাহরণক্T্ত কPমO CO.্ষেত্রCCdKeFfGhIiJjkKlmMNNOopPQqRrsSTtUuvVWwxXYyzZghijNklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+    (('ККаарлDOGe',), 'ккААРЛdogE'),
+    (('realmene',), 'REALMENE'),
+    (('fLiP YOuR cAsE',), 'FlIp yoUr CaSe'),
+    (('¿Habla usted español? Sí, un poco. ¿Habla portítugués? Não, realmente no.',), '¿hABLA USTED ESPAÑOL? sÍ, UN POCO. ¿hABLA PORTÍTUGUÉS? nÃO, REALMENTE NO.'),
+    (('jUeMePP',), 'JuEmEpp'),
+    (('no.nJUMPSo.',), 'NO.NjumpsO.'),
+    (('opocπειρατέομαιএটিγνώμην একটtHe qτuIck πειρατέομαιএটিγνώμην একটtHe qτuIck bROwn fOX jUMPed ovePr the LAZY DOGি উদাহরQuiКлары্র bROwn fOX jUMPed ovePr the LAZY DOGি উদাহরQuiКлары্রo.',), 'OPOCΠΕΙΡΑΤΈΟΜΑΙএটিΓΝΏΜΗΝ একটThE QΤUiCK ΠΕΙΡΑΤΈΟΜΑΙএটিΓΝΏΜΗΝ একটThE QΤUiCK BroWN Fox JumpED OVEpR THE lazy dogি উদাহরqUIкЛАРЫ্র BroWN Fox JumpED OVEpR THE lazy dogি উদাহরqUIкЛАРЫ্রO.'),
+    (('টএটি একটি উদাহরQuickষেত্র',), 'টএটি একটি উদাহরqUICKষেত্র'),
+    (('Карл',), 'кАРЛ'),
+    (('1коকККлpocএটি234656890',), '1КОকккЛPOCএটি234656890'),
+    (('উতট্রএকট',), 'উতট্রএকট'),
+    (('укркраалул',), 'УКРКРААЛУЛ'),
+    (('ABCDzEFGHIJKLMNOPQRklmnopqdogJUMPSষেAaBbccDEfFgHiIjJKkLMmnnoOPpqQrRSstлqILAZYтDOGКлараTuUVvwWXxyYZzত্রанетКарлrsz',), 'abcdZefghijklmnopqrKLMNOPQDOGjumpsষেaAbBCCdeFfGhIiJjkKlmMNNOopPQqRrsSTЛQilazyТdogкЛАРАtUuvVWwxXYyzZত্রАНЕТкАРЛRSZ'),
+    (('এABCDEFGHIJKLLMNOPQRSTUVWXlazyYZabcdefghijklmnopqrstuvwxyz একটি উদাহরQuickষেত্র',), 'এabcdefghijkllmnopqrstuvwxLAZYyzABCDEFGHIJKLMNOPQRSTUVWXYZ একটি উদাহরqUICKষেত্র'),
+    (('612340656890',), '612340656890'),
+    (('tgoggle me',), 'TGOGGLE ME'),
+    (('ἕλενα καγὼ укралаγνаώμην μάχКарл у Клары украл кораллы, а К лара у Карлара кларнетtHeSí,лараῃ πειρατέομαι',), 'ἝΛΕΝΑ ΚΑΓῺ УКРАЛАΓΝАΏΜΗΝ ΜΆΧкАРЛ У кЛАРЫ УКРАЛ КОРАЛЛЫ, А к ЛАРА У кАРЛАРА КЛАРНЕТThEsÍ,ЛАРАΗΙ ΠΕΙΡΑΤΈΟΜΑΙ'),
+    (('1PtoGGlE Meython IFlipping Cases Is So Eassy!Fun2qJzU34',), '1pTOggLe mEYTHON ifLIPPING cASES iS sO eASSY!fUN2QjZu34'),
+    (('ABCDzEFGHIJKLMNOPQRklmnopqrsz',), 'abcdZefghijklmnopqrKLMNOPQRSZ'),
+]

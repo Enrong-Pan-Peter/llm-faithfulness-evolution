@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('xyy',), False),
+    (('a',), False),
+    (('abcd',), True),
+    (('iopaxpoi',), True),
+    (('aaaaabbbbccccdadeeeddddccccbbbbaaaaeeabcabcabaaccccddddaaaabbbbccccddddaaaabbbbccccddddcabcabcabcabcabcabcabcabcaaaaabbbbccccdeeeddddccccbbbbaaaaeeabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabeedddcabcabcabcabcabcabeedddc',), False),
+    (('aaccaaaaabbbdddccccaaeeeedddccccaabcabcabcababcabcabcabcabcabcabcabcabcabbcabcabcababcabbbaaaaaaaabbbbccccdeeeddddccccbbbbaaaaeeeedddccccaaeeeedddcccaccddddaaaabbbbccccddddaaaabbbbccccdddd',), False),
+    (('abababdababbabababababaaaaabbbbccababa1122334455667788990011223344556677889900112a2334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab7889900babababababababababababababababababababababccdeeeddddccccbbbbaaaaeeeedddccccabababababababababdd',), False),
+    (('511223344556677556586777889900',), False),
+    ((' this is a comment',), False),
+    (('abaaaaaaaaabbbbccccdeeeddddccccbbbbaaaaeeabcabcabcabcabcabcabcabcabcabcabcabcabcabdcabcabcabeedddcbbbbccccdeeeddddccccbbbbaaaaeeeedddc',), False),
+    (('qwertyuiopasdfghljklzxcvbnmqgwertyugiovb',), True),
+    (('abcdefgabcdefgcdefgabcdefgagbcabccccaaabbddeefffdefgcdefgabcdefg',), False),
+    (('abcdefgabcdefgcdefgabcabaabcdefghicjklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzbababababababababababababababababababababababdecfgabcdefgcdefefg',), False),
+    (('11223334455667788adddaaaabbbbccccddddbccccdddd9900112233445900',), False),
+    (('abcccaaabbddeeffabababababbabababababababababababababababababababf',), False),
+    (('bjmpzkafak',), False),
+    (('1122334455660778899001122334455667788990011b22334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaab7bcccddeebcab7b889900',), False),
+    (('aaddbbccddeabbccddee',), False),
+    ((' this is bacbacba coxxmmenst',), False),
+    (('abcccaaabbd112233445566077889900112233aad3dbbccddeeaabbccddee45566778899001122334455667abcabcabcabcabcabca9bcabcabcabcabaaddbbccddeeaabbccddeebcab7889900deefff',), False),
+    (('1122334455660778899001122334455667788990011b22334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaab7bccddeebcab7889900abcdefgabcdefgcedefgabcdefgagbcabcccaaabbddeefffdefgcdefgabcdefg',), False),
+    (('ababa1122334455667788990011223344556677889900112aabcdefgabcdegfgcdefga113223344556677889900112233445566778899001122334455667abcabcabcabc7abcabcabcabacabcabcabaaddbb1ccddeeaabbccddeebcab7889900defg2334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab7889900bababababababababababababababababababababab',), False),
+    (('112233445566077889900112233445566778899001122334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab78abcccaaabbd11223344556607788990abcccaaabbd112233445566077889900112233aaddbbccddeeaabbccddee45566778899001122334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab7889900deefff0112233aaddbbccddeeaabbccddee45566778899001122334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab7889900deefff89900',), False),
+    (('qwertyuiopasdfghjklzxcvbnmqwaaaaabbbbccababa1122334455667788990011223344556677889900112a2334455667abcabcabcabcabcabcabcabcabcabcabaaddbbccddeeaabbccddeebcab7889900babababababababababababababababababababababccdeeeddddccabcdefgabcdefgc112233445566077889900112233445566778899001122334455667abcabcabcabcabcabcabcabcabcabcabaadcbbccddeeaabbccddeebcab7889900abcdefgcdefefgyuiopasdfghjklzxcvb',), False),
+]

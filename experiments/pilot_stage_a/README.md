@@ -18,6 +18,20 @@ recomputed from the trace (`candidate_text` + task record), (4) the
 `serving` block of `RUN_CONFIG` is filled, and (5) the corrective-hint
 condition changes candidates in at least some intervention re-runs.
 
+## One command for the whole stage
+
+`run_pilot_a.ps1` next to this file runs steps 1–6 below one after another
+(planning search on the five hard instances, QuixBugs memorisation check,
+code-repair search on the five least-memorised tasks, intervention re-runs,
+prospective channel, controls, HumanEvalFix memorisation check) and writes
+`out\pilot_a\transcript.txt`:
+
+```
+powershell -ExecutionPolicy Bypass -File experiments\pilot_stage_a\run_pilot_a.ps1
+```
+
+The sections below are the same steps, for running them one at a time.
+
 ## 0. Offline check first (no model; a minute)
 
 ```

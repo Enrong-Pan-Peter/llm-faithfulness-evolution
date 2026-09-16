@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('I DoNt KnOw WhAt tO WrItE',), 'k dQnT kNqW wHcT Tq wRkTg'),
+    (('TEST',), 'tgst'),
+    (('lazythABCDEFGHhIJKLMNOPQRSabcdSefghBijklmnopmqrstucAtOwNerSTANDArDMAGNOLABCDEFGHIJKLAabAabcdefghijklmnopqrstuvwxyzABCDjuTHEabcdedogfgJKLMNOPQRSTUVWXCompROmiseYZmpsEFGHIJKLMNOPQRSTUWiTHMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzsvwxyzABCDEFGHIXYZTUVWXYZabcdefghijklmnopqrstuvwxyze',), 'LCZYTHcbcdgfghHkjklmnqpqrsCBCDsGFGHbKJKLMNQPMQRSTWCcTqWnGRstcndcRdmcgnqlcbcdgfghkjklcCBcCBCDGFGHKJKLMNQPQRSTWVWXYZcbcdJWthgCBCDGDQGFGjklmnqpqrstwvwxcQMPrqMKSGyzMPSgfghkjklmnqpqrstwwKthmnqpqrstwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYZSVWXYZcbcdgfghkxyztwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYZG'),
+    (('cobV',), 'CQBv'),
+    (('abcdabcdedogfgWiTHhijklmnopqrstuvwxXyzABCDEFGHIJKLMNXOPQRSTUVWXCompabcdedogfghijkLlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXCompROmAiseYZROmisWOLGrsneYZefghijklmnopqrsVWXCompROmiseYZ',), 'CBCDCBCDGDQGFGwKthHKJKLMNQPQRSTWVWXxYZcbcdgfghkjklmnxqpqrstwvwxcQMPCBCDGDQGFGHKJKlLMNQPQRSTWVWXYZcbcdgfghkjklmnqpqrstwvwxcQMPrqMcKSGyzrqMKSwqlgRSNGyzGFGHKJKLMNQPQRSvwxcQMPrqMKSGyz'),
+    (('CompROmWQwertyuiopXasDfghjklzXcVbnmWijulmpsseoxRSTUVWXYZabcdefghijcAtOwNerSTANDArDMAGNOLiAslazyklmnopmqrfoxCompROmisiTHiseWQwertyuiopasDfghjklzXcVbnmiTH',), 'cQMPrqMwqWGRTYWKQPxCSdFGHJKLZxCvBNMwKJWLMPSSGQXrstwvwxyzCBCDGFGHKJCcTqWnGRstcndcRdmcgnqlKcSLCZYKLMNQPMQRFQXcQMPrqMKSKthKSGwqWGRTYWKQPCSdFGHJKLZxCvBNMKth'),
+    (('AabThe quick brown fox juwmps over the lazy dogcdefghijklmnopqrstuvwxyzABCDEUVWXYZu',), 'cCBtHG QWKCK BRQWN FQX JWWMPS QVGR THG LCZY DQGCDGFGHKJKLMNQPQRSTWVWXYZcbcdgwvwxyzW'),
+    (('CompROmWQwertDWQwertyuiopasDfghejklzXcVbnmiDoTHyuiopXasDWsQwecrtyuiopasDfgohijklzXcVbnmiTHfghjklzXcTHise',), 'cQMPrqMwqWGRTdwqWGRTYWKQPCSdFGHGJKLZxCvBNMKdQthYWKQPxCSdwSqWGCRTYWKQPCSdFGQHKJKLZxCvBNMKthFGHJKLZxCthKSG'),
+    (('AEAabTheabcdedogfgWiTHhijklmnopqrstuvwxyxzABCDEFGHIJKLMNOPQRSTUVWXCompROmiseYZIOUaeiou',), 'cgcCBtHGCBCDGDQGFGwKthHKJKLMNQPQRSTWVWXYXZcbcdgfghkjklmnqpqrstwvwxcQMPrqMKSGyzkqwCGKQW'),
+    (('ABCDTPythZYXWVUTSRQPONMLKJIABCDEFHGFThezo quick brown fox jumpsdefghijklmnopqrstuvwxyzhe hatvF',), 'cbcdtpYTHzyxwvwtsrqpqnmlkjkcbcdgfhgftHGZQ QWKCK BRQWN FQX JWMPSDGFGHKJKLMNQPQRSTWVWXYZHG HCTVf'),
+    (('abcdefghijklmnopqrstuvwxyAEIOeiAabThe quick brown fox jumps ovezzyr the lazy dogcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNAabcdefghijklmnopqrstuvwxyzABCDEFGHIJjumpsKLMNOPQRSTUVOPQRSTouzABCDEFGHIJKLUVWXYZ',), 'CBCDGFGHKJKLMNQPQRSTWVWXYcgkqGKcCBtHG QWKCK BRQWN FQX JWMPS QVGZZYR THG LCZY DQGCDGFGHKJKLMNQPQRSTWVWXYZcbcdgfghkjklmncCBCDGFGHKJKLMNQPQRSTWVWXYZcbcdgfghkjJWMPSklmnqpqrstwvqpqrstQWZcbcdgfghkjklwvwxyz'),
+    (('WWddogiT',), 'wwDDQGKt'),
+    (('lazyAThethABCDEFGHhIJWOLGrsnKLMNOPQRSabcdSefghBijklmnopmqrstuvwxyzABCDEFGHIXYZTUVWXYZabcdefghijklmnopqrstuvwxyze',), 'LCZYctHGTHcbcdgfghHkjwqlgRSNklmnqpqrsCBCDsGFGHbKJKLMNQPMQRSTWVWXYZcbcdgfghkxyztwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYZG'),
+    (('QwertyuiopasoDfghjklzXcVbnmVPaOCduqGt',), 'qWGRTYWKQPCSQdFGHJKLZxCvBNMvpCqcDWQgT'),
+    (('ovqulazythABCDEFGHhIJKLMNOPQRSabcdefghBijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZTUVWXYZabcdefghijklmnopqrstuvwxyzQwertyuioKzpasoDfghjklzXcVbnmebrownickr',), 'QVQWLCZYTHcbcdgfghHkjklmnqpqrsCBCDGFGHbKJKLMNQPQRSTWVWXYZcbcdgfghkjklmnqpqrstwvwxyztwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYZqWGRTYWKQkZPCSQdFGHJKLZxCvBNMGBRQWNKCKR'),
+    (('Tthe cat in tabcdeft',), 'tTHG CCT KN TCBCDGFT'),
+    (('QwertyuiozpasoDfghjklzrXcoVbnm',), 'qWGRTYWKQZPCSQdFGHJKLZRxCQvBNM'),
+    (('lazyAThethABCDEFGHhIJWOLGrsnKLMNOPQRSabcdSefghBijklmnopmqrstuvwxyzABCDEFGHIXYZTUVWXYZabcdefghijklmnopqrstuvwxyAEAabTheIOUaeiouze',), 'LCZYctHGTHcbcdgfghHkjwqlgRSNklmnqpqrsCBCDsGFGHbKJKLMNQPMQRSTWVWXYZcbcdgfghkxyztwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYcgcCBtHGkqwCGKQWZG'),
+    (('PythoThe cat in tabcgdefghijdklmnvwxABCDTPythEvery good boy does finemehe cat in tabcdefghijklmnopqrstuvwxyzhe hatvFyzhe haThe cast in th ehhtn is awesome',), 'pYTHQtHG CCT KN TCBCGDGFGHKJDKLMNVWXcbcdtpYTHgVGRY GQQD BQY DQGS FKNGMGHG CCT KN TCBCDGFGHKJKLMNQPQRSTWVWXYZHG HCTVfYZHG HCtHG CCST KN TH GHHTN KS CWGSQMG'),
+    (('AAIBCDEFGHhIJMNOPoEIOABCDEFGHhIJKLMNOPQabcdedogfghijklmnopqrstuvwxyzABCDEFGHIJKLabcdedogfgWiTHhijklmnopqrstuvwxyzABCDEFGHIJKLMNXOPQRSTUVWXCompROmiseYZvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZTUVWXYZabcdefghijklmnopqrstuvwxyzu',), 'cckbcdgfghHkjmnqpQgkqcbcdgfghHkjklmnqpqCBCDGDQGFGHKJKLMNQPQRSTWVWXYZcbcdgfghkjklCBCDGDQGFGwKthHKJKLMNQPQRSTWVWXYZcbcdgfghkjklmnxqpqrstwvwxcQMPrqMKSGyzVWXYZcbcdgfghkjklmnqpqrstwvwxyztwvwxyzCBCDGFGHKJKLMNQPQRSTWVWXYZW'),
+    (('The quick brHeAWQwertyuaiopXasDfnghjklzXcVbnmiTHrTown fox jumps over the lazy docTHE HeArT WiTH No CompROmWQwertyuiopXasDTWsijumWQwertyiopXasDfmghjklzXcVbnmiTHTHErTTisseoxfghjklzXcVbnmiTHisseg',), 'tHG QWKCK BRhGcwqWGRTYWCKQPxCSdFNGHJKLZxCvBNMKthRtQWN FQX JWMPS QVGR THG LCZY DQCthg hGcRt wKth nQ cQMPrqMwqWGRTYWKQPxCSdtwSKJWMwqWGRTYKQPxCSdFMGHJKLZxCvBNMKththgRttKSSGQXFGHJKLZxCvBNMKthKSSGG'),
+    (('THE HeArT jumpfooxWiTH No CompROmisttNoWQwerbnmiTH',), 'thg hGcRt JWMPFQQXwKth nQ cQMPrqMKSTTnQwqWGRBNMKth'),
+]

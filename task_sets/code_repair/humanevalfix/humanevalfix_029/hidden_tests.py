@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (([], 'john'), []),
+    (('ifi', 'fi'), []),
+    (('house', 'zjavascriptz'), []),
+    ((['hello', 'world'], 'apriccot'), []),
+    (('afgKilofmkwieterhABCi', 'ai'), []),
+    (('abcc_', 'abc_'), []),
+    (('alligatqQWERTYUIOPweor', 'alligator'), []),
+    ((['电影', '电话', '邮件'], '电'), ['电影', '电话']),
+    (('fgrKilofmkwietKerh', 'fgrKilofmkwieterh'), []),
+    (('jjujubeaa', 'a'), ['a', 'a']),
+    (('jjin电SffUs电x', 'jxinx'), []),
+    ((['apple', 'orange', 'aboapricot', 'banana'], ''), ['apple', 'orange', 'aboapricot', 'banana']),
+    (('abare', 'abfanfare'), []),
+    (('ubu', 'qqwqewe'), []),
+    ((['water', 'wine', 'coffee', 'tea', 'beer', 'cocoa'], 'facadee'), []),
+    (('ab11caabc1', 'ab1burghber1caabc1'), []),
+    (('电电forward', 'abelderberry'), []),
+    ((['apple', 'application', 'airport', 'alligator', 'alphabet', 'ampoule', 'amazon', 'amorous', 'amaze', 'ampersand', 'amputee', 'ambulance', 'amiable', 'butter', 'budget', 'businsess', 'buds', 'bureaucracy', 'burgher', 'business', 'burrow', 'build', 'bully', 'ffaceless', 'bulge', 'bulb', 'bulldog', 'burdock'], 'bu'), ['butter', 'budget', 'businsess', 'buds', 'bureaucracy', 'burgher', 'business', 'burrow', 'build', 'bully', 'bulge', 'bulb', 'bulldog', 'burdock']),
+    (('fhjujubfhghegh', 'bbu'), []),
+    (('ambulance', 'qqwewe'), []),
+    (('fgKilometerh', 'fabric'), []),
+]

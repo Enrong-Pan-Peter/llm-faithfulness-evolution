@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('xywyz',), False),
+    (('12zZ2a211',), False),
+    (('foaem,an,',), False),
+    (('wsawwww',), False),
+    (('abca',), False),
+    (('abbbc',), False),
+    (('12zZ2a21',), False),
+    (('m1oeman,',), False),
+    (('OQdpFdbUIt',), False),
+    (('Pana,mano',), False),
+    (('Evil isor a name of a fIA maPa canal, Pana,mano @canal12zZ2@@Aorcatgees,PanplanfofoemaIn,StepeIaem,noan,,Elba.amae@@!2j3jd3!@@@2Zz21, Pana.ma.oeman, as I live.',), False),
+    (('Evil iss a name of a foeman,  live.',), False),
+    (('frefer',), False),
+    (('f12zZ2@@@@!3j  d3!@@@2Zzeman,',), False),
+    (('Was it a car or I rbWas it a car ostep on no petsr a ca t I saw?cat I saw?refer',), False),
+    (('saw?petseA man, a plan, a ereacaisnral,  Panama.caisnral,',), False),
+    (('12a3',), False),
+    (('wsaAeNA',), False),
+    (('Dd3!@@@212ozZ2@@@@A man, a plan, a erecaisnral,  Pa12zZ2@@@@!@3Taco notj  d3!@@@2Zz21nama.!@3Taco 2notj  d3!@@@2DoZz21DoZz21o',), False),
+    (('ggese',), False),
+    (('Able',), False),
+]

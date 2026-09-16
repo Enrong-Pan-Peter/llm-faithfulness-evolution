@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('abcd', 'dddddddabcf'), False),
+    (('beabcdefghijklmnopqrstuvwxyz', 'abcdefghijklmnopqrstuvwxyz'), True),
+    (('aaaaa', 'aaa'), True),
+    (('mygorgeous,', 'my'), False),
+    (('12345678gorgeous,90', 'God! nAmaze a stunning, gorgeous, bewitching, and dazzling specter of my dear gazelle!'), False),
+    (('may the forcfe be with you', 'may the forcfe be with yoThe quick brown fobrownx jumps over the lazy dogu'), False),
+    (('ZeZeZeZeZeZeZeZeJAuAZeZeZeZeZZeZe', 'ZeZeZeZeZeZeZeZeJAuAZeZeZeZeZZeZe'), True),
+    (('The quicky brown fox jumps over the lazy dog', 'gazelle!'), False),
+    (('m', 'm'), True),
+    (('abbcccddddeeeee', ''), False),
+    (('may the forcfe be with yoThe quicvk brown fobrownx jumps over the lazy dogu', 'abcdefghijkwithhlmnopqrtvwxyz'), False),
+    (('abcdefghijknopqrstuv0987654321wxyz', 'abcgorgeous,defghijknopqrstuv0987654321wxyz'), False),
+    (('Sthrobewitching,ng', 'The Force Is Strong W ith You'), False),
+    (('of', '0987h654The quick brown fox jumps over the lazy dog21'), False),
+    (('12o345lohedrWl!o', 'The Force Is Strongabcdefvwxyz Wityh You'), False),
+    (('mayy', 'mayy'), True),
+    (('12345You678990', '122345678990'), False),
+    (('cdcd', 'ccd5143241cd'), False),
+    (('mayyy', '12o345lohedrWl!o'), False),
+    (('The hqudazThebrGod! Amaze a sgazelle!tunning, gorgeous, bewitching, and dazzling s peZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZeZZeZeZeZWitheZeZeZeZeZeZeZeZeZeZeZecter of my gdear gazelle!own fox jumps over the lazy do', 'hquick'), False),
+    (('bewitching,', 'God!'), False),
+]

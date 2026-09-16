@@ -1,0 +1,16 @@
+{
+  "id": "humanevalfix_020",
+  "entry_point": "find_closest_elements",
+  "language": "python",
+  "prompt": "Implement the function below.\n\nfrom typing import List, Tuple\n\n\ndef find_closest_elements(numbers: List[float]) -> Tuple[float, float]:\n    \"\"\" From a supplied list of numbers (of length at least two) select and return two that are the closest to each\n    other and return them in order (smaller number, larger number).\n    >>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.2])\n    (2.0, 2.2)\n    >>> find_closest_elements([1.0, 2.0, 3.0, 4.0, 5.0, 2.0])\n    (2.0, 2.0)\n    \"\"\"\n",
+  "float_tolerance": 1e-09,
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/20",
+    "humaneval_id": "HumanEval/20",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

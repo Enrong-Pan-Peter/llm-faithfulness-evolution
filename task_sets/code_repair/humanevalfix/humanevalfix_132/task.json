@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_132",
+  "entry_point": "is_nested",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef is_nested(string):\n    '''\n    Create a function that takes a string as input which contains only square brackets.\n    The function should return True if and only if there is a valid subsequence of brackets \n    where at least one bracket in the subsequence is nested.\n\n    is_nested('[[]]') ➞ True\n    is_nested('[]]]]]]][[[[[]') ➞ False\n    is_nested('[][]') ➞ False\n    is_nested('[]') ➞ False\n    is_nested('[[][]]') ➞ True\n    is_nested('[[]][[') ➞ True\n    '''\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/132",
+    "humaneval_id": "HumanEval/132",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

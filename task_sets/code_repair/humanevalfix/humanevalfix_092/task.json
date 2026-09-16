@@ -1,0 +1,15 @@
+{
+  "id": "humanevalfix_092",
+  "entry_point": "any_int",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef any_int(x, y, z):\n    '''\n    Create a function that takes 3 numbers.\n    Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.\n    Returns false in any other cases.\n    \n    Examples\n    any_int(5, 2, 7) ➞ True\n    \n    any_int(3, 2, 2) ➞ False\n\n    any_int(3, -2, 1) ➞ True\n    \n    any_int(3.6, -2.2, 2) ➞ False\n  \n\n    \n    '''\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/92",
+    "humaneval_id": "HumanEval/92",
+    "bug_type": "missing logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+"
+  }
+}

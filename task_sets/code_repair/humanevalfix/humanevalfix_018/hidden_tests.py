@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('cacacacac', 'cac'), 4),
+    (('', 'x'), 0),
+    (('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB', 'racecarapenapapayapineapple'), 0),
+    (('taaaaofabbbbtheaelit.aaahe', 'The quick brown fox jumps over the lazy dog.'), 0),
+    (('zz', 'bbb'), 0),
+    (('adiamet,piscing', 'bannana'), 0),
+    (('cacccccc', 'aaaaofabbbbtheaelit.aaa'), 0),
+    (('aqeuicaccfoxsit amet, consetctetur adiamet,pistcing elit.et,', 'aquicaccfoxsit amet, consetctetur adiamet,pistcing elit.et,'), 0),
+    (('anracecarapenapapayapineapplea', 'lazzy'), 0),
+    (('.dogfox', 'dogfox.'), 0),
+    (('elit.aconsecur', 'elit.aconsecur'), 1),
+    (('tAAAAAAAAAAdolorAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhe', 'tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABhe'), 0),
+    (('racecarapenanpapayapineapeple', 'an'), 1),
+    (('apppp', 'appp'), 1),
+    (('of', 'brown'), 0),
+    (('Lorem ipsum dolor sit amet, consetctetur adipiscilng eolit.', 'Lorem ipsum dolor sit amet, consetctetur adipiscilng elit.'), 0),
+    (('coonsecteturr', 'consencteturr'), 0),
+    (('racecarrapenapapayapineapple', 'racecarrapenapapayapineapple'), 1),
+    (('cc', 'cc'), 1),
+    (('fobccacx', 'aaAAAAAaaaaaabaaaabrownaaaaaaaAaaa'), 0),
+    (('consecteturr', 'racecarapenaapapayapineapple'), 0),
+    (('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB', 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB'), 0),
+]

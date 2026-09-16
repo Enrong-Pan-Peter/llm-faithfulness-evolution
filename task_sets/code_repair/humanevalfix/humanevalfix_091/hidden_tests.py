@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('I feel good today. I will be productive. will kill It',), 2),
+    (('Hello world',), 0),
+    (('bIt',), 0),
+    (('notcoudld,',), 0),
+    (('timefeeling',), 0),
+    (('WhThe train is always crowded during rush hour. I have to stand the whole wayt to work. I wish I could just drive, but parking is too expensive. It is a real pain.o',), 2),
+    (('also',), 0),
+    (('Yesterday was really busy for mehope. nI had to attend three meetings and complete a Ugh!report.i However, Howcever,yaged to back.go for a run. I love being active!',), 1),
+    (('run.liher',), 0),
+    (('urun.l',), 0),
+    (('Yesterday was re ally busy for me. I had to attened three knows!meetings and compleete a report. However, I still managed to go for a run. I love being active!',), 2),
+    (('I enjoy reading books. TheyI think I want to try coonking something new for dinner tonight. Do you have any favorite recipes? help me learn new things.',), 1),
+    (('active!utt',), 0),
+    (('extensioen.',), 0),
+    (('Yesterday was really busy for me. I had t three meetinkgo for a run. mI love being active!',), 1),
+    (('opbportbeachunity',), 0),
+    (('Hello world. I am feeling good today. Are the  plants green? Who knows! I beto utside.',), 2),
+    (('sstorte',), 0),
+    (('I am very happy today. I ltoveThe movie we saw last night was really gooThe movie we saw last night was really goodThe movie we staw last night was really good, but I think I would have enjoI am very happy today. I love spending time with my friiends.yed it more if I had some popicorn. Do you like popcorn?, but?d, but I think I would have enjoyed it more if I had some popicorn. oDo you like popcorn? s',), 3),
+    (('had',), 0),
+    (('I have a lot of work to do tlodaya. I wish kI could take aI think I want to try cooking somtething new for dinner tonighThe movie we saw goodI forgot my phone in the car. Oh no, now I have to The movie we saw last night was really good, but I think I would have enjoyed it more if Ip had some popcorn. Do you like popcorn?and get rit., but I think oI would have enjoyed i t  popcorn?t. Do you have anoy favorite recipes? nap instead.',), 2),
+    (('ask',), 0),
+    (('Hello world. I am feeling goohd today. Are the plants green? Who knows! I bet It is hot outside.',), 2),
+]

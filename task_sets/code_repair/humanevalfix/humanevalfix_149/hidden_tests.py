@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((['aa', 'a', 'aaa'],), ['aa']),
+    ((['d', 'b', 'c', 'a'],), []),
+    ((['AI', 'ai', 'au'],), ['AI', 'ai', 'au']),
+    ((['abccccccc', 'def', 'ghi', 'mno'],), []),
+    ((['cccc', 'jklbc', 'ddd', 'rrssssssrrr', '', 'ee', 'zzzz', 'rrrrrr', 'sssssss', 'yy'],), ['', 'ee', 'yy', 'cccc', 'zzzz', 'rrrrrr']),
+    ((['abcd', 'jis', 'jkwrorlldl', 'efg', 'hi', 'jkworlldl', 'efgg', 'jkl', 'mno', 'jkl'],), ['hi', 'abcd', 'efgg', 'jkwrorlldl']),
+    ((['aa', 'aaa', 'bbbb', 'ddddd', 'eeeeee', 'aaa', 'aaa'],), ['aa', 'bbbb', 'eeeeee']),
+    ((['a', 'bc', 'kklmno', 'def', 'ghij', 'klmno'],), ['bc', 'ghij', 'kklmno']),
+    ((['stu', 'world', 'Progra', 'ee', 'jjis', 'awesome', 'Programmaaaaing', 'Python'],), ['ee', 'jjis', 'Progra', 'Python']),
+    ((['aaaa', 'bbb', 'PythworHeHellolloldnbbb', 'ghij', 'ccc', 'dddd', 'ee', 'ffffff'],), ['ee', 'aaaa', 'dddd', 'ghij', 'ffffff']),
+    ((['klisimno', 'rrrrrr', 'kklmno', 'def', 'klmno', 'kklmno'],), ['kklmno', 'kklmno', 'rrrrrr', 'klisimno']),
+    ((['aa', 'bbbb', 'eeee', 'ccccc', 'ddddd', 'eeeeee', 'aaa'],), ['aa', 'bbbb', 'eeee', 'eeeeee']),
+    ((['Hello', 'Programming', 'is', 'awesome'],), ['is']),
+    ((['aa', 'o', 'bbbb', 'Praogrammaaaaing', 'bb', 'b', 'bbbb'],), ['aa', 'bb', 'bbbb', 'bbbb', 'Praogrammaaaaing']),
+    ((['b', 'isi', 'jkl', 'abcc', 'b'],), ['abcc']),
+    ((['klemonklmno', 'aa', 'aaa', 'bbbbbbb', 'e', 'ccccc', 'jkl', 'eeeeee', 'ajklbPython'],), ['aa', 'eeeeee']),
+    ((['adatep', 'ap', 'banana', 'date', 'grape', 'dateddded', 'lemon', 'banacheyrryn', 'ap', 'lemon'],), ['ap', 'ap', 'date', 'adatep', 'banana', 'banacheyrryn']),
+    ((['aaa', 'aa', 'a', 'bbb', 'bb', 'b'],), ['aa', 'bb']),
+    ((['cherry', 'apple', 'banana', 'kiiwi', 'cheyrry', 'grape', 'kiwi', 'yystu', 'lemon', 'cherry'],), ['kiwi', 'banana', 'cherry', 'cherry']),
+    ((['a', 'zz', 'a'],), ['zz']),
+    ((['bb', 'cccc', 'ddd', 'ddd'],), ['bb', 'cccc']),
+    ((['dbananaef', 'a', 'df', 'Python', 'ghij', 'kiwi'],), ['df', 'ghij', 'kiwi', 'Python']),
+    ((['abcd', 'hi', 'jkkl', 'aa', 'mno'],), ['aa', 'hi', 'abcd', 'jkkl']),
+]

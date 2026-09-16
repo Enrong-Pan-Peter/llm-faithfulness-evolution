@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((['x', 'y', 'z', 'w', 'k'],), 'xyzwk'),
+    ((['123', '456', '789', '10', '11', '12', '13', '14', '15', '16', '17', '18', '18', '456'],), '12345678910111213141516171818456'),
+    ((['🐻', '🦁', '🦊', '9', '🐯', '🦛', '17', '🦌', '🦉', '🦜', '🐢', '🐻', '🐨', '🐨', '🦊'],), '🐻🦁🦊9🐯🦛17🦌🦉🦜🐢🐻🐨🐨🦊'),
+    ((['123', '456', '10', '11', '12', '13', '14', '15', '1', '17', '14'],), '12345610111213141511714'),
+    ((['world', 'banana', 'orang'],), 'worldbananaorang'),
+    ((['How', 'much', 'wood', 'would', 'a', 'chuck', 'a', 'aa', 'woodchuck', 'could', 'wood'],), 'Howmuchwoodwouldachuckaaawoodchuckcouldwood'),
+    ((['😀', '🌞', 'this', '🧐', 'spaces', '★', '!'],), '😀🌞this🧐spaces★!'),
+    ((['i456banana', 'ppythonhelloythoon', 'a', 'i456banana'],), 'i456bananappythonhelloythoonai456banana'),
+    ((['jum', 'this\nstring\nhas\nmultiple\nnewlines', 'ju🦌8mps', 'jumps', 'this\nstring\nhas\nmultiple\nnewlins', 'much', 'jumps', 'jums', 'jum'],), 'jumthis\nstring\nhas\nmultiple\nnewlinesju🦌8mpsjumpsthis\nstring\nhas\nmultiple\nnewlinsmuchjumpsjumsjum'),
+    ((['t!!his\nstring\nhas\nmultiple\nnewlines', 'hello\nworld', 'this\nstring\nhas\nmultiple\nnewlines', 'hel\nworld', 'jumps', 't!!his\nstring\nhas\nmultiple\nnewlines'],), 't!!his\nstring\nhas\nmultiple\nnewlineshello\nworldthis\nstring\nhas\nmultiple\nnewlineshel\nworldjumpst!!his\nstring\nhas\nmultiple\nnewlines'),
+    ((['How', 'much', 'would', 'a', 'woodchuck', 'chuck', 'if', 'if', 'woodchuck', 'could', 'chuck', 'wowoquvSickod', 'much', 'woodchuock', 'would'],), 'HowmuchwouldawoodchuckchuckififwoodchuckcouldchuckwowoquvSickodmuchwoodchuockwould'),
+    ((['🦁', '🐼', '🦛', 'multipule', '🦉', '🦜', '🐢', 'wooo🐼charactersd', '🦌'],), '🦁🐼🦛multipule🦉🦜🐢wooo🐼charactersd🦌'),
+    ((['123', '456', '10', '11', '13', '14', '15', '16', '17', '18'],), '1234561011131415161718'),
+    ((['How', 'much', 'wowod', 'a', 'woodchuck', 'chuck', 'if', 'a', 'woodchuck', 'could', 'chuck', 'How'],), 'HowmuchwowodawoodchuckchuckifawoodchuckcouldchuckHow'),
+    ((['😀', '🌞', '$', '🧐', '🐿️', '★', '🌈', '!'],), '😀🌞$🧐🐿️★🌈!'),
+    ((['Hello123orld!', 'f'],), 'Hello123orld!f'),
+    ((['🐻', '🦊', 'quick', '🐼', '🐯', '🦛', '188', '🦌', '🦢', 'this\nstring\nhas\nmulntiple\nnewlines', '🦉', 'could🐢', '!!', '🐢', '🦉'],), '🐻🦊quick🐼🐯🦛188🦌🦢this\nstring\nhas\nmulntiple\nnewlines🦉could🐢!!🐢🦉'),
+    ((['🐻', '🦁', '🦊', '🐼', '🐨', '🐯', '🦛', '🦌', '🦢', '🦜', '🐢', '🦊'],), '🐻🦁🦊🐼🐨🐯🦛🦌🦢🦜🐢🦊'),
+    ((['1', '2', '3', '2🦌', '4', '5', '6', '7', '8', '9', '10'],), '1232🦌45678910'),
+    ((['🐻', '🦁', '🦊', '🐼', '🐨', '🐯', '🦛', '🦌', '🦉', '🦜', '🐢', '🦉', '🐻'],), '🐻🦁🦊🐼🐨🐯🦛🦌🦉🦜🐢🦉🐻'),
+    ((['Hello123orld!', 'Hello, World!', 'Hello, World!', 'Hello, World!', 'Hello123orld!', 'Hello123orld!'],), 'Hello123orld!Hello, World!Hello, World!Hello, World!Hello123orld!Hello123orld!'),
+]

@@ -210,6 +210,13 @@ def test_humanevalfix_build_with_evalplus(tmp_path):
     assert longest.reference_source.startswith("from typing import List, Optional\n")
 
 
+def test_humanevalfix_reads_the_hub_parquet_file(tmp_path):
+    pytest.importorskip("pyarrow")
+    parquet = FIXTURES / "humanevalpack_python_subset.parquet"
+    report = build_humanevalfix_tasks(parquet, tmp_path / "hef", evalplus_path=PLUS, max_plus_hidden=3, numbers=[2])
+    assert [entry["id"] for entry in report.built] == ["humanevalfix_002"]
+
+
 def test_humanevalfix_build_without_evalplus_falls_back_to_assert_inputs(tmp_path):
     report = build_humanevalfix_tasks(PACK, tmp_path / "hef", numbers=[2, 12])
     assert [entry["id"] for entry in report.built] == ["humanevalfix_002", "humanevalfix_012"]

@@ -1,7 +1,8 @@
 requests>=2.31
 numpy>=1.26
 scipy>=1.11
-# optional: reliability-curve PNGs from scripts/rq1_report.py
+pyarrow>=15          # reads the HumanEvalPack parquet file
+# optional: reliability-curve PNGs from scripts/calibration_report.py
 matplotlib>=3.8
 # tests
 pytest>=8

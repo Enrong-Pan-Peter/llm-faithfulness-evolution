@@ -133,7 +133,9 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
     output_root = Path(args.output)
     output_root.mkdir(parents=True, exist_ok=True)
     if args.environment == "planning":
-        environments = load_planning_environments(Path(args.instances), args.task_ids)
+        environments = []
+        for path in args.instances:
+            environments.extend(load_planning_environments(Path(path), args.task_ids))
     else:
         environments = load_code_environments(Path(args.tasks), args.task_ids, args.runner_timeout)
     if not environments:
@@ -147,6 +149,7 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
         self_report=None if args.self_report is None else bool(args.self_report),
         rationale_channel=args.rationale_channel,
         max_generations=args.max_generations,
+        stop_at_success=None if args.stop_at_success is None else bool(args.stop_at_success),
     )
     base_settings = SearchSettings.from_env(**overrides)
     model_name = args.model or app_config.OLLAMA_MODEL
@@ -175,6 +178,7 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
                 "run_index": run_index,
                 "seed": seed,
                 "solved": result.solved,
+                "first_success_generation": result.first_success_generation,
                 "generations": result.generations,
                 "n_candidates": result.n_candidates,
                 "model_calls": result.model_calls,
@@ -226,7 +230,7 @@ def _aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("environment", choices=("planning", "code_repair"))
-    parser.add_argument("--instances", help="planning: JSON instance set (scripts/build_planning_instances.py)")
+    parser.add_argument("--instances", nargs="+", help="planning: one or more JSON instance sets (scripts/build_planning_instances.py)")
     parser.add_argument("--tasks", help="code_repair: directory of task directories (task_sets/code_repair/<set>)")
     parser.add_argument("--task-ids", nargs="*", default=None, help="subset of instance ids / task ids")
     parser.add_argument("--provider", default=app_config.LLM_PROVIDER, help="ollama | openai | anthropic | scripted")
@@ -242,6 +246,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--selection", choices=SELECTION_CHOICES, default=None)
     parser.add_argument("--rationale-channel", choices=RATIONALE_CHANNELS, default=None)
     parser.add_argument("--self-report", type=int, choices=(0, 1), default=None)
+    parser.add_argument("--stop-at-success", type=int, choices=(0, 1), default=None, help="1: stop after the first generation with a success (default); 0: run every generation")
     parser.add_argument("--runner-timeout", type=float, default=5.0, help="code_repair: seconds per test run")
     return parser
 

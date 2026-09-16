@@ -5,8 +5,12 @@ later generation selects ``survivors`` from the current pool (parents and
 offspring together), retires the rest for good, and gives every survivor
 ``offspring_per_parent`` mutation children, each from an operator drawn
 uniformly from the environment's S/M/ML/L ladder. Fitness is fixed at birth.
-The run stops at the first candidate that meets the environment's success
-event (as Contexto stops at rank 1) or after ``max_generations``.
+The run stops after the first generation in which a candidate meets the
+environment's success event (generation 0 and every later generation are
+always completed, so each run yields at least 15 graded, self-reported
+candidates), or after ``max_generations``. With ``stop_at_success`` off the
+search runs every generation regardless; ``SOLVED`` then reports the first
+generation with a success.
 
 Every distinct candidate text is graded once: a repeat proposal reuses the
 stored grade and records ``duplicate_of``, but stays an individual of its own
@@ -48,6 +52,7 @@ WORST_FITNESS = float("inf")
 @dataclass
 class SearchResult:
     solved: bool
+    first_success_generation: int | None
     generations: int
     best: Individual | None
     n_candidates: int
@@ -87,16 +92,22 @@ class EvolutionarySearch:
 
     def run(self) -> SearchResult:
         self._log_run_config()
-        solved = self._initial_population()
-        while not solved and self.generation < self.settings.max_generations:
+        first_success: int | None = 0 if self._initial_population() else None
+        while self.generation < self.settings.max_generations and not (
+            first_success is not None and self.settings.stop_at_success
+        ):
             self.generation += 1
             self._select()
-            solved = self._mutate()
+            if self._mutate() and first_success is None:
+                first_success = self.generation
+        solved = first_success is not None
         best = self.best_individual()
         summary = candidate_summary(self.everyone)
         summary.update(
             {
                 "generations": self.generation,
+                "first_success_generation": first_success,
+                "stop_at_success": self.settings.stop_at_success,
                 "best": best.summary() if best else None,
                 "model_calls": self.model.calls,
                 "model_failures": self.model.failures,
@@ -107,6 +118,7 @@ class EvolutionarySearch:
         self.logger.log(self.generation, "SOLVED" if solved else "FAILED", summary)
         return SearchResult(
             solved=solved,
+            first_success_generation=first_success,
             generations=self.generation,
             best=best,
             n_candidates=len(self.everyone),
@@ -165,8 +177,10 @@ class EvolutionarySearch:
     # ------------------------------------------------------- generation zero
 
     def _initial_population(self) -> bool:
+        """Propose the whole initial population; True when any candidate succeeded."""
         prompt = self.environment.initial_prompt(self_report=self.settings.self_report)
         self.environment.check_prompt(prompt)
+        succeeded = False
         for _ in range(self.settings.initial_population):
             parsed, raw, error = self.model.complete_json(prompt)
             child = self._make_individual(
@@ -174,9 +188,8 @@ class EvolutionarySearch:
                 rationale={"channel": "none", "text": "", "hash": None}, prospective=None,
             )
             self.logger.log(0, "INITIAL_CANDIDATE", {**child.event_details(), "method": self.environment.method})
-            if child.success:
-                return True
-        return False
+            succeeded = succeeded or child.success
+        return succeeded
 
     # -------------------------------------------------------------- selection
 
@@ -261,6 +274,8 @@ class EvolutionarySearch:
         return "", {"channel": "none", "text": "", "hash": None}, None
 
     def _mutate(self) -> bool:
+        """Give every survivor its children (the whole generation); True when any child succeeded."""
+        succeeded = False
         parents = sorted(self.pool, key=lambda individual: individual.fitness)
         for parent in parents:
             for _ in range(self.settings.offspring_per_parent):
@@ -276,9 +291,8 @@ class EvolutionarySearch:
                 details = child.event_details()
                 details.update({"operator_mix": self.settings.operator_mix, "method": self.environment.method})
                 self.logger.log(self.generation, "OPERATOR_SAMPLED", details)
-                if child.success:
-                    return True
-        return False
+                succeeded = succeeded or child.success
+        return succeeded
 
     # --------------------------------------------------------- individuals
 

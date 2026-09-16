@@ -12,7 +12,12 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts import environment_calibration, environment_rationale_intervention, environment_selection_response  # noqa: E402
+from scripts import (  # noqa: E402
+    environment_calibration,
+    environment_rationale_intervention,
+    environment_selection_response,
+    planning_direct_solve_check,
+)
 from search import run as search_run  # noqa: E402
 
 PILOT = ROOT / "task_sets" / "planning" / "pilot_3to5.json"
@@ -108,3 +113,14 @@ def test_code_run_summary(code_traces):
     assert summary["environment"] == "code_repair" and summary["settings"]["rationale_channel"] == "prospective"
     events = json.loads(sorted(code_traces.glob("ea_code_operators_*.json"))[0].read_text())
     assert events[0]["details"]["task"]["source"]["benchmark"] == "quixbugs"
+
+
+def test_planning_direct_solve_check(tmp_path):
+    instance_id = json.loads(PILOT.read_text())["instances"][0]["instance_id"]
+    planning_direct_solve_check.main([
+        "--instances", str(PILOT), "--task-ids", instance_id, "--provider", "scripted", "--samples", "2",
+        "--output", str(tmp_path / "dsc"),
+    ])
+    summary = json.loads((tmp_path / "dsc" / "direct_solve_check.json").read_text())
+    assert summary["n_instances"] == 1 and summary["rows"][0]["samples"] == 2
+    assert summary["rows"][0]["band"] in ("easy", "medium", "hard")

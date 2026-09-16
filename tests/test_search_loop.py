@@ -76,6 +76,10 @@ class TestSettings:
         settings = SearchSettings.from_env(max_generations=2)
         assert settings.rationale_channel == "prospective" and settings.selection == "random" and settings.max_generations == 2
 
+    def test_empty_random_seed_means_zero(self, monkeypatch):
+        monkeypatch.setenv("RANDOM_SEED", "")
+        assert SearchSettings.from_env().random_seed == 0
+
     def test_self_report_is_on_unless_switched_off(self, monkeypatch):
         monkeypatch.delenv("SELF_REPORT", raising=False)
         assert SearchSettings.from_env().self_report is True
@@ -165,11 +169,28 @@ class TestLoop:
             assert c["duplicate_of"] == first_ids[c["candidate_key"]]
             assert c["fitness"] == next(o["fitness"] for o in candidates if o["child_id"] == c["duplicate_of"])
 
-    def test_stops_at_first_success(self):
+    def test_stops_after_the_generation_with_the_first_success(self):
         search, result, _ = run_planning(max_generations=10, solve_probability=1.0)
-        assert result.solved and result.generations == 1
+        assert result.solved and result.generations == 1 and result.first_success_generation == 1
         assert result.trace[-1]["event"] == "SOLVED" and result.trace[-1]["details"]["best"]["success"]
-        assert sum(1 for e in result.trace if e["event"] == "OPERATOR_SAMPLED") == 1
+        # the whole generation is completed, not cut at the first success
+        assert sum(1 for e in result.trace if e["event"] == "OPERATOR_SAMPLED") == 10
+        assert sum(1 for e in result.trace if e["event"] == "INITIAL_CANDIDATE") == 15
+
+    def test_initial_population_is_always_completed(self):
+        env, optimal = planning_env()
+        model = ScriptedModel(lambda prompt: {"plan": optimal, "basis_words": [], "reason": "", "predicted_bucket": "complete", "predicted_closeness": 0.9})
+        result = EvolutionarySearch(env, model, SearchSettings(max_generations=5)).run()
+        assert result.solved and result.first_success_generation == 0 and result.generations == 0
+        assert model.calls == 15 and sum(1 for e in result.trace if e["event"] == "INITIAL_CANDIDATE") == 15
+
+    def test_stop_at_success_off_runs_every_generation(self):
+        env, optimal = planning_env()
+        model = ScriptedModel(lambda prompt: {"plan": optimal, "basis_words": [], "reason": "", "predicted_bucket": "complete", "predicted_closeness": 0.9})
+        result = EvolutionarySearch(env, model, SearchSettings(max_generations=3, stop_at_success=False)).run()
+        assert result.solved and result.first_success_generation == 0 and result.generations == 3
+        assert result.trace[-1]["event"] == "SOLVED" and result.trace[-1]["details"]["first_success_generation"] == 0
+        assert sum(1 for e in result.trace if e["event"] == "SELECT") == 3
 
     def test_random_selection_is_seed_stable_and_ignores_fitness(self):
         _, first, _ = run_planning(selection="random", max_generations=2, seed=5)

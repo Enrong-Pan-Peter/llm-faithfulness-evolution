@@ -5,7 +5,7 @@ description = "Evaluating LLM search-operator self-reports against environment f
 readme = "README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
-dependencies = ["requests>=2.31", "numpy>=1.26", "scipy>=1.11"]
+dependencies = ["requests>=2.31", "numpy>=1.26", "scipy>=1.11", "pyarrow>=15"]
 
 [project.optional-dependencies]
 plots = ["matplotlib>=3.8"]

@@ -41,7 +41,16 @@ def load_dotenv(path: str | Path = ".env") -> None:
             continue
 
         key, value = line.split("=", 1)
-        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+        os.environ.setdefault(key.strip(), _strip_inline_comment(value))
+
+
+def _strip_inline_comment(value: str) -> str:
+    """``qwen3:14b   # study model`` -> ``qwen3:14b`` (a ``#`` preceded by whitespace starts a comment)."""
+    for marker in (" #", "\t#"):
+        index = value.find(marker)
+        if index != -1:
+            value = value[:index]
+    return value.strip().strip('"').strip("'")
 
 
 load_dotenv()

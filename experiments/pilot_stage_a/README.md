@@ -30,20 +30,35 @@ python scripts\environment_calibration.py "traces\smoke\planning\*.json" --outpu
 (`bw03_s6890` is the first instance of the pilot set; any id from
 `task_sets\planning\pilot_3to5.json` works.)
 
-## 1. Planning, five instances, two runs each, five generations
+## 1. Planning: find instances the model cannot solve in one shot, then search
+
+qwen3:14b solved every 3-block pilot instance at the first attempt (the first
+batch ended in generation 0 with one candidate each), so the pilot instances
+must come from a one-shot difficulty check. Three attempts per instance on the
+two sets (43 instances, about 130 calls, 1–2 hours):
+
+```
+python scripts\planning_direct_solve_check.py --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json --provider ollama --model qwen3:14b --samples 3 --output out\pilot_a\planning_direct_solve
+Get-Content out\pilot_a\planning_direct_solve\direct_solve_check.csv
+```
+
+Pick five instances from the `medium` band (solve rate 0.2–0.8; fall back to
+`hard` ones with the highest mean progress) and put their ids in the command
+below. Two runs each, five generations; a generation is 10 candidate calls, so
+at 20–60 s per call one run is 25–60 minutes and the batch several hours:
 
 ```
 $env:RATIONALE_CHANNEL="inherited"
-python -m search.run planning --instances task_sets\planning\pilot_3to5.json `
-  --task-ids bw03_s0663 bw03_s7961 bw04_s3578 bw04_s8268 bw05_s9861 `
+python -m search.run planning --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json `
+  --task-ids <five ids from the medium band> `
   --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 0 `
   --label pilotA_planning --output traces\pilot_a\planning
 ```
 
-Expected time: each generation is 10 candidate calls (plus 10 strategy calls
-with `RATIONALE_CHANNEL=prospective`); at roughly 10–20 s per call on the
-3090 that is 2–4 minutes per generation, so about 3–4 hours for the batch.
-Run it in the background and look at the first trace before the batch ends:
+Every generation is completed before the run stops (a run always yields the 15
+initial candidates, and the generation in which the first success appears is
+finished); `--stop-at-success 0` runs all generations regardless. Look at the
+first trace before the batch ends:
 
 ```
 python scripts\environment_calibration.py "traces\pilot_a\planning\*.json" --output-dir out\pilot_a\planning_calibration
@@ -55,7 +70,7 @@ paper's cross-environment prediction is about):
 
 ```
 $env:RATIONALE_CHANNEL="prospective"
-python -m search.run planning --instances task_sets\planning\pilot_3to5.json --task-ids bw03_s0663 bw04_s3578 `
+python -m search.run planning --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json --task-ids <two of the five ids> `
   --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 10 `
   --label pilotA_planning_prospective --output traces\pilot_a\planning_prospective
 ```
@@ -107,9 +122,9 @@ and `filler` are the natural-rationale conditions.
 ## 4. Controls, one instance each (only if 1–3 look right)
 
 ```
-python -m search.run planning --instances task_sets\planning\pilot_3to5.json --task-ids bw04_s3578 --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 20 --selection random --label pilotA_random --output traces\pilot_a\planning_random_selection
-python -m search.run planning --instances task_sets\planning\pilot_3to5.json --task-ids bw04_s3578 --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 30 --selection report_rewarded --label pilotA_report_rewarded --output traces\pilot_a\planning_report_rewarded
-python -m search.run planning --instances task_sets\planning\pilot_3to5.json --task-ids bw04_s3578 --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 40 --self-report 0 --label pilotA_noreport --output traces\pilot_a\planning_noreport
+python -m search.run planning --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json --task-ids <one of the five ids> --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 20 --selection random --label pilotA_random --output traces\pilot_a\planning_random_selection
+python -m search.run planning --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json --task-ids <one of the five ids> --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 30 --selection report_rewarded --label pilotA_report_rewarded --output traces\pilot_a\planning_report_rewarded
+python -m search.run planning --instances task_sets\planning\pilot_3to5.json task_sets\planning\pilot_hard_5to8.json --task-ids <one of the five ids> --provider ollama --model qwen3:14b --runs-per-task 2 --max-generations 5 --seed 40 --self-report 0 --label pilotA_noreport --output traces\pilot_a\planning_noreport
 ```
 
 ## 5. Contexto additions (no re-run of the submitted batches)

@@ -5,8 +5,9 @@ Hugging Face hub, MIT) adds to each of the 164 HumanEval problems a
 ``buggy_solution``: the canonical solution with one human-inserted bug, tagged
 with ``bug_type`` (missing logic, excess logic, value/operator/variable/
 function misuse) and ``failure_symptoms`` (incorrect output, stack overflow,
-infinite loop). Rows are read from the ``humanevalpack.jsonl`` file of the
-Python split (fields ``task_id``, ``prompt``, ``declaration``,
+infinite loop). Rows are read from the Python split as published on the hub
+(``python/test-00000-of-00001.parquet``; a ``.jsonl`` / ``.jsonl.gz`` export
+of the same rows also works) with the fields ``task_id``, ``prompt``, ``declaration``,
 ``canonical_solution``, ``buggy_solution``, ``bug_type``,
 ``failure_symptoms``, ``entry_point``, ``test``, ``example_test``, ...).
 
@@ -59,9 +60,12 @@ def _open_text(path: Path):
 
 
 def read_jsonl(path: Path | str) -> list[dict[str, Any]]:
-    """Read a ``.jsonl`` or ``.jsonl.gz`` file into a list of dictionaries."""
+    """Read a ``.jsonl``, ``.jsonl.gz`` or ``.parquet`` file into a list of dictionaries."""
+    path = Path(path)
+    if path.suffix == ".parquet":
+        return _read_parquet(path)
     rows: list[dict[str, Any]] = []
-    with _open_text(Path(path)) as handle:
+    with _open_text(path) as handle:
         for line_number, line in enumerate(handle, start=1):
             line = line.strip()
             if not line:
@@ -73,6 +77,22 @@ def read_jsonl(path: Path | str) -> list[dict[str, Any]]:
             if not isinstance(row, dict):
                 raise HumanEvalFixFormatError(f"{path}:{line_number}: expected an object")
             rows.append(row)
+    return rows
+
+
+def _read_parquet(path: Path) -> list[dict[str, Any]]:
+    try:
+        import pyarrow.parquet as parquet  # type: ignore[import-not-found]
+    except ImportError as exc:  # pragma: no cover - depends on the environment
+        raise HumanEvalFixFormatError(
+            f"{path}: reading parquet needs the pyarrow package (pip install pyarrow)"
+        ) from exc
+    table = parquet.read_table(path)
+    rows = table.to_pylist()
+    for row in rows:
+        for key, value in list(row.items()):
+            if isinstance(value, bytes):
+                row[key] = value.decode("utf-8")
     return rows
 
 

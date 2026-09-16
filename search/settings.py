@@ -11,6 +11,8 @@ Contexto default is off for the legacy no-report condition); set
   ``prospective`` = a strategy / diagnosis written by a separate call before
   the candidate call; ``corrective_hint`` = one sentence of exact feedback, the
   control; ``none`` = empty slot);
+* ``STOP_AT_SUCCESS`` (default 1): stop after the first generation that
+  contains a successful candidate; 0 runs every generation regardless.
 * ``SELECTION=report_rewarded``: the positive control for the selection
   question. Survivors are the individuals whose self-report agreed best with
   their outcome (smallest |predicted_closeness - 1{success}|; an unparsed
@@ -47,6 +49,7 @@ class SearchSettings:
     max_generations: int = 10
     random_seed: int = 0
     operator_mix: str = "fixed_uniform"
+    stop_at_success: bool = True
 
     def __post_init__(self) -> None:
         if self.selection not in SELECTION_CHOICES:
@@ -90,7 +93,8 @@ class SearchSettings:
             self_report=os.getenv("SELF_REPORT", "1").strip().lower() not in ("0", "false", "no", "off", ""),
             rationale_channel=_env_choice("RATIONALE_CHANNEL", "inherited", RATIONALE_CHANNELS),
             max_generations=app_config.MAX_GENERATIONS,
-            random_seed=int(os.getenv("RANDOM_SEED", "0")),
+            random_seed=int(os.getenv("RANDOM_SEED", "").strip() or "0"),
+            stop_at_success=os.getenv("STOP_AT_SUCCESS", "1").strip().lower() not in ("0", "false", "no", "off"),
         )
         values.update({key: value for key, value in overrides.items() if value is not None})
         return cls(**values)

@@ -16,9 +16,10 @@ seeded program and the development tests.
 
 ```
 New-Item -ItemType Directory -Force data\benchmarks | Out-Null
-Invoke-WebRequest -Uri "https://huggingface.co/datasets/bigcode/humanevalpack/resolve/main/data/python/data/humanevalpack.jsonl" -OutFile data\benchmarks\humanevalpack_python.jsonl
+pip install pyarrow
+Invoke-WebRequest -Uri "https://huggingface.co/datasets/bigcode/humanevalpack/resolve/main/python/test-00000-of-00001.parquet" -OutFile data\benchmarks\humanevalpack_python.parquet
 Invoke-WebRequest -Uri "https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz" -OutFile data\benchmarks\HumanEvalPlus.jsonl.gz
-python scripts\build_code_repair_tasks.py humanevalfix --source data\benchmarks\humanevalpack_python.jsonl --evalplus data\benchmarks\HumanEvalPlus.jsonl.gz --output task_sets\code_repair\humanevalfix
+python scripts\build_code_repair_tasks.py humanevalfix --source data\benchmarks\humanevalpack_python.parquet --evalplus data\benchmarks\HumanEvalPlus.jsonl.gz --output task_sets\code_repair\humanevalfix
 ```
 
 The build runs every reference and seeded program in the sandboxed runner

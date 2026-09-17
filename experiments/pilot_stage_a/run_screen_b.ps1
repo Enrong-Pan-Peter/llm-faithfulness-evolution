@@ -7,17 +7,29 @@
 # solve rates on harder material: deep Blocksworld instances (5-10 blocks,
 # plans of 14+ actions) and benchmark programs with extra injected defects.
 # Results go to out\screen_b\.
+#
+# Step 0 unpacks the prebuilt code task sets (humanevalfix rebuilt with the
+# hidden-test leak fix, humanevalfix_d3, quixbugs_d3, quixbugs_d5) from
+# data\benchmarks\code_task_sets_2026-09-17.zip when that file is present;
+# nothing is downloaded or built.
 
 $ErrorActionPreference = "Stop"
 $model = "qwen3:14b"
 New-Item -ItemType Directory -Force out\screen_b | Out-Null
 Start-Transcript -Path out\screen_b\transcript.txt -Append
 
-Write-Host "=== 0. rebuild the code task sets (no GPU, a few minutes)"
-python scripts\build_code_repair_tasks.py humanevalfix --source data\benchmarks\humanevalpack_python.parquet --evalplus data\benchmarks\HumanEvalPlus.jsonl.gz --output task_sets\code_repair\humanevalfix
-python scripts\build_code_repair_tasks.py quixbugs --source data\benchmarks\QuixBugs --output task_sets\code_repair\quixbugs_d3 --extra-defects 3
-python scripts\build_code_repair_tasks.py quixbugs --source data\benchmarks\QuixBugs --output task_sets\code_repair\quixbugs_d5 --extra-defects 5
-python scripts\build_code_repair_tasks.py humanevalfix --source data\benchmarks\humanevalpack_python.parquet --evalplus data\benchmarks\HumanEvalPlus.jsonl.gz --output task_sets\code_repair\humanevalfix_d3 --extra-defects 3
+Write-Host "=== 0. unpack the prebuilt code task sets (seconds)"
+$zip = "data\benchmarks\code_task_sets_2026-09-17.zip"
+if (Test-Path $zip) {
+    foreach ($name in "humanevalfix", "humanevalfix_d3", "quixbugs_d3", "quixbugs_d5") {
+        if (Test-Path "task_sets\code_repair\$name") { Remove-Item -Recurse -Force "task_sets\code_repair\$name" }
+    }
+    Expand-Archive -Path $zip -DestinationPath task_sets\code_repair -Force
+}
+foreach ($name in "humanevalfix", "humanevalfix_d3", "quixbugs_d3", "quixbugs_d5") {
+    $n = (Get-ChildItem "task_sets\code_repair\$name" -Directory).Count
+    Write-Host "    $name : $n tasks"
+}
 
 Write-Host "=== 1. planning: 39 deep instances x 8 direct attempts (about 4 h)"
 python scripts\planning_direct_solve_check.py --instances task_sets\planning\screen_5to10.json --provider ollama --model $model --samples 8 --output out\screen_b\planning_screen_5to10

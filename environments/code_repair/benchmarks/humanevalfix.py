@@ -219,6 +219,8 @@ def build_humanevalfix_tasks(
     numbers: list[int] | None = None,
     timeout_s: float = DEFAULT_TIMEOUT_S,
     memory_mb: int | None = DEFAULT_MEMORY_MB,
+    extra_defects: int = 0,
+    defect_seed: int = 0,
 ) -> BuildReport:
     """Convert HumanEvalFix problems (all, or ``numbers``) into task directories."""
     output_root = Path(output_root)
@@ -239,11 +241,16 @@ def build_humanevalfix_tasks(
         if built is None:
             report.rejected.append({"id": task_id, "reason": "no usable test inputs (reference produced no JSON outputs)"})
             continue
-        finish_task(built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb)
+        finish_task(
+            built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb,
+            extra_defects=extra_defects, defect_seed=defect_seed,
+        )
     extra = {
         "humanevalpack_path": str(humanevalpack_path),
         "evalplus_path": None if evalplus_path is None else str(evalplus_path),
         "max_plus_hidden": max_plus_hidden if evalplus_path else 0,
+        "extra_defects": extra_defects,
+        "defect_seed": defect_seed,
     }
     write_index(report, rule, extra)
     return report

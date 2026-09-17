@@ -38,7 +38,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--per-size", type=int, default=5)
     parser.add_argument("--seed", type=int, default=0, help="master seed of the set")
     parser.add_argument("--expansion-cap", type=int, default=DEFAULT_EXPANSION_CAP)
-    parser.add_argument("--min-optimal-length", type=int, default=4, help="drop instances solvable in fewer actions")
+    parser.add_argument("--min-optimal-length", type=int, default=4, help="drop instances solvable in fewer actions (the lower bound is used when the exact length is unknown)")
+    parser.add_argument("--allow-unsolved", action="store_true", help="keep instances whose exact search exceeds the cap (optimal_plan_length null; the run grades by goal count)")
     parser.add_argument("--output", required=True)
     args = parser.parse_args(argv)
 
@@ -47,15 +48,17 @@ def main(argv: list[str] | None = None) -> int:
     dropped = []
     for instance in instances:
         search = bfs_optimal_plan(instance.initial_state, instance.goal, expansion_cap=args.expansion_cap)
-        if search.plan is None:
+        bound = move_count_bound(instance.initial_state, instance.goal)
+        if search.plan is None and not args.allow_unsolved:
             dropped.append({"instance_id": instance.instance_id, "reason": "optimal search exceeded the expansion cap"})
             continue
-        if search.length is not None and search.length < args.min_optimal_length:
-            dropped.append({"instance_id": instance.instance_id, "reason": f"optimal plan shorter than {args.min_optimal_length} actions"})
+        known_length = search.length if search.plan is not None else bound.actions_lower_bound
+        if known_length < args.min_optimal_length:
+            dropped.append({"instance_id": instance.instance_id, "reason": f"plan shorter than {args.min_optimal_length} actions ({'exact' if search.plan is not None else 'lower bound'})"})
             continue
-        bound = move_count_bound(instance.initial_state, instance.goal)
         record = instance.to_dict()
-        record["optimal_plan_length"] = search.length
+        record["optimal_plan_length"] = search.length if search.plan is not None else None
+        record["optimal_length_known"] = search.plan is not None
         record["blocks_to_move"] = bound.blocks_to_move
         record["actions_lower_bound"] = bound.actions_lower_bound
         records.append(record)
@@ -72,8 +75,10 @@ def main(argv: list[str] | None = None) -> int:
     path = Path(args.output)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
-    lengths = [record["optimal_plan_length"] for record in records]
-    print(f"{len(records)} instances -> {path} (optimal plan length {min(lengths)}..{max(lengths)}); dropped {len(dropped)}")
+    lengths = [record["optimal_plan_length"] for record in records if record["optimal_plan_length"] is not None]
+    unknown = sum(1 for record in records if record["optimal_plan_length"] is None)
+    span = f"optimal plan length {min(lengths)}..{max(lengths)}" if lengths else "no exact lengths"
+    print(f"{len(records)} instances -> {path} ({span}; {unknown} with unknown exact length); dropped {len(dropped)}")
     return 0
 
 

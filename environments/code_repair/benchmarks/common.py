@@ -22,6 +22,7 @@ the hidden set is empty, or when ``validate_task`` finds a problem.
 from __future__ import annotations
 
 import json
+import random
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Sequence
@@ -254,6 +255,53 @@ def _ensure_newline(text: str) -> str:
     return text if text.endswith("\n") else text + "\n"
 
 
+def keep_prompt_examples_out_of_hidden(built: BuiltTask) -> int:
+    """Move hidden cases whose call appears in the prompt to the development set.
+
+    Extra hidden inputs (EvalPlus) can coincide with a docstring example; a
+    prompt that mentions a hidden call would trip the leak guard at run time.
+    Returns the number of cases moved.
+    """
+    dev_keys = {_args_key(case.args) for case in built.dev_tests}
+    kept: list[TestCase] = []
+    moved = 0
+    for case in built.hidden_tests:
+        if render_call(built.entry_point, case.args) in built.prompt or repr((tuple(case.args), case.expected)) in built.prompt:
+            moved += 1
+            if _args_key(case.args) not in dev_keys:
+                built.dev_tests.append(case)
+                dev_keys.add(_args_key(case.args))
+        else:
+            kept.append(case)
+    built.hidden_tests = kept
+    return moved
+
+
+def add_extra_defects(
+    built: BuiltTask,
+    k: int,
+    seed: int,
+    *,
+    timeout_s: float = DEFAULT_TIMEOUT_S,
+    memory_mb: int | None = DEFAULT_MEMORY_MB,
+) -> bool:
+    """Inject ``k`` further defects into the seeded program (see ``defects``); False when impossible."""
+    from .defects import inject_defects
+
+    rng = random.Random(f"{seed}:{built.id}")
+    result = inject_defects(
+        built.reference_source, built.seeded_source, built.entry_point, built.dev_tests, built.hidden_tests, k, rng,
+        float_tolerance=built.float_tolerance, timeout_s=timeout_s, memory_mb=memory_mb,
+    )
+    if result is None:
+        return False
+    built.seeded_source, descriptions = result
+    built.id = f"{built.id}_d{k}"
+    built.source["extra_defects"] = descriptions
+    built.source["extra_defects_seed"] = seed
+    return True
+
+
 def finish_task(
     built: BuiltTask,
     root: Path,
@@ -261,8 +309,16 @@ def finish_task(
     *,
     timeout_s: float = DEFAULT_TIMEOUT_S,
     memory_mb: int | None = DEFAULT_MEMORY_MB,
+    extra_defects: int = 0,
+    defect_seed: int = 0,
 ) -> bool:
     """Write, reload and validate ``built``; record it in ``report``; remove it if rejected."""
+    moved = keep_prompt_examples_out_of_hidden(built)
+    if moved:
+        built.split_notes["moved_to_dev_because_in_prompt"] = moved
+    if extra_defects > 0 and not add_extra_defects(built, extra_defects, defect_seed, timeout_s=timeout_s, memory_mb=memory_mb):
+        report.rejected.append({"id": built.id, "reason": f"could not inject {extra_defects} extra defects", **built.split_notes})
+        return False
     if not built.hidden_tests:
         report.rejected.append({"id": built.id, "reason": "no hidden tests after the split", **built.split_notes})
         return False

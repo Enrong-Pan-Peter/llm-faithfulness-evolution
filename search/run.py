@@ -45,7 +45,17 @@ from .settings import SELECTION_CHOICES, SearchSettings  # noqa: E402
 # ----------------------------------------------------------------- environments
 
 
-def load_planning_environments(instances_path: Path, task_ids: list[str] | None) -> list[Any]:
+SMALL_EXPANSION_CAP = 20_000  # exact remaining distance only when the goal is close (large instances)
+
+
+def load_planning_environments(instances_path: Path, task_ids: list[str] | None, expansion_cap: int | None = None) -> list[Any]:
+    """Environments for the instances in a set file.
+
+    Instances whose exact optimal length is known (the builder's search
+    finished) keep the default search budget for the remaining distance;
+    larger instances use a small budget, so the distance is exact when the
+    goal is a few moves away and the goal count is used otherwise.
+    """
     from environments.planning.blocksworld import Instance
     from environments.planning.search_adapter import PlanningSearchEnvironment
 
@@ -57,7 +67,9 @@ def load_planning_environments(instances_path: Path, task_ids: list[str] | None)
         instance = Instance.from_dict(record)
         if wanted is not None and instance.instance_id not in wanted:
             continue
-        environments.append(PlanningSearchEnvironment(instance, optimal_length=record.get("optimal_plan_length")))
+        optimal = record.get("optimal_plan_length")
+        cap = expansion_cap if expansion_cap is not None else (None if optimal is not None else SMALL_EXPANSION_CAP)
+        environments.append(PlanningSearchEnvironment(instance, optimal_length=optimal, expansion_cap=cap))
     return environments
 
 
@@ -135,7 +147,7 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
     if args.environment == "planning":
         environments = []
         for path in args.instances:
-            environments.extend(load_planning_environments(Path(path), args.task_ids))
+            environments.extend(load_planning_environments(Path(path), args.task_ids, args.expansion_cap))
     else:
         environments = load_code_environments(Path(args.tasks), args.task_ids, args.runner_timeout)
     if not environments:
@@ -248,6 +260,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--self-report", type=int, choices=(0, 1), default=None)
     parser.add_argument("--stop-at-success", type=int, choices=(0, 1), default=None, help="1: stop after the first generation with a success (default); 0: run every generation")
     parser.add_argument("--runner-timeout", type=float, default=5.0, help="code_repair: seconds per test run")
+    parser.add_argument("--expansion-cap", type=int, default=None, help="planning: search budget for the exact remaining distance (default: full for instances with a known optimal length, small otherwise)")
     return parser
 
 

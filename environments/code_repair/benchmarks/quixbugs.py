@@ -124,6 +124,8 @@ def build_quixbugs_tasks(
     names: list[str] | None = None,
     timeout_s: float = DEFAULT_TIMEOUT_S,
     memory_mb: int | None = DEFAULT_MEMORY_MB,
+    extra_defects: int = 0,
+    defect_seed: int = 0,
 ) -> BuildReport:
     """Convert every eligible QuixBugs program (or ``names``) into task directories."""
     root = Path(quixbugs_root)
@@ -135,8 +137,11 @@ def build_quixbugs_tasks(
         except (QuixBugsFormatError, SyntaxError, OSError) as exc:
             report.rejected.append({"id": f"{BENCHMARK}_{name}", "reason": str(exc)})
             continue
-        finish_task(built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb)
-    write_index(report, rule, {"source_root": str(root)})
+        finish_task(
+            built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb,
+            extra_defects=extra_defects, defect_seed=defect_seed,
+        )
+    write_index(report, rule, {"source_root": str(root), "extra_defects": extra_defects, "defect_seed": defect_seed})
     return report
 
 

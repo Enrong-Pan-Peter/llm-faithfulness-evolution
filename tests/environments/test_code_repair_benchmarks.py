@@ -225,6 +225,19 @@ def test_humanevalfix_build_without_evalplus_falls_back_to_assert_inputs(tmp_pat
         assert entry["n_dev"] >= 1 and entry["n_hidden"] >= 1
 
 
+def test_plus_inputs_that_appear_in_the_prompt_are_moved_to_development():
+    from environments.code_repair.benchmarks.common import BuiltTask, keep_prompt_examples_out_of_hidden
+
+    built = BuiltTask(
+        id="t", entry_point="f", prompt="Examples:\n    >>> f(1, 4)\n    True\n",
+        reference_source="def f(a, b):\n    return True\n", seeded_source="def f(a, b):\n    return False\n",
+        dev_tests=[Case((2, 3), True)], hidden_tests=[Case((1, 4), True), Case((5, 6), True)],
+    )
+    assert keep_prompt_examples_out_of_hidden(built) == 1
+    assert [case.args for case in built.hidden_tests] == [(5, 6)]
+    assert [case.args for case in built.dev_tests] == [(2, 3), (1, 4)]
+
+
 def test_extract_assert_inputs():
     test_source = (
         "def check(candidate):\n"
@@ -238,3 +251,32 @@ def test_extract_assert_inputs():
     assert extract_assert_inputs(test_source, "f") == [[[1, 2], 3], [1.5], [2.0]]
     assert extract_assert_inputs("def check(f):\n    assert f(7) == 7\n", "f") == [[7]]
     assert extract_assert_inputs("this is not python", "f") == []
+
+
+def test_extra_defects_make_a_harder_seeded_program():
+    import random
+
+    from environments.code_repair.benchmarks.defects import apply_mutations, inject_defects, mutation_sites
+
+    task = load_task(Path(__file__).resolve().parents[2] / "environments" / "code_repair" / "tasks" / "count_peaks")
+    sites = mutation_sites(task.seeded_source)
+    assert len(sites) >= 5 and {site.kind for site in sites} & {"compare", "binop", "constant"}
+    mutated = apply_mutations(task.seeded_source, sites[:1])
+    assert mutated != task.seeded_source
+    result = inject_defects(task.reference_source, task.seeded_source, task.entry_point, task.dev_tests, task.hidden_tests, 2, random.Random(0))
+    assert result is not None
+    program, descriptions = result
+    assert len(descriptions) == 2 and program != task.seeded_source
+    evaluation = evaluate_program(task, program)
+    assert evaluation.compile_ok and evaluation.dev_passed < evaluation.dev_total
+    # the reference is untouched by the injector
+    assert evaluate_program(task, task.reference_source).all_hidden_passed
+
+
+def test_build_with_extra_defects_renames_tasks(tmp_path):
+    root = _fake_quixbugs(tmp_path / "QuixBugs")
+    report = build_quixbugs_tasks(root, tmp_path / "tasks", names=["sieve"], extra_defects=1, defect_seed=3)
+    assert [entry["id"] for entry in report.built] == ["quixbugs_sieve_d1"]
+    task = load_task(tmp_path / "tasks" / "quixbugs_sieve_d1")
+    assert len(task.source["extra_defects"]) == 1 and task.source["extra_defects_seed"] == 3
+    assert validate_task(task).ok

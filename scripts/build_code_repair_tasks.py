@@ -10,6 +10,10 @@ Usage (PowerShell; see task_sets/code_repair/README.md for the downloads):
         --evalplus data/benchmarks/HumanEvalPlus.jsonl.gz `
         --output task_sets/code_repair/humanevalfix
 
+``--extra-defects k`` injects ``k`` further defects into every seeded program
+(mutation operators on the syntax tree, see ``benchmarks/defects.py``) for a
+harder variant of a memorised benchmark; task ids get a ``_d<k>`` suffix.
+
 Every task is validated (reference passes all tests, seeded program loads and
 fails at least one development test, no hidden test repeats a development
 input) and the outcome is written to ``index.json`` / ``rejected.json`` in the
@@ -44,6 +48,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT_S, help="runner time limit per program run, seconds")
     parser.add_argument("--memory-mb", type=int, default=DEFAULT_MEMORY_MB, help="runner memory limit (POSIX only)")
     parser.add_argument("--only", nargs="*", default=None, help="QuixBugs program names or HumanEval numbers to build")
+    parser.add_argument("--extra-defects", type=int, default=0, help="inject this many further defects into every seeded program (task ids get a _d<k> suffix)")
+    parser.add_argument("--defect-seed", type=int, default=0)
     args = parser.parse_args(argv)
 
     rule = SplitRule(max_dev_case_chars=args.max_dev_case_chars, seed=args.seed)
@@ -51,12 +57,14 @@ def main(argv: list[str] | None = None) -> int:
         report = build_quixbugs_tasks(
             args.source, args.output, rule=rule, names=args.only or None,
             timeout_s=args.timeout, memory_mb=args.memory_mb,
+            extra_defects=args.extra_defects, defect_seed=args.defect_seed,
         )
     else:
         numbers = [int(value) for value in args.only] if args.only else None
         report = build_humanevalfix_tasks(
             args.source, args.output, evalplus_path=args.evalplus, max_plus_hidden=args.max_plus_hidden,
             rule=rule, numbers=numbers, timeout_s=args.timeout, memory_mb=args.memory_mb,
+            extra_defects=args.extra_defects, defect_seed=args.defect_seed,
         )
 
     print(f"{report.benchmark}: built {len(report.built)} tasks, rejected {len(report.rejected)} -> {report.output_root}")

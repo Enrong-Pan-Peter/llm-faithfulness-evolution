@@ -77,6 +77,7 @@ class PlanningSearchEnvironment:
         record["blocks"] = list(self.instance.blocks)
         record["goal_predicates"] = len(self.instance.goal)
         record["optimal_plan_length"] = self.optimal_length  # solver-side fact; never enters a prompt
+        record["expansion_cap"] = self.expansion_cap
         return record
 
     def prompt_fingerprint(self, trace_format_version: int) -> str:

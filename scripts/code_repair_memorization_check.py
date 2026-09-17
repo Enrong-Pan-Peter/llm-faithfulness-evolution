@@ -62,14 +62,20 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit("no tasks selected")
     model_name = args.model or app_config.OLLAMA_MODEL
     rows: list[dict[str, Any]] = []
+    skipped: list[dict[str, str]] = []
     for index, task in enumerate(tasks):
-        environment = CodeRepairSearchEnvironment(task)
+        try:
+            environment = CodeRepairSearchEnvironment(task)
+            if args.mode == "repair":
+                prompt = environment.initial_prompt(self_report=False)
+            else:
+                prompt = SPEC_PROMPT.format(task_prompt=task.prompt.strip(), entry_point=task.entry_point)
+                environment.check_prompt(prompt)
+        except Exception as exc:  # a task that cannot be prompted safely is reported, not fatal
+            skipped.append({"task_id": task.id, "reason": f"{type(exc).__name__}: {exc}"})
+            print(f"[{index + 1}/{len(tasks)}] {task.id}: skipped ({type(exc).__name__})")
+            continue
         model: Any = ScriptedModel(scripted_responder(environment, args.seed + index)) if args.provider == "scripted" else ModelClient(args.provider, model_name)
-        if args.mode == "repair":
-            prompt = environment.initial_prompt(self_report=False)
-        else:
-            prompt = SPEC_PROMPT.format(task_prompt=task.prompt.strip(), entry_point=task.entry_point)
-            environment.check_prompt(prompt)
         solved = 0
         parsed_ok = 0
         hidden_fractions: list[float] = []
@@ -100,6 +106,8 @@ def main(argv: list[str] | None = None) -> int:
 
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=True)
+    if not rows:
+        raise SystemExit("every task was skipped")
     with (output / "memorization_check.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
         writer.writeheader()
@@ -111,6 +119,7 @@ def main(argv: list[str] | None = None) -> int:
         "mode": args.mode,
         "samples": args.samples,
         "n_tasks": len(rows),
+        "skipped": skipped,
         "always_solved": [row["task_id"] for row in rows if row["solved"] == args.samples],
         "never_solved": [row["task_id"] for row in rows if row["solved"] == 0],
         "mean_solve_rate": sum(row["solve_rate"] for row in rows) / len(rows),

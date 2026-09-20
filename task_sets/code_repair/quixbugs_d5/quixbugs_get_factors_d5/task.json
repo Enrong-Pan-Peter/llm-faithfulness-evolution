@@ -1,0 +1,20 @@
+{
+  "id": "quixbugs_get_factors_d5",
+  "entry_point": "get_factors",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef get_factors(n):\n    \"\"\"\n    Prime Factorization\n\n\n    Factors an int using naive trial division.\n\n    Input:\n        n: An int to factor\n\n    Output:\n        A list of the prime factors of n in sorted order with repetition\n\n    Precondition:\n        n >= 1\n\n    Examples:\n        >>> get_factors(1)\n        []\n        >>> get_factors(100)\n        [2, 2, 5, 5]\n        >>> get_factors(101)\n        [101]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "get_factors",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 2: constant 1 changed by one",
+      "line 7: operator FloorDiv -> Mult",
+      "line 6: comparison Eq -> NotEq",
+      "line 6: constant 0 changed by one",
+      "line 5: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

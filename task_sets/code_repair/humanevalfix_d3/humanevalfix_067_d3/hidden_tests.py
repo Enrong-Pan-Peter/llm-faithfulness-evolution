@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('5 apples and 6 oranges', 21), 10),
+    (('1 apples and 0 oranges', 3), 2),
+    (('2 apples and 3 oranges', 5), 0),
+    (('20 apples and 0 oranges', 50), 30),
+    (('1 apples and 99 oranges', 104), 4),
+    (('50 apples and 50 oranges', 197), 97),
+    (('0 apples and 1 oranges', 1), 0),
+    (('3 apples and 7 oranges', 29), 19),
+    (('2 apples and 0 oranges', 9), 7),
+    (('91 apples and 9 oranges', 100), 0),
+    (('1 apples and 9 oranges', 25), 15),
+    (('0 apples and 0 oranges', 1), 1),
+    (('0 apples and 0 oranges', 49), 49),
+    (('1 apples and 9 oranges', 22), 12),
+    (('0 apples and 1 oranges', 9), 8),
+    (('1 apples and 9 oranges', 199), 189),
+    (('0 apples and 0 oranges', 99), 99),
+    (('91 apples and 9 oranges', 103), 3),
+    (('20 apples and 0 oranges', 29), 9),
+    (('1 apples and 9 oranges', 31), 21),
+    (('20 apples and 0 oranges', 200), 180),
+    (('1 apples and 99 oranges', 196), 96),
+    (('3 apples and 7 oranges', 197), 187),
+]

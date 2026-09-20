@@ -1988,7 +1988,7 @@
       "entry_point": "is_simple_power",
       "n_dev": 5,
       "n_hidden": 25,
-      "seeded_dev_failing": 5,
+      "seeded_dev_failing": 6,
       "float_tolerance": 0.0,
       "source": {
         "benchmark": "humanevalfix",
@@ -2005,7 +2005,8 @@
       "forced_dev_by_prompt_example": [],
       "forced_hidden_by_length": [],
       "dropped_base_inputs": 0,
-      "plus_hidden_added": 20
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
     },
     {
       "id": "humanevalfix_077",
@@ -3208,9 +3209,9 @@
     {
       "id": "humanevalfix_123",
       "entry_point": "get_odd_collatz",
-      "n_dev": 3,
-      "n_hidden": 21,
-      "seeded_dev_failing": 3,
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
       "float_tolerance": 0.0,
       "source": {
         "benchmark": "humanevalfix",
@@ -3223,7 +3224,7 @@
       },
       "n_cases": 4,
       "seeded_loaded": true,
-      "seeded_failing": 4,
+      "seeded_failing": 3,
       "forced_dev_by_prompt_example": [
         1
       ],
@@ -3419,7 +3420,8 @@
       ],
       "forced_hidden_by_length": [],
       "dropped_base_inputs": 0,
-      "plus_hidden_added": 20
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
     },
     {
       "id": "humanevalfix_131",
@@ -3443,7 +3445,8 @@
       "forced_dev_by_prompt_example": [],
       "forced_hidden_by_length": [],
       "dropped_base_inputs": 0,
-      "plus_hidden_added": 20
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
     },
     {
       "id": "humanevalfix_132",
@@ -4208,7 +4211,9 @@
       "plus_hidden_added": 20
     }
   ],
-  "humanevalpack_path": "data\\benchmarks\\humanevalpack_python.parquet",
-  "evalplus_path": "data\\benchmarks\\HumanEvalPlus.jsonl.gz",
-  "max_plus_hidden": 20
+  "humanevalpack_path": "data/benchmarks/humanevalpack_python.parquet",
+  "evalplus_path": "data/benchmarks/HumanEvalPlus.jsonl.gz",
+  "max_plus_hidden": 20,
+  "extra_defects": 0,
+  "defect_seed": 0
 }

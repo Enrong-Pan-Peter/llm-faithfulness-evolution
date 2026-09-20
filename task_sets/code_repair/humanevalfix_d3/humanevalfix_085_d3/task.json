@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_085_d3",
+  "entry_point": "add",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef add(lst):\n    \"\"\"Given a non-empty list of integers lst. add the even elements that are at odd indices..\n\n\n    Examples:\n        add([4, 2, 6, 7]) ==> 2 \n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/85",
+    "humaneval_id": "HumanEval/85",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: constant 2 changed by one",
+      "line 2: index i shifted by one",
+      "line 2: index i shifted by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

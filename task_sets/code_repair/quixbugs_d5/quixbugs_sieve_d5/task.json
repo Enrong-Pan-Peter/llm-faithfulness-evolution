@@ -1,0 +1,20 @@
+{
+  "id": "quixbugs_sieve_d5",
+  "entry_point": "sieve",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef sieve(max):\n    \"\"\"\n    Sieve of Eratosthenes\n    prime-sieve\n\n    Input:\n        max: A positive int representing an upper bound.\n\n    Output:\n        A list containing all primes up to and including max\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "sieve",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 4: operator Mod -> FloorDiv",
+      "line 4: comparison Gt -> GtE",
+      "line 3: constant 2 changed by one",
+      "line 3: constant 1 changed by one",
+      "line 3: operator Add -> Sub"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_065_d3",
+  "entry_point": "circular_shift",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef circular_shift(x, shift):\n    \"\"\"Circular shift the digits of the integer x, shift the digits right by shift\n    and return the result as a string.\n    If shift > number of digits, return digits reversed.\n    >>> circular_shift(12, 1)\n    \"21\"\n    >>> circular_shift(12, 2)\n    \"12\"\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/65",
+    "humaneval_id": "HumanEval/65",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 6: operator Sub -> Add",
+      "line 3: comparison Gt -> GtE",
+      "line 6: operator Add -> Sub"
+    ],
+    "extra_defects_seed": 0
+  }
+}

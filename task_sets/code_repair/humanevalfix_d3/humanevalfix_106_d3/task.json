@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_106_d3",
+  "entry_point": "f",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef f(n):\n    \"\"\" Implement the function f that takes n as a parameter,\n    and returns a list of size n, such that the value of the element at index i is the factorial of i if i is even\n    or the sum of numbers from 1 to i otherwise.\n    i starts from 1.\n    the factorial of i is the multiplication of the numbers from 1 to i (1 * 2 * ... * i).\n    Example:\n    f(5) == [1, 2, 6, 24, 15]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/106",
+    "humaneval_id": "HumanEval/106",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: operator Mod -> FloorDiv",
+      "line 6: operator Add -> Sub",
+      "line 4: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

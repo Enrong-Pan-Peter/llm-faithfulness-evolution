@@ -1,0 +1,7 @@
+def subsequences(a, b, k):
+    if k == 0:
+        return []
+    ret = []
+    for i in range(a, b - 2 - k):
+        ret.extend(([i] - rest for rest in subsequences(i - 1, b, k - 2)))
+    return ret

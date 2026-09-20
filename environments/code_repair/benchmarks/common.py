@@ -302,6 +302,19 @@ def add_extra_defects(
     return True
 
 
+def anonymize_task(built: BuiltTask) -> None:
+    """Rename identifiers in both programs, replace the prompt by a tests-only one (see ``anonymize``)."""
+    from .anonymize import ID_SUFFIX, anonymize_programs, anonymous_prompt, anonymous_signature
+
+    reference, seeded, mapping = anonymize_programs(built.reference_source, built.seeded_source, built.entry_point)
+    built.source["anonymized"] = {"original_entry_point": built.entry_point, "renamed_identifiers": len(mapping)}
+    built.reference_source = reference
+    built.seeded_source = seeded
+    built.entry_point = mapping.names[built.entry_point]
+    built.prompt = anonymous_prompt(anonymous_signature(reference, built.entry_point))
+    built.id = f"{built.id}{ID_SUFFIX}"
+
+
 def finish_task(
     built: BuiltTask,
     root: Path,
@@ -311,6 +324,7 @@ def finish_task(
     memory_mb: int | None = DEFAULT_MEMORY_MB,
     extra_defects: int = 0,
     defect_seed: int = 0,
+    anonymize: bool = False,
 ) -> bool:
     """Write, reload and validate ``built``; record it in ``report``; remove it if rejected."""
     moved = keep_prompt_examples_out_of_hidden(built)
@@ -319,6 +333,12 @@ def finish_task(
     if extra_defects > 0 and not add_extra_defects(built, extra_defects, defect_seed, timeout_s=timeout_s, memory_mb=memory_mb):
         report.rejected.append({"id": built.id, "reason": f"could not inject {extra_defects} extra defects", **built.split_notes})
         return False
+    if anonymize:
+        try:
+            anonymize_task(built)
+        except (SyntaxError, ValueError) as exc:
+            report.rejected.append({"id": built.id, "reason": f"could not anonymise: {exc}", **built.split_notes})
+            return False
     if not built.hidden_tests:
         report.rejected.append({"id": built.id, "reason": "no hidden tests after the split", **built.split_notes})
         return False

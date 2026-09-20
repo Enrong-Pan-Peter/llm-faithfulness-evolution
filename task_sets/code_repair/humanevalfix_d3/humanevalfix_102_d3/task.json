@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_102_d3",
+  "entry_point": "choose_num",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef choose_num(x, y):\n    \"\"\"This function takes two positive numbers x and y and returns the\n    biggest even integer number that is in the range [x, y] inclusive. If \n    there's no such number, then the function should return -1.\n\n    For example:\n    choose_num(12, 15) = 14\n    choose_num(13, 12) = -1\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/102",
+    "humaneval_id": "HumanEval/102",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 8: operator Sub -> Add",
+      "line 4: constant 2 changed by one",
+      "line 4: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

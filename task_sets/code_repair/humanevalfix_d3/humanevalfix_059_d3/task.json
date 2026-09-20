@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_059_d3",
+  "entry_point": "largest_prime_factor",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef largest_prime_factor(n: int):\n    \"\"\"Return the largest prime factor of n. Assume n > 1 and is not a prime.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/59",
+    "humaneval_id": "HumanEval/59",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 5: operator Sub -> Add",
+      "line 6: constant 0 changed by one",
+      "line 11: And -> Or"
+    ],
+    "extra_defects_seed": 0
+  }
+}

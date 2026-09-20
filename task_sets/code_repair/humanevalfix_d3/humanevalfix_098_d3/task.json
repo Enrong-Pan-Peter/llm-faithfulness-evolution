@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_098_d3",
+  "entry_point": "count_upper",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef count_upper(s):\n    \"\"\"\n    Given a string s, count the number of uppercase vowels in even indices.\n    \n    For example:\n    count_upper('aBCdEf') returns 1\n    count_upper('abcdefg') returns 0\n    count_upper('dBBE') returns 0\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/98",
+    "humaneval_id": "HumanEval/98",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 3: constant 0 changed by one",
+      "line 2: constant 0 changed by one",
+      "line 5: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

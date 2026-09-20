@@ -1,0 +1,20 @@
+{
+  "id": "quixbugs_next_permutation_d5",
+  "entry_point": "next_permutation",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef next_permutation(perm):\n    \"\"\"\n    Next Permutation\n    next-perm\n\n\n    Input:\n        perm: A list of unique ints\n\n    Precondition:\n        perm is not sorted in reverse order\n\n    Output:\n        The lexicographically next permutation of the elements of perm\n\n    Example:\n        >>> next_permutation([3, 2, 4, 1])\n        [3, 4, 1, 2]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "next_permutation",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 8: operator Add -> Sub",
+      "line 2: operator Sub -> Add",
+      "line 8: constant 1 changed by one",
+      "line 8: constant 1 changed by one",
+      "line 7: index j shifted by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

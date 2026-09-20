@@ -221,6 +221,7 @@ def build_humanevalfix_tasks(
     memory_mb: int | None = DEFAULT_MEMORY_MB,
     extra_defects: int = 0,
     defect_seed: int = 0,
+    anonymize: bool = False,
 ) -> BuildReport:
     """Convert HumanEvalFix problems (all, or ``numbers``) into task directories."""
     output_root = Path(output_root)
@@ -243,7 +244,7 @@ def build_humanevalfix_tasks(
             continue
         finish_task(
             built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb,
-            extra_defects=extra_defects, defect_seed=defect_seed,
+            extra_defects=extra_defects, defect_seed=defect_seed, anonymize=anonymize,
         )
     extra = {
         "humanevalpack_path": str(humanevalpack_path),
@@ -251,6 +252,7 @@ def build_humanevalfix_tasks(
         "max_plus_hidden": max_plus_hidden if evalplus_path else 0,
         "extra_defects": extra_defects,
         "defect_seed": defect_seed,
+        "anonymized": anonymize,
     }
     write_index(report, rule, extra)
     return report

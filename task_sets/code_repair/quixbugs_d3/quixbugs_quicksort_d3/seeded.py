@@ -1,0 +1,7 @@
+def quicksort(arr):
+    if not arr:
+        return []
+    pivot = arr[1]
+    lesser = quicksort([x for x in arr[2:] if x < pivot])
+    greater = quicksort([x for x in arr[2:] if x > pivot])
+    return lesser + [pivot] + greater

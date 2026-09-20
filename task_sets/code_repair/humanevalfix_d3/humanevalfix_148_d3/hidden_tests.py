@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Mercury', 'Uranus'), ['Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn']),
+    (('Earth', 'Mercury'), ['Venus']),
+    (('Mars', 'Earth'), []),
+    (('MSatuy', 'yuVnyMrSaturnercury'), []),
+    (('Venuuus', 'MeurcuryMVensus'), []),
+    (('rMerSaturnry', 'NpepteunVeneus'), []),
+    (('JuJuepiMSatuyterpirterpitter', 'Jupiter'), []),
+    (('JuMercurypiter', 'JVsSatuMercuryrEarthEahtnuMercurypiter'), []),
+    (('VenuPlJuVeMeMJSatuurniterercuryPUranuslMeurcuryutourcurynuespiuts', 'VenuPlJuVeMeurcurynuespiuts'), []),
+    (('Mercury', 'MJiterercury'), []),
+    (('Pluto', 'tEarth'), []),
+    (('PMeurcuurytUrano', 'PMeurcuurytUranursluto'), []),
+    (('MercurrMSaturnercuryy', 'Jupiter'), []),
+    (('JiterVenus', 'JJupiteruMercuryJupipiter'), []),
+    (('Jupiter', 'Venus'), ['Earth', 'Mars']),
+    (('rMetuneturnry', 'rMerSaNeptuneturnry'), []),
+    (('SatuVsrEarthn', 'Jupiitier'), []),
+    (('MaNeptunJuMerJuMercurypitercypiteJupiiterre', 'SaturEa'), []),
+    (('Plutoo', 'Pluto'), []),
+    (('Jupiter', 'MaNeptune'), []),
+    (('UranusEarth', 'Mars'), []),
+    (('', 'NeptuMarsn'), []),
+    (('Saturn', 'MaNeptune'), []),
+]

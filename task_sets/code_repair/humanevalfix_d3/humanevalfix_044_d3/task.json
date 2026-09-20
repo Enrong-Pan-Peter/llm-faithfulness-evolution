@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_044_d3",
+  "entry_point": "change_base",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef change_base(x: int, base: int):\n    \"\"\"Change numerical base of input number x to base.\n    return string representation after the conversion.\n    base numbers are less than 10.\n    >>> change_base(8, 3)\n    '22'\n    >>> change_base(8, 2)\n    '1000'\n    >>> change_base(7, 2)\n    '111'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/44",
+    "humaneval_id": "HumanEval/44",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "infinite loop",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: operator Add -> Sub",
+      "line 3: comparison Gt -> GtE",
+      "line 3: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

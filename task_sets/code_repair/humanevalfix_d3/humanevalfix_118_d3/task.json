@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_118_d3",
+  "entry_point": "get_closest_vowel",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef get_closest_vowel(word):\n    \"\"\"You are given a word. Your task is to find the closest vowel that stands between \n    two consonants from the right side of the word (case sensitive).\n    \n    Vowels in the beginning and ending doesn't count. Return empty string if you didn't\n    find any vowel met the above condition. \n\n    You may assume that the given string contains English letter only.\n\n    Example:\n    get_closest_vowel(\"yogurt\") ==> \"u\"\n    get_closest_vowel(\"FULL\") ==> \"U\"\n    get_closest_vowel(\"quick\") ==> \"\"\n    get_closest_vowel(\"ab\") ==> \"\"\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/118",
+    "humaneval_id": "HumanEval/118",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 6: constant 0 changed by one",
+      "line 8: And -> Or",
+      "line 6: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

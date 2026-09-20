@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_108_d3",
+  "entry_point": "count_nums",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef count_nums(arr):\n    \"\"\"\n    Write a function count_nums which takes an array of integers and returns\n    the number of elements which has a sum of digits > 0.\n    If a number is negative, then its first signed digit will be negative:\n    e.g. -123 has signed digits -1, 2, and 3.\n    >>> count_nums([]) == 0\n    >>> count_nums([-1, 11, -11]) == 1\n    >>> count_nums([1, 1, 2]) == 3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/108",
+    "humaneval_id": "HumanEval/108",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: operator Mult -> FloorDiv",
+      "line 6: operator Mult -> FloorDiv",
+      "line 4: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

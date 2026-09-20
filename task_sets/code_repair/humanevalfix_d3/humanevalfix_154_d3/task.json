@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_154_d3",
+  "entry_point": "cycpattern_check",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef cycpattern_check(a , b):\n    \"\"\"You are given 2 words. You need to return True if the second word or any of its rotations is a substring in the first word\n    cycpattern_check(\"abcd\",\"abd\") => False\n    cycpattern_check(\"hello\",\"ell\") => True\n    cycpattern_check(\"whassup\",\"psus\") => False\n    cycpattern_check(\"abab\",\"baa\") => True\n    cycpattern_check(\"efef\",\"eeff\") => False\n    cycpattern_check(\"himenss\",\"simen\") => True\n\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/154",
+    "humaneval_id": "HumanEval/154",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 6: operator Add -> Sub",
+      "line 5: operator Add -> Sub",
+      "line 6: operator Add -> Sub"
+    ],
+    "extra_defects_seed": 0
+  }
+}

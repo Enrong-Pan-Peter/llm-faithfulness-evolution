@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_024_d3",
+  "entry_point": "largest_divisor",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef largest_divisor(n: int) -> int:\n    \"\"\" For a given number n, find the largest number that divides n evenly, smaller than n\n    >>> largest_divisor(15)\n    5\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/24",
+    "humaneval_id": "HumanEval/24",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 3: operator Sub -> Add",
+      "line 3: comparison Eq -> NotEq",
+      "line 3: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

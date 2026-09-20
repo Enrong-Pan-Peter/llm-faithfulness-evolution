@@ -1,0 +1,18 @@
+{
+  "id": "quixbugs_find_in_sorted_d3",
+  "entry_point": "find_in_sorted",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef find_in_sorted(arr, x):\n    \"\"\"\n    Binary Search\n\n    Input:\n        arr: A sorted list of ints\n        x: A value to find\n\n    Output:\n        An index i such that arr[i] == x, or -1 if x not in arr\n\n    Example:\n        >>> find_in_sorted([3, 4, 5, 5, 5, 5, 6], 5)\n        3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "find_in_sorted",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 13: constant 0 changed by one",
+      "line 5: constant 2 changed by one",
+      "line 8: comparison Gt -> GtE"
+    ],
+    "extra_defects_seed": 0
+  }
+}

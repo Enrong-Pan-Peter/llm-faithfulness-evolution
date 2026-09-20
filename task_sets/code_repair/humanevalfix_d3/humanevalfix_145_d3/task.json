@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_145_d3",
+  "entry_point": "order_by_points",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef order_by_points(nums):\n    \"\"\"\n    Write a function which sorts the given list of integers\n    in ascending order according to the sum of their digits.\n    Note: if there are several items with similar sum of their digits,\n    order them based on their index in original list.\n\n    For example:\n    >>> order_by_points([1, 11, -1, -11, -12]) == [-1, -11, 1, -12, 11]\n    >>> order_by_points([]) == []\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/145",
+    "humaneval_id": "HumanEval/145",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 6: operator Mult -> FloorDiv",
+      "line 6: constant 0 changed by one",
+      "line 6: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_089_d3",
+  "entry_point": "encrypt",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef encrypt(s):\n    \"\"\"Create a function encrypt that takes a string as an argument and\n    returns a string encrypted with the alphabet being rotated. \n    The alphabet should be rotated in a manner such that the letters \n    shift down by two multiplied to two places.\n    For example:\n    encrypt('hi') returns 'lm'\n    encrypt('asdfghjkl') returns 'ewhjklnop'\n    encrypt('gf') returns 'kj'\n    encrypt('et') returns 'ix'\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/89",
+    "humaneval_id": "HumanEval/89",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 6: constant 24 changed by one",
+      "line 6: operator Mult -> FloorDiv",
+      "line 6: operator Mod -> FloorDiv"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((2, 2, 2), False),
+    ((10, 5, 7), False),
+    ((15, 8, 17), True),
+    ((1, 1, 1), False),
+    ((13, 65, 67), False),
+    ((34, 139, 138), False),
+    ((495, 59, 60), False),
+    ((763, 763, 763), False),
+    ((9999, 3, 3), False),
+    ((13, 10001, 13), False),
+    ((2020, 1, 2020), False),
+    ((2020, 457, 2020), False),
+    ((241, 9, 9), False),
+    ((30, 8, 8), False),
+    ((87, 138, 138), False),
+    ((2022, 75, 2020), False),
+    ((12, 456, 10), False),
+    ((5, 3, 4), True),
+    ((456, 2, 456), False),
+    ((12, 37, 17), False),
+    ((9999, 9999, 2), False),
+    ((15, 14, 14), False),
+    ((226, 35, 226), False),
+    ((17, 2022, 1), False),
+]

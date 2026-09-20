@@ -1,0 +1,3698 @@
+{
+  "benchmark": "humanevalfix",
+  "split_rule": {
+    "max_dev_case_chars": 400,
+    "seed": 0
+  },
+  "n_tasks": 115,
+  "tasks": [
+    {
+      "id": "humanevalfix_000_d3",
+      "entry_point": "has_close_elements",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/0",
+        "humaneval_id": "HumanEval/0",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: comparison Lt -> LtE",
+          "line 7: comparison NotEq -> Eq",
+          "line 8: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_001_d3",
+      "entry_point": "separate_paren_groups",
+      "n_dev": 3,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/1",
+        "humaneval_id": "HumanEval/1",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 7: constant 0 changed by one",
+          "line 11: constant 1 changed by one",
+          "line 13: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_003_d3",
+      "entry_point": "below_zero",
+      "n_dev": 3,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/3",
+        "humaneval_id": "HumanEval/3",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: comparison Eq -> NotEq",
+          "line 9: constant 0 changed by one",
+          "line 5: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_006_d3",
+      "entry_point": "parse_nested_parens",
+      "n_dev": 2,
+      "n_hidden": 21,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/6",
+        "humaneval_id": "HumanEval/6",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: constant 1 changed by one",
+          "line 9: comparison Eq -> NotEq",
+          "line 6: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_010_d3",
+      "entry_point": "make_palindrome",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/10",
+        "humaneval_id": "HumanEval/10",
+        "bug_type": "missing logic",
+        "failure_symptoms": "stackoverflow",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 13: constant 1 changed by one",
+          "line 15: operator Add -> Sub",
+          "line 10: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_014_d3",
+      "entry_point": "all_prefixes",
+      "n_dev": 1,
+      "n_hidden": 22,
+      "seeded_dev_failing": 1,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/14",
+        "humaneval_id": "HumanEval/14",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 7: operator Sub -> Add",
+          "line 8: operator Add -> Sub",
+          "line 8: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_017_d3",
+      "entry_point": "parse_music",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/17",
+        "humaneval_id": "HumanEval/17",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 2 changed by one",
+          "line 6: index x shifted by one",
+          "line 5: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_018_d3",
+      "entry_point": "how_many_times",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/18",
+        "humaneval_id": "HumanEval/18",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 1 changed by one",
+          "line 5: operator Add -> Sub",
+          "line 5: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_019_d3",
+      "entry_point": "sort_numbers",
+      "n_dev": 2,
+      "n_hidden": 23,
+      "seeded_dev_failing": 1,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/19",
+        "humaneval_id": "HumanEval/19",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 14: constant 8 changed by one",
+          "line 6: constant 0 changed by one",
+          "line 12: constant 6 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_020_d3",
+      "entry_point": "find_closest_elements",
+      "n_dev": 4,
+      "n_hidden": 21,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 1e-09,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/20",
+        "humaneval_id": "HumanEval/20",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 15: operator Sub -> Add",
+          "line 16: comparison Gt -> GtE",
+          "line 10: comparison NotEq -> Eq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_024_d3",
+      "entry_point": "largest_divisor",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/24",
+        "humaneval_id": "HumanEval/24",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: operator Sub -> Add",
+          "line 3: comparison Eq -> NotEq",
+          "line 3: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_025_d3",
+      "entry_point": "factorize",
+      "n_dev": 5,
+      "n_hidden": 23,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/25",
+        "humaneval_id": "HumanEval/25",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 0 changed by one",
+          "line 9: operator Mod -> FloorDiv",
+          "line 7: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_031_d3",
+      "entry_point": "is_prime",
+      "n_dev": 9,
+      "n_hidden": 23,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/31",
+        "humaneval_id": "HumanEval/31",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: constant 1 changed by one",
+          "line 5: operator Mod -> FloorDiv",
+          "line 5: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_032_d3",
+      "entry_point": "find_zero",
+      "n_dev": 49,
+      "n_hidden": 70,
+      "seeded_dev_failing": 49,
+      "float_tolerance": 0.0001,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/32",
+        "humaneval_id": "HumanEval/32",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 19: comparison Gt -> GtE",
+          "line 14: comparison Gt -> GtE",
+          "line 19: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 99,
+      "seeded_loaded": true,
+      "seeded_failing": 96,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_036_d3",
+      "entry_point": "fizz_buzz",
+      "n_dev": 6,
+      "n_hidden": 22,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/36",
+        "humaneval_id": "HumanEval/36",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: comparison Eq -> NotEq",
+          "line 4: constant 11 changed by one",
+          "line 4: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_037_d3",
+      "entry_point": "sort_even",
+      "n_dev": 2,
+      "n_hidden": 21,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/37",
+        "humaneval_id": "HumanEval/37",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 2 changed by one",
+          "line 3: constant 2 changed by one",
+          "line 9: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_038_d3",
+      "entry_point": "decode_cyclic",
+      "n_dev": 50,
+      "n_hidden": 70,
+      "seeded_dev_failing": 50,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/38",
+        "humaneval_id": "HumanEval/38",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 3 changed by one",
+          "line 6: operator Mult -> FloorDiv",
+          "line 8: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 100,
+      "seeded_loaded": true,
+      "seeded_failing": 100,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_039_d3",
+      "entry_point": "prime_fib",
+      "n_dev": 8,
+      "n_hidden": 2,
+      "seeded_dev_failing": 8,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/39",
+        "humaneval_id": "HumanEval/39",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": null,
+        "extra_defects": [
+          "line 14: constant 1 changed by one",
+          "line 15: constant 1 changed by one",
+          "line 5: comparison Lt -> LtE"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 0
+    },
+    {
+      "id": "humanevalfix_040_d3",
+      "entry_point": "triples_sum_to_zero",
+      "n_dev": 7,
+      "n_hidden": 22,
+      "seeded_dev_failing": 1,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/40",
+        "humaneval_id": "HumanEval/40",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Add -> Sub",
+          "line 5: constant 0 changed by one",
+          "line 2: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        2,
+        3,
+        5,
+        6
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_043_d3",
+      "entry_point": "pairs_sum_to_zero",
+      "n_dev": 7,
+      "n_hidden": 22,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/43",
+        "humaneval_id": "HumanEval/43",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: index j shifted by one",
+          "line 4: constant 0 changed by one",
+          "line 4: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_044_d3",
+      "entry_point": "change_base",
+      "n_dev": 8,
+      "n_hidden": 24,
+      "seeded_dev_failing": 8,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/44",
+        "humaneval_id": "HumanEval/44",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "infinite loop",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Add -> Sub",
+          "line 3: comparison Gt -> GtE",
+          "line 3: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        4,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_046_d3",
+      "entry_point": "fib4",
+      "n_dev": 3,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/46",
+        "humaneval_id": "HumanEval/46",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: constant 2 changed by one",
+          "line 7: operator Add -> Sub",
+          "line 8: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_047_d3",
+      "entry_point": "median",
+      "n_dev": 4,
+      "n_hidden": 21,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 1e-09,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/47",
+        "humaneval_id": "HumanEval/47",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 1 changed by one",
+          "line 6: operator Add -> Sub",
+          "line 6: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_049_d3",
+      "entry_point": "modp",
+      "n_dev": 6,
+      "n_hidden": 21,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/49",
+        "humaneval_id": "HumanEval/49",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Mult -> FloorDiv",
+          "line 4: operator Mod -> FloorDiv",
+          "line 4: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_050_d3",
+      "entry_point": "decode_shift",
+      "n_dev": 50,
+      "n_hidden": 70,
+      "seeded_dev_failing": 50,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/50",
+        "humaneval_id": "HumanEval/50",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: operator Sub -> Add",
+          "line 9: constant 5 changed by one",
+          "line 9: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 100,
+      "seeded_loaded": true,
+      "seeded_failing": 100,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_053_d3",
+      "entry_point": "add",
+      "n_dev": 54,
+      "n_hidden": 71,
+      "seeded_dev_failing": 54,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/53",
+        "humaneval_id": "HumanEval/53",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Add -> Sub",
+          "line 2: operator Add -> Sub",
+          "line 2: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 105,
+      "seeded_loaded": true,
+      "seeded_failing": 105,
+      "forced_dev_by_prompt_example": [
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_055_d3",
+      "entry_point": "fib",
+      "n_dev": 4,
+      "n_hidden": 5,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/55",
+        "humaneval_id": "HumanEval/55",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: operator Add -> Sub",
+          "line 6: constant 2 changed by one",
+          "line 5: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 4
+    },
+    {
+      "id": "humanevalfix_056_d3",
+      "entry_point": "correct_bracketing",
+      "n_dev": 6,
+      "n_hidden": 26,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/56",
+        "humaneval_id": "HumanEval/56",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: constant 0 changed by one",
+          "line 7: constant 1 changed by one",
+          "line 4: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_059_d3",
+      "entry_point": "largest_prime_factor",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/59",
+        "humaneval_id": "HumanEval/59",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Sub -> Add",
+          "line 6: constant 0 changed by one",
+          "line 11: And -> Or"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_061_d3",
+      "entry_point": "correct_bracketing",
+      "n_dev": 6,
+      "n_hidden": 26,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/61",
+        "humaneval_id": "HumanEval/61",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: comparison Eq -> NotEq",
+          "line 8: comparison Lt -> LtE",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_063_d3",
+      "entry_point": "fibfib",
+      "n_dev": 6,
+      "n_hidden": 2,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/63",
+        "humaneval_id": "HumanEval/63",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: comparison Eq -> NotEq",
+          "line 8: constant 1 changed by one",
+          "line 8: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 1
+    },
+    {
+      "id": "humanevalfix_065_d3",
+      "entry_point": "circular_shift",
+      "n_dev": 4,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/65",
+        "humaneval_id": "HumanEval/65",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: operator Sub -> Add",
+          "line 3: comparison Gt -> GtE",
+          "line 6: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        1,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_066_d3",
+      "entry_point": "digitSum",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/66",
+        "humaneval_id": "HumanEval/66",
+        "bug_type": "function misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: comparison Eq -> NotEq",
+          "line 3: constant 0 changed by one",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_067_d3",
+      "entry_point": "fruit_distribution",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/67",
+        "humaneval_id": "HumanEval/67",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: operator Sub -> Add",
+          "line 6: constant 1 changed by one",
+          "line 6: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_068_d3",
+      "entry_point": "pluck",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/68",
+        "humaneval_id": "HumanEval/68",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: constant 0 changed by one",
+          "line 3: constant 2 changed by one",
+          "line 3: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_069_d3",
+      "entry_point": "search",
+      "n_dev": 13,
+      "n_hidden": 32,
+      "seeded_dev_failing": 13,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/69",
+        "humaneval_id": "HumanEval/69",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 0 changed by one",
+          "line 7: constant 1 changed by one",
+          "line 2: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 25,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_071_d3",
+      "entry_point": "triangle_area",
+      "n_dev": 5,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 1e-09,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/71",
+        "humaneval_id": "HumanEval/71",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Mult -> FloorDiv",
+          "line 2: operator Add -> Sub",
+          "line 5: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_072_d3",
+      "entry_point": "will_it_fly",
+      "n_dev": 5,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/72",
+        "humaneval_id": "HumanEval/72",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Sub -> Add",
+          "line 2: comparison Gt -> GtE",
+          "line 7: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_073_d3",
+      "entry_point": "smallest_change",
+      "n_dev": 5,
+      "n_hidden": 23,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/73",
+        "humaneval_id": "HumanEval/73",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 0 changed by one",
+          "line 4: constant 1 changed by one",
+          "line 4: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        1,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_074_d3",
+      "entry_point": "total_match",
+      "n_dev": 7,
+      "n_hidden": 22,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/74",
+        "humaneval_id": "HumanEval/74",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 0 changed by one",
+          "line 2: constant 0 changed by one",
+          "line 10: comparison LtE -> Lt"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        0,
+        2,
+        3,
+        4,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_075_d3",
+      "entry_point": "is_multiply_prime",
+      "n_dev": 3,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/75",
+        "humaneval_id": "HumanEval/75",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: 'not' removed",
+          "line 4: comparison Eq -> NotEq",
+          "line 12: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_076_d3",
+      "entry_point": "is_simple_power",
+      "n_dev": 5,
+      "n_hidden": 25,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/76",
+        "humaneval_id": "HumanEval/76",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "infinite loop",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 4: constant 1 changed by one",
+          "line 3: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 10,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
+    },
+    {
+      "id": "humanevalfix_078_d3",
+      "entry_point": "hex_key",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/78",
+        "humaneval_id": "HumanEval/78",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: index i shifted by one",
+          "line 3: constant 1 changed by one",
+          "line 4: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_079_d3",
+      "entry_point": "decimal_to_binary",
+      "n_dev": 3,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/79",
+        "humaneval_id": "HumanEval/79",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Add -> Sub",
+          "line 2: operator Add -> Sub",
+          "line 2: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        1,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_080_d3",
+      "entry_point": "is_happy",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/80",
+        "humaneval_id": "HumanEval/80",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 2 changed by one",
+          "line 5: operator Sub -> Add",
+          "line 2: constant 3 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_081_d3",
+      "entry_point": "numerical_letter_grade",
+      "n_dev": 3,
+      "n_hidden": 23,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/81",
+        "humaneval_id": "HumanEval/81",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: comparison Gt -> GtE",
+          "line 27: comparison Gt -> GtE",
+          "line 5: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_082_d3",
+      "entry_point": "prime_length",
+      "n_dev": 10,
+      "n_hidden": 26,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/82",
+        "humaneval_id": "HumanEval/82",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 3 changed by one",
+          "line 3: constant 0 changed by one",
+          "line 6: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 16,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_083_d3",
+      "entry_point": "starts_one_ends",
+      "n_dev": 2,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/83",
+        "humaneval_id": "HumanEval/83",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 3: constant 2 changed by one",
+          "line 3: constant 18 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_085_d3",
+      "entry_point": "add",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/85",
+        "humaneval_id": "HumanEval/85",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 2 changed by one",
+          "line 2: index i shifted by one",
+          "line 2: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_087_d3",
+      "entry_point": "get_row",
+      "n_dev": 4,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/87",
+        "humaneval_id": "HumanEval/87",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: comparison Eq -> NotEq",
+          "line 2: index j shifted by one",
+          "line 2: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        3,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_088_d3",
+      "entry_point": "sort_array",
+      "n_dev": 6,
+      "n_hidden": 21,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/88",
+        "humaneval_id": "HumanEval/88",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 2: constant 0 changed by one",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_089_d3",
+      "entry_point": "encrypt",
+      "n_dev": 6,
+      "n_hidden": 22,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/89",
+        "humaneval_id": "HumanEval/89",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 24 changed by one",
+          "line 6: operator Mult -> FloorDiv",
+          "line 6: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_090_d3",
+      "entry_point": "next_smallest",
+      "n_dev": 5,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/90",
+        "humaneval_id": "HumanEval/90",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: comparison Lt -> LtE",
+          "line 3: constant 3 changed by one",
+          "line 3: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_091_d3",
+      "entry_point": "is_bored",
+      "n_dev": 3,
+      "n_hidden": 23,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/91",
+        "humaneval_id": "HumanEval/91",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: constant 2 changed by one",
+          "line 4: comparison Eq -> NotEq",
+          "line 4: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_092_d3",
+      "entry_point": "any_int",
+      "n_dev": 5,
+      "n_hidden": 25,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/92",
+        "humaneval_id": "HumanEval/92",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: comparison Eq -> NotEq",
+          "line 3: And -> Or",
+          "line 4: Or -> And"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_093_d3",
+      "entry_point": "encode",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/93",
+        "humaneval_id": "HumanEval/93",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: constant 2 changed by one",
+          "line 5: index i shifted by one",
+          "line 3: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_094_d3",
+      "entry_point": "skjkasdkd",
+      "n_dev": 5,
+      "n_hidden": 24,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/94",
+        "humaneval_id": "HumanEval/94",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 0 changed by one",
+          "line 13: constant 1 changed by one",
+          "line 11: And -> Or"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_095_d3",
+      "entry_point": "check_dict_case",
+      "n_dev": 3,
+      "n_hidden": 24,
+      "seeded_dev_failing": 1,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/95",
+        "humaneval_id": "HumanEval/95",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 23: comparison Eq -> NotEq",
+          "line 23: Or -> And",
+          "line 18: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_096_d3",
+      "entry_point": "count_up_to",
+      "n_dev": 7,
+      "n_hidden": 23,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/96",
+        "humaneval_id": "HumanEval/96",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: break -> continue",
+          "line 6: operator Mod -> FloorDiv",
+          "line 6: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_097_d3",
+      "entry_point": "multiply",
+      "n_dev": 6,
+      "n_hidden": 22,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/97",
+        "humaneval_id": "HumanEval/97",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 10 changed by one",
+          "line 2: constant 10 changed by one",
+          "line 2: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_098_d3",
+      "entry_point": "count_upper",
+      "n_dev": 5,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/98",
+        "humaneval_id": "HumanEval/98",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: constant 0 changed by one",
+          "line 2: constant 0 changed by one",
+          "line 5: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_099_d3",
+      "entry_point": "closest_integer",
+      "n_dev": 2,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/99",
+        "humaneval_id": "HumanEval/99",
+        "bug_type": "function misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: constant 2 changed by one",
+          "line 6: comparison Eq -> NotEq",
+          "line 10: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_100_d3",
+      "entry_point": "make_a_pile",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/100",
+        "humaneval_id": "HumanEval/100",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Add -> Sub",
+          "line 2: operator Mult -> FloorDiv",
+          "line 2: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_102_d3",
+      "entry_point": "choose_num",
+      "n_dev": 5,
+      "n_hidden": 23,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/102",
+        "humaneval_id": "HumanEval/102",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: operator Sub -> Add",
+          "line 4: constant 2 changed by one",
+          "line 4: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_103_d3",
+      "entry_point": "rounded_avg",
+      "n_dev": 7,
+      "n_hidden": 25,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/103",
+        "humaneval_id": "HumanEval/103",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 1 changed by one",
+          "line 7: operator Sub -> Add",
+          "line 3: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 10,
+      "forced_dev_by_prompt_example": [
+        0,
+        9
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_104_d3",
+      "entry_point": "unique_digits",
+      "n_dev": 3,
+      "n_hidden": 21,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/104",
+        "humaneval_id": "HumanEval/104",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: constant 2 changed by one",
+          "line 4: comparison Eq -> NotEq",
+          "line 4: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_105_d3",
+      "entry_point": "by_length",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/105",
+        "humaneval_id": "HumanEval/105",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 4 changed by one",
+          "line 7: constant 5 changed by one",
+          "line 4: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_106_d3",
+      "entry_point": "f",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/106",
+        "humaneval_id": "HumanEval/106",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Mod -> FloorDiv",
+          "line 6: operator Add -> Sub",
+          "line 4: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_107_d3",
+      "entry_point": "even_odd_palindrome",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/107",
+        "humaneval_id": "HumanEval/107",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: comparison Eq -> NotEq",
+          "line 8: constant 1 changed by one",
+          "line 9: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_108_d3",
+      "entry_point": "count_nums",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/108",
+        "humaneval_id": "HumanEval/108",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Mult -> FloorDiv",
+          "line 6: operator Mult -> FloorDiv",
+          "line 4: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_109_d3",
+      "entry_point": "move_one_ball",
+      "n_dev": 4,
+      "n_hidden": 21,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/109",
+        "humaneval_id": "HumanEval/109",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 0 changed by one",
+          "line 11: index i shifted by one",
+          "line 11: comparison NotEq -> Eq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_110_d3",
+      "entry_point": "exchange",
+      "n_dev": 5,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/110",
+        "humaneval_id": "HumanEval/110",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: constant 2 changed by one",
+          "line 3: constant 0 changed by one",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_111_d3",
+      "entry_point": "histogram",
+      "n_dev": 5,
+      "n_hidden": 22,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/111",
+        "humaneval_id": "HumanEval/111",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 7: comparison NotEq -> Eq",
+          "line 9: constant 0 changed by one",
+          "line 11: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_113_d3",
+      "entry_point": "odd_count",
+      "n_dev": 2,
+      "n_hidden": 21,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/113",
+        "humaneval_id": "HumanEval/113",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Add -> Sub",
+          "line 5: operator Add -> Sub",
+          "line 5: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_114_d3",
+      "entry_point": "minSubArraySum",
+      "n_dev": 7,
+      "n_hidden": 25,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/114",
+        "humaneval_id": "HumanEval/114",
+        "bug_type": "function misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 0 changed by one",
+          "line 3: constant 0 changed by one",
+          "line 7: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 11,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_117_d3",
+      "entry_point": "select_words",
+      "n_dev": 3,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/117",
+        "humaneval_id": "HumanEval/117",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 0 changed by one",
+          "line 6: index i shifted by one",
+          "line 4: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_118_d3",
+      "entry_point": "get_closest_vowel",
+      "n_dev": 7,
+      "n_hidden": 26,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/118",
+        "humaneval_id": "HumanEval/118",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 0 changed by one",
+          "line 8: And -> Or",
+          "line 6: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 13,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_119_d3",
+      "entry_point": "match_parens",
+      "n_dev": 7,
+      "n_hidden": 25,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/119",
+        "humaneval_id": "HumanEval/119",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 13: operator Add -> Sub",
+          "line 15: Or -> And",
+          "line 6: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 12,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_121_d3",
+      "entry_point": "solution",
+      "n_dev": 5,
+      "n_hidden": 22,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/121",
+        "humaneval_id": "HumanEval/121",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 2: constant 1 changed by one",
+          "line 2: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_123_d3",
+      "entry_point": "get_odd_collatz",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/123",
+        "humaneval_id": "HumanEval/123",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 12: constant 1 changed by one",
+          "line 7: comparison Eq -> NotEq",
+          "line 10: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_124_d3",
+      "entry_point": "valid_date",
+      "n_dev": 10,
+      "n_hidden": 26,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/124",
+        "humaneval_id": "HumanEval/124",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: And -> Or",
+          "line 8: And -> Or",
+          "line 6: comparison Lt -> LtE"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 16,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_125_d3",
+      "entry_point": "split_words",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/125",
+        "humaneval_id": "HumanEval/125",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 7: constant 2 changed by one",
+          "line 7: constant 0 changed by one",
+          "line 7: And -> Or"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_126_d3",
+      "entry_point": "is_sorted",
+      "n_dev": 11,
+      "n_hidden": 22,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/126",
+        "humaneval_id": "HumanEval/126",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: constant 1 changed by one",
+          "line 5: constant 1 changed by one",
+          "line 5: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 13,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        11
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_127_d3",
+      "entry_point": "intersection",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 1,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/127",
+        "humaneval_id": "HumanEval/127",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: Or -> And",
+          "line 8: comparison Eq -> NotEq",
+          "line 3: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_128_d3",
+      "entry_point": "prod_signs",
+      "n_dev": 5,
+      "n_hidden": 23,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/128",
+        "humaneval_id": "HumanEval/128",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: constant 1 changed by one",
+          "line 3: constant 0 changed by one",
+          "line 3: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_129_d3",
+      "entry_point": "minPath",
+      "n_dev": 5,
+      "n_hidden": 25,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/129",
+        "humaneval_id": "HumanEval/129",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: constant 0 changed by one",
+          "line 6: index i shifted by one",
+          "line 6: index j shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_130_d3",
+      "entry_point": "tri",
+      "n_dev": 6,
+      "n_hidden": 24,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 1e-09,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/130",
+        "humaneval_id": "HumanEval/130",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 2 changed by one",
+          "line 6: comparison Eq -> NotEq",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        9
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
+    },
+    {
+      "id": "humanevalfix_131_d3",
+      "entry_point": "digits",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/131",
+        "humaneval_id": "HumanEval/131",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 8: constant 1 changed by one",
+          "line 6: comparison Eq -> NotEq",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20,
+      "moved_to_dev_because_in_prompt": 1
+    },
+    {
+      "id": "humanevalfix_133_d3",
+      "entry_point": "sum_squares",
+      "n_dev": 6,
+      "n_hidden": 26,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/133",
+        "humaneval_id": "HumanEval/133",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 2 changed by one",
+          "line 3: constant 0 changed by one",
+          "line 5: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 11,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_134_d3",
+      "entry_point": "check_if_last_char_is_a_letter",
+      "n_dev": 5,
+      "n_hidden": 25,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/134",
+        "humaneval_id": "HumanEval/134",
+        "bug_type": "function misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: constant 1 changed by one",
+          "line 4: And -> Or",
+          "line 4: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_135_d3",
+      "entry_point": "can_arrange",
+      "n_dev": 2,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/135",
+        "humaneval_id": "HumanEval/135",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: comparison Lt -> LtE",
+          "line 5: operator Sub -> Add",
+          "line 5: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_136_d3",
+      "entry_point": "largest_smallest_integers",
+      "n_dev": 7,
+      "n_hidden": 24,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/136",
+        "humaneval_id": "HumanEval/136",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 0 changed by one",
+          "line 4: constant 0 changed by one",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 11,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [
+        0,
+        5,
+        6
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_138_d3",
+      "entry_point": "is_equal_to_sum_even",
+      "n_dev": 6,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/138",
+        "humaneval_id": "HumanEval/138",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 8 changed by one",
+          "line 2: comparison GtE -> Gt",
+          "line 2: constant 8 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_139_d3",
+      "entry_point": "special_factorial",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/139",
+        "humaneval_id": "HumanEval/139",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Add -> Sub",
+          "line 3: constant 1 changed by one",
+          "line 4: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_140_d3",
+      "entry_point": "fix_spaces",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/140",
+        "humaneval_id": "HumanEval/140",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 10: index i shifted by one",
+          "line 12: operator Sub -> Add",
+          "line 6: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_141_d3",
+      "entry_point": "file_name_check",
+      "n_dev": 13,
+      "n_hidden": 33,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/141",
+        "humaneval_id": "HumanEval/141",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 0 changed by one",
+          "line 10: constant 0 changed by one",
+          "line 11: constant 3 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 26,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_142_d3",
+      "entry_point": "sum_squares",
+      "n_dev": 5,
+      "n_hidden": 26,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/142",
+        "humaneval_id": "HumanEval/142",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: index i shifted by one",
+          "line 5: constant 2 changed by one",
+          "line 7: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 11,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_143_d3",
+      "entry_point": "words_in_sentence",
+      "n_dev": 3,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/143",
+        "humaneval_id": "HumanEval/143",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 7: constant 1 changed by one",
+          "line 8: comparison Eq -> NotEq",
+          "line 6: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_144_d3",
+      "entry_point": "simplify",
+      "n_dev": 6,
+      "n_hidden": 26,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/144",
+        "humaneval_id": "HumanEval/144",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Mult -> FloorDiv",
+          "line 6: operator Mult -> FloorDiv",
+          "line 7: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_145_d3",
+      "entry_point": "order_by_points",
+      "n_dev": 4,
+      "n_hidden": 22,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/145",
+        "humaneval_id": "HumanEval/145",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: operator Mult -> FloorDiv",
+          "line 6: constant 0 changed by one",
+          "line 6: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_146_d3",
+      "entry_point": "specialFilter",
+      "n_dev": 5,
+      "n_hidden": 22,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/146",
+        "humaneval_id": "HumanEval/146",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: constant 1 changed by one",
+          "line 6: constant 9 changed by one",
+          "line 8: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_147_d3",
+      "entry_point": "get_max_triples",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/147",
+        "humaneval_id": "HumanEval/147",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Add -> Sub",
+          "line 5: operator Add -> Sub",
+          "line 7: index i shifted by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_148_d3",
+      "entry_point": "bf",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/148",
+        "humaneval_id": "HumanEval/148",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: comparison Eq -> NotEq",
+          "line 10: constant 1 changed by one",
+          "line 8: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_149_d3",
+      "entry_point": "sorted_list_sum",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/149",
+        "humaneval_id": "HumanEval/149",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: constant 0 changed by one",
+          "line 5: operator Mod -> FloorDiv",
+          "line 5: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_150_d3",
+      "entry_point": "x_or_y",
+      "n_dev": 6,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/150",
+        "humaneval_id": "HumanEval/150",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Mod -> FloorDiv",
+          "line 5: comparison Eq -> NotEq",
+          "line 5: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_151_d3",
+      "entry_point": "double_the_difference",
+      "n_dev": 3,
+      "n_hidden": 24,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/151",
+        "humaneval_id": "HumanEval/151",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: And -> Or",
+          "line 2: constant 2 changed by one",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [
+        6
+      ],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_152_d3",
+      "entry_point": "compare",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/152",
+        "humaneval_id": "HumanEval/152",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Sub -> Add",
+          "line 2: operator Add -> Sub",
+          "line 2: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_153_d3",
+      "entry_point": "Strongest_Extension",
+      "n_dev": 5,
+      "n_hidden": 24,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/153",
+        "humaneval_id": "HumanEval/153",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: comparison Gt -> GtE",
+          "line 10: operator Add -> Sub",
+          "line 3: And -> Or"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_154_d3",
+      "entry_point": "cycpattern_check",
+      "n_dev": 3,
+      "n_hidden": 23,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/154",
+        "humaneval_id": "HumanEval/154",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: operator Add -> Sub",
+          "line 5: operator Add -> Sub",
+          "line 6: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_155_d3",
+      "entry_point": "even_odd_count",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/155",
+        "humaneval_id": "HumanEval/155",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: comparison Eq -> NotEq",
+          "line 6: constant 1 changed by one",
+          "line 5: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_156_d3",
+      "entry_point": "int_to_mini_roman",
+      "n_dev": 9,
+      "n_hidden": 25,
+      "seeded_dev_failing": 9,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/156",
+        "humaneval_id": "HumanEval/156",
+        "bug_type": "missing logic",
+        "failure_symptoms": "infinite loop",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 9: operator FloorDiv -> Mult",
+          "line 2: constant 50 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 14,
+      "seeded_loaded": true,
+      "seeded_failing": 14,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_157_d3",
+      "entry_point": "right_angle_triangle",
+      "n_dev": 7,
+      "n_hidden": 24,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/157",
+        "humaneval_id": "HumanEval/157",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: operator Mult -> FloorDiv",
+          "line 2: operator Add -> Sub",
+          "line 2: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 11,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_159_d3",
+      "entry_point": "eat",
+      "n_dev": 5,
+      "n_hidden": 21,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/159",
+        "humaneval_id": "HumanEval/159",
+        "bug_type": "excess logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 3: operator Add -> Sub",
+          "line 5: operator Add -> Sub",
+          "line 5: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_161_d3",
+      "entry_point": "solve",
+      "n_dev": 4,
+      "n_hidden": 24,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/161",
+        "humaneval_id": "HumanEval/161",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 13: constant 0 changed by one",
+          "line 13: comparison Eq -> NotEq",
+          "line 3: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_163_d3",
+      "entry_point": "generate_integers",
+      "n_dev": 2,
+      "n_hidden": 22,
+      "seeded_dev_failing": 2,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/163",
+        "humaneval_id": "HumanEval/163",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: comparison Eq -> NotEq",
+          "line 5: constant 2 changed by one",
+          "line 5: operator Mod -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    }
+  ],
+  "humanevalpack_path": "data/benchmarks/humanevalpack_python.parquet",
+  "evalplus_path": "data/benchmarks/HumanEvalPlus.jsonl.gz",
+  "max_plus_hidden": 20,
+  "extra_defects": 3,
+  "defect_seed": 0
+}

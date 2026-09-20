@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_075_d3",
+  "entry_point": "is_multiply_prime",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef is_multiply_prime(a):\n    \"\"\"Write a function that returns true if the given number is the multiplication of 3 prime numbers\n    and false otherwise.\n    Knowing that (a) is less then 100. \n    Example:\n    is_multiply_prime(30) == True\n    30 = 2 * 3 * 5\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/75",
+    "humaneval_id": "HumanEval/75",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 9: 'not' removed",
+      "line 4: comparison Eq -> NotEq",
+      "line 12: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

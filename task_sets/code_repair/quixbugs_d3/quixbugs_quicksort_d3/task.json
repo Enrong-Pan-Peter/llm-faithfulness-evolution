@@ -1,0 +1,18 @@
+{
+  "id": "quixbugs_quicksort_d3",
+  "entry_point": "quicksort",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef quicksort(arr):\n    \"\"\"\n    QuickSort\n\n\n    Input:\n        arr: A list of ints\n\n    Output:\n        The elements of arr in sorted order\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "quicksort",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 7: constant 1 changed by one",
+      "line 5: constant 0 changed by one",
+      "line 6: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

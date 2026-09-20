@@ -1,0 +1,163 @@
+{
+  "benchmark": "quixbugs",
+  "rejected": [
+    {
+      "id": "quixbugs_bitcount",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 6,
+      "n_hidden": 3,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_bucketsort",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 4,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_flatten",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 3,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_gcd",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 3,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_is_valid_parenthesization_d5",
+      "reason": "no hidden tests after the split",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 0,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_kheapsort",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 0,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_max_sublist_sum",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 2,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_powerset",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 2,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_rpn_eval",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 3,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_sqrt",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 3,
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_wrap",
+      "reason": "could not inject 5 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_dev": 0,
+      "n_hidden": 5,
+      "dropped_infeasible_for_reference": []
+    }
+  ]
+}

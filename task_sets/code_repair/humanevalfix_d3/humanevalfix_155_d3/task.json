@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_155_d3",
+  "entry_point": "even_odd_count",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef even_odd_count(num):\n    \"\"\"Given an integer. return a tuple that has the number of even and odd digits respectively.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/155",
+    "humaneval_id": "HumanEval/155",
+    "bug_type": "missing logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 5: comparison Eq -> NotEq",
+      "line 6: constant 1 changed by one",
+      "line 5: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

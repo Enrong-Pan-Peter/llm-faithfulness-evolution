@@ -1,0 +1,18 @@
+{
+  "id": "quixbugs_levenshtein_d3",
+  "entry_point": "levenshtein",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef levenshtein(source, target):\n    \"\"\"\n    Levenshtein Distance\n\n\n    Calculates the Levenshtein distance between two strings.  The Levenshtein distance is defined as the minimum amount of single-character edits (either removing a character, adding a character, or changing a character) necessary to transform a source string into a target string.\n\n    Input:\n        source: The string you begin with.\n        target: The string to transform into.\n\n    Output:\n        The Levenshtein distance between the source and target.\n\n    Example:\n        electron can be transformed into neutron by removing the e, turning the l into n, and turning the c into u.\n        >>> levenshtein(electron, neutron)\n        3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "levenshtein",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 3: Or -> And",
+      "line 6: constant 1 changed by one",
+      "line 6: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

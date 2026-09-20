@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_100_d3",
+  "entry_point": "make_a_pile",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef make_a_pile(n):\n    \"\"\"\n    Given a positive integer n, you have to make a pile of n levels of stones.\n    The first level has n stones.\n    The number of stones in the next level is:\n        - the next odd number if n is odd.\n        - the next even number if n is even.\n    Return the number of stones in each level in a list, where element at index\n    i represents the number of stones in the level (i+1).\n\n    Examples:\n    >>> make_a_pile(3)\n    [3, 5, 7]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/100",
+    "humaneval_id": "HumanEval/100",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: operator Add -> Sub",
+      "line 2: operator Mult -> FloorDiv",
+      "line 2: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

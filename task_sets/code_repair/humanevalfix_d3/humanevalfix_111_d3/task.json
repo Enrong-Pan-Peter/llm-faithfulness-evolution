@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_111_d3",
+  "entry_point": "histogram",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef histogram(test):\n    \"\"\"Given a string representing a space separated lowercase letters, return a dictionary\n    of the letter with the most repetition and containing the corresponding count.\n    If several letters have the same occurrence, return all of them.\n    \n    Example:\n    histogram('a b c') == {'a': 1, 'b': 1, 'c': 1}\n    histogram('a b b a') == {'a': 2, 'b': 2}\n    histogram('a b c a b') == {'a': 2, 'b': 2}\n    histogram('b b b b a') == {'b': 4}\n    histogram('') == {}\n\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/111",
+    "humaneval_id": "HumanEval/111",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 7: comparison NotEq -> Eq",
+      "line 9: constant 0 changed by one",
+      "line 11: comparison Eq -> NotEq"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_050_d3",
+  "entry_point": "decode_shift",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef encode_shift(s: str):\n    \"\"\"\n    returns encoded string by shifting every character by 5 in the alphabet.\n    \"\"\"\n    return \"\".join([chr(((ord(ch) + 5 - ord(\"a\")) % 26) + ord(\"a\")) for ch in s])\n\n\ndef decode_shift(s: str):\n    \"\"\"\n    takes as input string encoded with encode_shift function. Returns decoded string.\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/50",
+    "humaneval_id": "HumanEval/50",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 9: operator Sub -> Add",
+      "line 9: constant 5 changed by one",
+      "line 9: operator Mod -> FloorDiv"
+    ],
+    "extra_defects_seed": 0
+  }
+}

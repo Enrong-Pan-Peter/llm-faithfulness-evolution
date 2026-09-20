@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_036_d3",
+  "entry_point": "fizz_buzz",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef fizz_buzz(n: int):\n    \"\"\"Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.\n    >>> fizz_buzz(50)\n    0\n    >>> fizz_buzz(78)\n    2\n    >>> fizz_buzz(79)\n    3\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/36",
+    "humaneval_id": "HumanEval/36",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: comparison Eq -> NotEq",
+      "line 4: constant 11 changed by one",
+      "line 4: operator Mod -> FloorDiv"
+    ],
+    "extra_defects_seed": 0
+  }
+}

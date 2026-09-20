@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_103_d3",
+  "entry_point": "rounded_avg",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef rounded_avg(n, m):\n    \"\"\"You are given two positive integers n and m, and your task is to compute the\n    average of the integers from n through m (including n and m). \n    Round the answer to the nearest integer and convert that to binary.\n    If n is greater than m, return -1.\n    Example:\n    rounded_avg(1, 5) => \"0b11\"\n    rounded_avg(7, 5) => -1\n    rounded_avg(10, 20) => \"0b1111\"\n    rounded_avg(20, 33) => \"0b11010\"\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/103",
+    "humaneval_id": "HumanEval/103",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 5: constant 1 changed by one",
+      "line 7: operator Sub -> Add",
+      "line 3: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

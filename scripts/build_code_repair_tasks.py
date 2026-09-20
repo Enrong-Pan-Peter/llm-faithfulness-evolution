@@ -13,6 +13,9 @@ Usage (PowerShell; see task_sets/code_repair/README.md for the downloads):
 ``--extra-defects k`` injects ``k`` further defects into every seeded program
 (mutation operators on the syntax tree, see ``benchmarks/defects.py``) for a
 harder variant of a memorised benchmark; task ids get a ``_d<k>`` suffix.
+``--anonymize`` renames every identifier (entry point ``solve``, variables
+``v1``, ``v2``, ...), drops docstrings and replaces the specification by a
+tests-only prompt (see ``benchmarks/anonymize.py``); ids get ``_anon``.
 
 Every task is validated (reference passes all tests, seeded program loads and
 fails at least one development test, no hidden test repeats a development
@@ -50,6 +53,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--only", nargs="*", default=None, help="QuixBugs program names or HumanEval numbers to build")
     parser.add_argument("--extra-defects", type=int, default=0, help="inject this many further defects into every seeded program (task ids get a _d<k> suffix)")
     parser.add_argument("--defect-seed", type=int, default=0)
+    parser.add_argument("--anonymize", action="store_true", help="rename identifiers and use a tests-only prompt (task ids get an _anon suffix)")
     args = parser.parse_args(argv)
 
     rule = SplitRule(max_dev_case_chars=args.max_dev_case_chars, seed=args.seed)
@@ -57,14 +61,14 @@ def main(argv: list[str] | None = None) -> int:
         report = build_quixbugs_tasks(
             args.source, args.output, rule=rule, names=args.only or None,
             timeout_s=args.timeout, memory_mb=args.memory_mb,
-            extra_defects=args.extra_defects, defect_seed=args.defect_seed,
+            extra_defects=args.extra_defects, defect_seed=args.defect_seed, anonymize=args.anonymize,
         )
     else:
         numbers = [int(value) for value in args.only] if args.only else None
         report = build_humanevalfix_tasks(
             args.source, args.output, evalplus_path=args.evalplus, max_plus_hidden=args.max_plus_hidden,
             rule=rule, numbers=numbers, timeout_s=args.timeout, memory_mb=args.memory_mb,
-            extra_defects=args.extra_defects, defect_seed=args.defect_seed,
+            extra_defects=args.extra_defects, defect_seed=args.defect_seed, anonymize=args.anonymize,
         )
 
     print(f"{report.benchmark}: built {len(report.built)} tasks, rejected {len(report.rejected)} -> {report.output_root}")

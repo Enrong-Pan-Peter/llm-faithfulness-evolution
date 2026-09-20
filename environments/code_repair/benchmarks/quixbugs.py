@@ -126,6 +126,7 @@ def build_quixbugs_tasks(
     memory_mb: int | None = DEFAULT_MEMORY_MB,
     extra_defects: int = 0,
     defect_seed: int = 0,
+    anonymize: bool = False,
 ) -> BuildReport:
     """Convert every eligible QuixBugs program (or ``names``) into task directories."""
     root = Path(quixbugs_root)
@@ -139,9 +140,9 @@ def build_quixbugs_tasks(
             continue
         finish_task(
             built, output_root, report, timeout_s=timeout_s, memory_mb=memory_mb,
-            extra_defects=extra_defects, defect_seed=defect_seed,
+            extra_defects=extra_defects, defect_seed=defect_seed, anonymize=anonymize,
         )
-    write_index(report, rule, {"source_root": str(root), "extra_defects": extra_defects, "defect_seed": defect_seed})
+    write_index(report, rule, {"source_root": str(root), "extra_defects": extra_defects, "defect_seed": defect_seed, "anonymized": anonymize})
     return report
 
 

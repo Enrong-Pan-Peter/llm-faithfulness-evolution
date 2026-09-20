@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_121_d3",
+  "entry_point": "solution",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef solution(lst):\n    \"\"\"Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.\n    \n\n    Examples\n    solution([5, 8, 7, 1]) ==> 12\n    solution([3, 3, 3, 3, 3]) ==> 9\n    solution([30, 13, 24, 321]) ==>0\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/121",
+    "humaneval_id": "HumanEval/121",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: constant 1 changed by one",
+      "line 2: constant 1 changed by one",
+      "line 2: constant 2 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

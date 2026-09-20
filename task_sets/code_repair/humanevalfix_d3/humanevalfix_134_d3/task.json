@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_134_d3",
+  "entry_point": "check_if_last_char_is_a_letter",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef check_if_last_char_is_a_letter(txt):\n    '''\n    Create a function that returns True if the last character\n    of a given string is an alphabetical character and is not\n    a part of a word, and False otherwise.\n    Note: \"word\" is a group of characters separated by space.\n\n    Examples:\n    check_if_last_char_is_a_letter(\"apple pie\") ➞ False\n    check_if_last_char_is_a_letter(\"apple pi e\") ➞ True\n    check_if_last_char_is_a_letter(\"apple pi e \") ➞ False\n    check_if_last_char_is_a_letter(\"\") ➞ False \n    '''\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/134",
+    "humaneval_id": "HumanEval/134",
+    "bug_type": "function misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 3: constant 1 changed by one",
+      "line 4: And -> Or",
+      "line 4: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

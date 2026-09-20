@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_104_d3",
+  "entry_point": "unique_digits",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef unique_digits(x):\n    \"\"\"Given a list of positive integers x. return a sorted list of all \n    elements that hasn't any even digit.\n\n    Note: Returned list should be sorted in increasing order.\n    \n    For example:\n    >>> unique_digits([15, 33, 1422, 1])\n    [1, 15, 33]\n    >>> unique_digits([152, 323, 1422, 10])\n    []\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/104",
+    "humaneval_id": "HumanEval/104",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: constant 2 changed by one",
+      "line 4: comparison Eq -> NotEq",
+      "line 4: operator Mod -> FloorDiv"
+    ],
+    "extra_defects_seed": 0
+  }
+}

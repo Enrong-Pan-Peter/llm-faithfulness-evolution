@@ -1,0 +1,20 @@
+{
+  "id": "quixbugs_lcs_length_d5",
+  "entry_point": "lcs_length",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef lcs_length(s, t):\n    \"\"\"\n    Longest Common Substring\n    longest-common-substring\n\n    Input:\n        s: a string\n        t: a string\n\n    Output:\n        Length of the longest substring common to s and t\n\n    Example:\n        >>> lcs_length('witch', 'sandwich')\n        2\n        >>> lcs_length('meow', 'homeowner')\n        4\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "lcs_length",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 9: operator Sub -> Add",
+      "line 9: constant 1 changed by one",
+      "line 8: comparison Eq -> NotEq",
+      "line 8: index j shifted by one",
+      "line 8: index i shifted by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

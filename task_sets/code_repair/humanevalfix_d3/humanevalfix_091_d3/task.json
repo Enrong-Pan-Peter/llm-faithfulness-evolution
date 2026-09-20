@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_091_d3",
+  "entry_point": "is_bored",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef is_bored(S):\n    \"\"\"\n    You'll be given a string of words, and your task is to count the number\n    of boredoms. A boredom is a sentence that starts with the word \"I\".\n    Sentences are delimited by '.', '?' or '!'.\n   \n    For example:\n    >>> is_bored(\"Hello world\")\n    0\n    >>> is_bored(\"The sky is blue. The sun is shining. I love this weather\")\n    1\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/91",
+    "humaneval_id": "HumanEval/91",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: constant 2 changed by one",
+      "line 4: comparison Eq -> NotEq",
+      "line 4: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

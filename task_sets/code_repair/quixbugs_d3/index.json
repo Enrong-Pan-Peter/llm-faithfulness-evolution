@@ -1,0 +1,815 @@
+{
+  "benchmark": "quixbugs",
+  "split_rule": {
+    "max_dev_case_chars": 400,
+    "seed": 0
+  },
+  "n_tasks": 25,
+  "tasks": [
+    {
+      "id": "quixbugs_bitcount_d3",
+      "entry_point": "bitcount",
+      "n_dev": 6,
+      "n_hidden": 3,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "bitcount",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 4: operator Sub -> Add",
+          "line 5: constant 1 changed by one",
+          "line 2: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_bucketsort_d3",
+      "entry_point": "bucketsort",
+      "n_dev": 3,
+      "n_hidden": 4,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "bucketsort",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 2: operator Mult -> FloorDiv",
+          "line 8: operator Mult -> FloorDiv",
+          "line 4: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_find_first_in_sorted_d3",
+      "entry_point": "find_first_in_sorted",
+      "n_dev": 4,
+      "n_hidden": 3,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "find_first_in_sorted",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 8: Or -> And",
+          "line 6: operator Add -> Sub",
+          "line 8: comparison NotEq -> Eq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_find_in_sorted_d3",
+      "entry_point": "find_in_sorted",
+      "n_dev": 4,
+      "n_hidden": 3,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "find_in_sorted",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 13: constant 0 changed by one",
+          "line 5: constant 2 changed by one",
+          "line 8: comparison Gt -> GtE"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_get_factors_d3",
+      "entry_point": "get_factors",
+      "n_dev": 7,
+      "n_hidden": 4,
+      "seeded_dev_failing": 6,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "get_factors",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 2: constant 1 changed by one",
+          "line 7: operator FloorDiv -> Mult",
+          "line 6: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 11,
+      "seeded_loaded": true,
+      "seeded_failing": 10,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_hanoi_d3",
+      "entry_point": "hanoi",
+      "n_dev": 4,
+      "n_hidden": 4,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "hanoi",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 4: constant 2 changed by one",
+          "line 7: constant 1 changed by one",
+          "line 4: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_knapsack_d3",
+      "entry_point": "knapsack",
+      "n_dev": 4,
+      "n_hidden": 5,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "knapsack",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 14: operator Sub -> Add",
+          "line 6: operator Sub -> Add",
+          "line 14: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": [
+        {
+          "args": [
+            6404180,
+            [
+              [
+                382745,
+                825594
+              ],
+              [
+                799601,
+                1677009
+              ],
+              [
+                909247,
+                1676628
+              ],
+              [
+                729069,
+                1523970
+              ],
+              [
+                467902,
+                943972
+              ],
+              [
+                44328,
+                97426
+              ],
+              [
+                34610,
+                69666
+              ],
+              [
+                698150,
+                1296457
+              ],
+              [
+                823460,
+                1679693
+              ],
+              [
+                903959,
+                1902996
+              ],
+              [
+                853665,
+                1844992
+              ],
+              [
+                551830,
+                1049289
+              ],
+              [
+                610856,
+                1252836
+              ],
+              [
+                670702,
+                1319836
+              ],
+              [
+                488960,
+                953277
+              ],
+              [
+                951111,
+                2067538
+              ],
+              [
+                323046,
+                675367
+              ],
+              [
+                446298,
+                853655
+              ],
+              [
+                931161,
+                1826027
+              ],
+              [
+                31385,
+                65731
+              ],
+              [
+                496951,
+                901489
+              ],
+              [
+                264724,
+                577243
+              ],
+              [
+                224916,
+                466257
+              ],
+              [
+                169684,
+                369261
+              ]
+            ]
+          ],
+          "reason": "MemoryError: "
+        }
+      ]
+    },
+    {
+      "id": "quixbugs_kth_d3",
+      "entry_point": "kth",
+      "n_dev": 3,
+      "n_hidden": 4,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "kth",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: comparison Lt -> LtE",
+          "line 11: comparison GtE -> Gt",
+          "line 9: comparison Lt -> LtE"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_lcs_length_d3",
+      "entry_point": "lcs_length",
+      "n_dev": 5,
+      "n_hidden": 4,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "lcs_length",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 9: operator Sub -> Add",
+          "line 9: constant 1 changed by one",
+          "line 8: comparison Eq -> NotEq"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_levenshtein_d3",
+      "entry_point": "levenshtein",
+      "n_dev": 3,
+      "n_hidden": 3,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "levenshtein",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: Or -> And",
+          "line 6: constant 1 changed by one",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": [
+        {
+          "args": [
+            "amanaplanacanalpanama",
+            "docnoteidissentafastneverpreventsafatnessidietoncod"
+          ],
+          "reason": "timed out"
+        }
+      ]
+    },
+    {
+      "id": "quixbugs_lis_d3",
+      "entry_point": "lis",
+      "n_dev": 7,
+      "n_hidden": 5,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "lis",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 12: operator Add -> Sub",
+          "line 13: constant 1 changed by one",
+          "line 3: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        8
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_longest_common_subsequence_d3",
+      "entry_point": "longest_common_subsequence",
+      "n_dev": 5,
+      "n_hidden": 5,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "longest_common_subsequence",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 5: comparison Eq -> NotEq",
+          "line 11: constant 1 changed by one",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_max_sublist_sum_d3",
+      "entry_point": "max_sublist_sum",
+      "n_dev": 4,
+      "n_hidden": 2,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "max_sublist_sum",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 2: constant 0 changed by one",
+          "line 6: operator Add -> Sub",
+          "line 3: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_mergesort_d3",
+      "entry_point": "mergesort",
+      "n_dev": 7,
+      "n_hidden": 7,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "mergesort",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 9: constant 1 changed by one",
+          "line 13: Or -> And",
+          "line 16: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 14,
+      "seeded_loaded": true,
+      "seeded_failing": 13,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_next_palindrome_d3",
+      "entry_point": "next_palindrome",
+      "n_dev": 3,
+      "n_hidden": 2,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "next_palindrome",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 11: constant 1 changed by one",
+          "line 15: constant 0 changed by one",
+          "line 15: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_next_permutation_d3",
+      "entry_point": "next_permutation",
+      "n_dev": 5,
+      "n_hidden": 3,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "next_permutation",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 8: operator Add -> Sub",
+          "line 2: operator Sub -> Add",
+          "line 8: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_pascal_d3",
+      "entry_point": "pascal",
+      "n_dev": 3,
+      "n_hidden": 2,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "pascal",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 6: operator Sub -> Add",
+          "line 6: comparison Gt -> GtE",
+          "line 3: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_possible_change_d3",
+      "entry_point": "possible_change",
+      "n_dev": 5,
+      "n_hidden": 5,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "possible_change",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: constant 1 changed by one",
+          "line 4: comparison Lt -> LtE",
+          "line 4: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_quicksort_d3",
+      "entry_point": "quicksort",
+      "n_dev": 7,
+      "n_hidden": 6,
+      "seeded_dev_failing": 7,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "quicksort",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 7: constant 1 changed by one",
+          "line 5: constant 0 changed by one",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 13,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_rpn_eval_d3",
+      "entry_point": "rpn_eval",
+      "n_dev": 3,
+      "n_hidden": 3,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "rpn_eval",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: index symbol shifted by one",
+          "line 4: operator Add -> Sub",
+          "line 6: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_shunting_yard_d3",
+      "entry_point": "shunting_yard",
+      "n_dev": 5,
+      "n_hidden": 1,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "shunting_yard",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: constant 1 changed by one",
+          "line 15: And -> Or",
+          "line 4: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        2,
+        3,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_sieve_d3",
+      "entry_point": "sieve",
+      "n_dev": 3,
+      "n_hidden": 3,
+      "seeded_dev_failing": 3,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "sieve",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 4: operator Mod -> FloorDiv",
+          "line 4: comparison Gt -> GtE",
+          "line 3: constant 2 changed by one"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_sqrt_d3",
+      "entry_point": "sqrt",
+      "n_dev": 4,
+      "n_hidden": 3,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.5,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "sqrt",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 3: operator Sub -> Add",
+          "line 4: operator Add -> Sub",
+          "line 4: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_subsequences_d3",
+      "entry_point": "subsequences",
+      "n_dev": 5,
+      "n_hidden": 7,
+      "seeded_dev_failing": 4,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "subsequences",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 6: constant 1 changed by one",
+          "line 6: operator Add -> Sub",
+          "line 8: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 12,
+      "seeded_loaded": true,
+      "seeded_failing": 10,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [
+        6,
+        7
+      ],
+      "dropped_infeasible_for_reference": []
+    },
+    {
+      "id": "quixbugs_to_base_d3",
+      "entry_point": "to_base",
+      "n_dev": 5,
+      "n_hidden": 5,
+      "seeded_dev_failing": 5,
+      "float_tolerance": 0.0,
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "to_base",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 7: operator FloorDiv -> Mult",
+          "line 5: comparison Gt -> GtE",
+          "line 8: operator Add -> Sub"
+        ],
+        "extra_defects_seed": 0
+      },
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 7,
+      "forced_dev_by_prompt_example": [
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "dropped_infeasible_for_reference": []
+    }
+  ],
+  "source_root": "data/benchmarks/QuixBugs",
+  "extra_defects": 3,
+  "defect_seed": 0
+}

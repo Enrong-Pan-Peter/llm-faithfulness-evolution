@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_040_d3",
+  "entry_point": "triples_sum_to_zero",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef triples_sum_to_zero(l: list):\n    \"\"\"\n    triples_sum_to_zero takes a list of integers as an input.\n    it returns True if there are three distinct elements in the list that\n    sum to zero, and False otherwise.\n\n    >>> triples_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> triples_sum_to_zero([1, 3, -2, 1])\n    True\n    >>> triples_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\n    True\n    >>> triples_sum_to_zero([1])\n    False\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/40",
+    "humaneval_id": "HumanEval/40",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 4: operator Add -> Sub",
+      "line 5: constant 0 changed by one",
+      "line 2: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

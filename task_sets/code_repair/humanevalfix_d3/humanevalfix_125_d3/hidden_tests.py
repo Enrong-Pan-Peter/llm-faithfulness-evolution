@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Hello world!',), ['Hello', 'world!']),
+    (('Hello,Hello,world !',), ['Hello,Hello,world', '!']),
+    (('aaabb',), 2),
+    (('',), 0),
+    (('Hello dWorlld!',), ['Hello', 'dWorlld!']),
+    (('also',), 1),
+    (('supercalifragilisticexpiali1esd;2345,67890cious',), ['supercalifragilisticexpiali1esd;2345', '67890cious']),
+    (('ase(defwhitespaces,eault,ntand,s',), ['ase(defwhitespaces', 'eault', 'ntand', 's']),
+    (('mnumbers',), 3),
+    (('(defaultAanti',), 6),
+    (('uflo2021,ccinaucinihilipilificateion,p',), ['uflo2021', 'ccinaucinihilipilificateion', 'p']),
+    (('has',), 1),
+    (('nice3.niA4)]',), 2),
+    (('luist',), 2),
+    (('onlyed!vhllxblxycomA normal hsUoSsentence with whitespacpes and noommasmas,aqvv',), ['onlyed!vhllxblxycomA', 'normal', 'hsUoSsentence', 'with', 'whitespacpes', 'and', 'noommasmas,aqvv']),
+    (('Python 3.9.7 (defau 2021, 08:14:53) [MSC vparameter.1916 64 bit (AMD64)] \n',), ['Python', '3.9.7', '(defau', '2021,', '08:14:53)', '[MSC', 'vparameter.1916', '64', 'bit', '(AMD64)]']),
+    (('jpnormalA nospaceswithds,a90thrmal seentence with whitespacpes and noommas',), ['jpnormalA', 'nospaceswithds,a90thrmal', 'seentence', 'with', 'whitespacpes', 'and', 'noommas']),
+    (('lowercasel',), 3),
+    (('commas',), 0),
+    (('Sep',), 1),
+    (('spacesc,supercalifragilisticexpialidocious',), ['spacesc', 'supercalifragilisticexpialidocious']),
+    (('o3.9.7nTesrameterly',), 5),
+    (('A mix of spacesk and cohould split as,words,and numbers like 12345,67890',), ['A', 'mix', 'of', 'spacesk', 'and', 'cohould', 'split', 'as,words,and', 'numbers', 'like', '12345,67890']),
+    (('NHello , world Hello , world !!DcwhK',), ['NHello', ',', 'world', 'Hello', ',', 'world', '!!DcwhK']),
+]

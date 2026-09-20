@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_099_d3",
+  "entry_point": "closest_integer",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef closest_integer(value):\n    '''\n    Create a function that takes a value (string) representing a number\n    and returns the closest integer to it. If the number is equidistant\n    from two integers, round it away from zero.\n\n    Examples\n    >>> closest_integer(\"10\")\n    10\n    >>> closest_integer(\"15.3\")\n    15\n\n    Note:\n    Rounding away from zero means that if the given number is equidistant\n    from two integers, the one you should return is the one that is the\n    farthest from zero. For example closest_integer(\"14.5\") should\n    return 15 and closest_integer(\"-14.5\") should return -15.\n    '''\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/99",
+    "humaneval_id": "HumanEval/99",
+    "bug_type": "function misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 10: constant 2 changed by one",
+      "line 6: comparison Eq -> NotEq",
+      "line 10: comparison Eq -> NotEq"
+    ],
+    "extra_defects_seed": 0
+  }
+}

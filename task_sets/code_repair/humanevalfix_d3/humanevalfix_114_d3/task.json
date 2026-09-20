@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_114_d3",
+  "entry_point": "minSubArraySum",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef minSubArraySum(nums):\n    \"\"\"\n    Given an array of integers nums, find the minimum sum of any non-empty sub-array\n    of nums.\n    Example\n    minSubArraySum([2, 3, 4, 1, 2, 4]) == 1\n    minSubArraySum([-1, -2, -3]) == -6\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/114",
+    "humaneval_id": "HumanEval/114",
+    "bug_type": "function misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 9: constant 0 changed by one",
+      "line 3: constant 0 changed by one",
+      "line 7: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "quixbugs_shunting_yard_d5",
+  "entry_point": "shunting_yard",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef shunting_yard(tokens):\n    \"\"\"\n    Infix to RPN Conversion\n    shunting-yard\n\n\n    Uses Dijkstra's shunting-yard algorithm to transform infix notation into equivalent Reverse Polish Notation.\n\n    Input:\n        tokens: A list of tokens in infix notation\n\n    Precondition:\n        all(isinstance(token, int) or token in '+-*/' for token in tokens)\n\n    Output:\n        The input tokens reordered into Reverse Polish Notation\n\n    Examples:\n        >>> shunting_yard([10, '-', 5, '-', 2])\n        [10, 5, '-', 2, '-']\n        >>> shunting_yard([34, '-', 12, '/', 5])\n        [34, 12, 5, '/' ,'-']\n        >>> shunting_yard([4, '+', 9, '*', 9, '-', 10, '+', 13])\n        [4, 9, 9, '*', '+', 10, '-', 13, '+']\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "shunting_yard",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 3: constant 1 changed by one",
+      "line 15: And -> Or",
+      "line 4: constant 1 changed by one",
+      "line 15: comparison LtE -> Lt",
+      "line 15: index token shifted by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

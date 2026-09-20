@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_066_d3",
+  "entry_point": "digitSum",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef digitSum(s):\n    \"\"\"Task\n    Write a function that takes a string as input and returns the sum of the upper characters only'\n    ASCII codes.\n\n    Examples:\n        digitSum(\"\") => 0\n        digitSum(\"abAB\") => 131\n        digitSum(\"abcCd\") => 67\n        digitSum(\"helloE\") => 69\n        digitSum(\"woArBld\") => 131\n        digitSum(\"aAaaaXa\") => 153\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/66",
+    "humaneval_id": "HumanEval/66",
+    "bug_type": "function misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: comparison Eq -> NotEq",
+      "line 3: constant 0 changed by one",
+      "line 2: constant 0 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

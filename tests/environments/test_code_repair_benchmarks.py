@@ -280,3 +280,62 @@ def test_build_with_extra_defects_renames_tasks(tmp_path):
     task = load_task(tmp_path / "tasks" / "quixbugs_sieve_d1")
     assert len(task.source["extra_defects"]) == 1 and task.source["extra_defects_seed"] == 3
     assert validate_task(task).ok
+
+
+# ----------------------------------------------------------------- anonymised variants
+
+PROGRAM_WITH_NAMES = '''import math
+from collections import Counter
+
+def total(values, scale=1):
+    """Sum scaled values."""
+    return sum(v * scale for v in values)
+
+def pick_best(items, key=None):
+    """Recursive helper with a nested function, a comprehension and a keyword call."""
+    def score(item):
+        try:
+            return math.sqrt(total(item, scale=2))
+        except ValueError as err:
+            return float("-inf")
+    counts = Counter(len(item) for item in items)
+    best = max(items, key=key or score)
+    return [best, counts.most_common(1)[0][0]]
+'''
+
+
+def test_anonymize_renames_every_bound_name_and_keeps_behaviour():
+    from environments.code_repair.benchmarks.anonymize import anonymize_programs, anonymous_signature
+
+    renamed, same, mapping = anonymize_programs(PROGRAM_WITH_NAMES, PROGRAM_WITH_NAMES, "pick_best")
+    assert renamed == same
+    assert mapping.names["pick_best"] == "solve" and mapping.names["total"] == "helper_1" and mapping.names["score"] == "helper_2"
+    for old in ("values", "scale", "items", "item", "err", "counts", "best", "pick_best", "total", "score"):
+        assert old not in renamed.replace("most_common", "")  # bound names are gone
+    assert "max(v4, key=v5 or helper_2)" in renamed  # keyword of a builtin call untouched, the parameter renamed
+    assert "import math" in renamed and "from collections import Counter" in renamed
+    assert "math.sqrt" in renamed and "most_common" in renamed and "Counter" in renamed  # library names untouched
+    assert '"""' not in renamed  # docstrings removed
+    assert "helper_1(v" in renamed and "v2=2" in renamed  # keyword argument of a renamed function follows its parameter
+    assert anonymous_signature(renamed) == "def solve(v4, v5=None):"
+    scope_old: dict = {}
+    scope_new: dict = {}
+    exec(PROGRAM_WITH_NAMES, scope_old)
+    exec(renamed, scope_new)
+    assert scope_new["solve"]([[1, 2], [3]]) == scope_old["pick_best"]([[1, 2], [3]])
+
+
+def test_build_anonymized_tasks(tmp_path):
+    root = _fake_quixbugs(tmp_path / "QuixBugs")
+    report = build_quixbugs_tasks(root, tmp_path / "tasks", extra_defects=1, defect_seed=3, anonymize=True)
+    assert sorted(entry["id"] for entry in report.built) == ["quixbugs_gcd_d1_anon", "quixbugs_sieve_d1_anon"]
+    task = load_task(tmp_path / "tasks" / "quixbugs_sieve_d1_anon")
+    assert task.entry_point == "solve"
+    assert task.prompt.startswith("Repair the function below.\n\ndef solve(v1):")
+    assert "specification" in task.prompt and "sieve" not in task.prompt
+    assert "sieve" not in task.seeded_source and "sieve" not in task.reference_source
+    assert task.source["anonymized"]["original_entry_point"] == "sieve"
+    assert len(task.source["extra_defects"]) == 1
+    assert validate_task(task).ok
+    index = json.loads((tmp_path / "tasks" / "index.json").read_text())
+    assert index["anonymized"] is True

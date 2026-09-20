@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_131_d3",
+  "entry_point": "digits",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef digits(n):\n    \"\"\"Given a positive integer n, return the product of the odd digits.\n    Return 0 if all digits are even.\n    For example:\n    digits(1)  == 1\n    digits(4)  == 0\n    digits(235) == 15\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/131",
+    "humaneval_id": "HumanEval/131",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 8: constant 1 changed by one",
+      "line 6: comparison Eq -> NotEq",
+      "line 6: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Boku123', ['nani', 'NazeDa', 'YEs.WeCaNe', '32145tggg']), 'Boku123.YEs.WeCaNe'),
+    (('K', ['Ta', 'TAR', 't234An', 'cosSo']), 'K.TAR'),
+    (('YameRore', ['HhAas', 'okIWILL123', 'WorkOut', 'Fails', '-_-']), 'YameRore.okIWILL123'),
+    (('_', ['Bb', '91245']), '_.Bb'),
+    (('ClassNaMqwertyy_classLMYCLA_e', ['XXXXXXx', 'AAA', 'ffffff', 'Bbcde', 'GHIJKLMN']), 'ClassNaMqwertyy_classLMYCLA_e.GHIJKLMN'),
+    (('Test5', ['ZERO', 'one', 'Two', 'THREE', 'four', 'FIVE', 'six', 'seven', 'eight', 'nine', '10']), 'Test5.THREE'),
+    (('Vehcpicturebccookoobk', ['Automobile', 'CAR', 'Vehicle', 'SuPerbIkE', '']), 'Vehcpicturebccookoobk.CAR'),
+    (('Vehcice', ['bIkE', 'Automobile', 'CAR', 'Vehicle', 'SuPerbIkE', '']), 'Vehcice.CAR'),
+    (('Another_class', ['AbCdEfG', 'Hijklmno', '12345', 'pqrstuvwxy', 'Z']), 'Another_class.AbCdEfG'),
+    (('_', ['yolo', '900000000', 's3cr3tK3y', 'GIMMETH3L00TZ!']), '_.GIMMETH3L00TZ!'),
+    (('1234GHIJKLMN5', ['TESTING2', 'TOPqrstEST', 'TOPqrsttEST', 'test', 'tEstin3g']), '1234GHIJKLMN5.TESTING2'),
+    (('SampleClass', ['AAA', 'BBB', 'CCC']), 'SampleClass.AAA'),
+    (('My_classLMYCLASS_nnYetAnotherCMYsCLASSUVWxYZlass', ['yolo', '900000000', 's3cr3tK3y', 'GIMMETH3L00TZ!']), 'My_classLMYCLASS_nnYetAnotherCMYsCLASSUVWxYZlass.GIMMETH3L00TZ!'),
+    (('MMy_classMYCLASS', ['Aaa', 'ZZZZ', 'ddd', 'E', 'HHHHHH', 'ZZZZ']), 'MMy_classMYCLASS.HHHHHH'),
+    (('Another_class', ['AbCdEfG', '1235', 'Hijklmno', '12345', 'vpqrstuvwxy', 'Z', 'Hijklmno']), 'Another_class.AbCdEfG'),
+    (('YetAtEstin3gnotherClass', ['1', 'BBB', 'ccc', 'DDDDDD', 'bbBbBeeE', 'ffffff']), 'YetAtEstin3gnotherClass.DDDDDD'),
+    (('Test3', ['oneUPPERcaseletter', 'TWoUPPERcaseletTErs', 'threeUppercaseletters', 'fourlowercaseletters']), 'Test3.TWoUPPERcaseletTErs'),
+    (('x1UXXXXXXxVWxYZ', ['1', 'BBB', 'ccc', 'DDDDDD', 'EEEeeeE', 'ffffff', 'EEEeeeE']), 'x1UXXXXXXxVWxYZ.DDDDDD'),
+    (('T1e1st1', ['UPPERCASE', 'uppercase', '1111']), 'T1e1st1.UPPERCASE'),
+    (('OPqrst', ['AbCdEfG', 'Hijklmno', '12345', 'pqrstuvwxy']), 'OPqrst.AbCdEfG'),
+    (('TgTg1', ['AbcDEFg', 'hIjKlmn', 'OPqrst', 'UVWxYZ', 'UVWxYZ']), 'TgTg1.UVWxYZ'),
+    (('MExty_class', ['Aaa', 'ddd', 'E', 'HHYetAnotherClassHHHH']), 'MExty_class.E'),
+    (('YetAnotherClasUVWxYZs', ['1', 'BBB', 'ccc', 'DDDDDD', 'EEEeeeE', 'ffffff', 'EEEeeeE']), 'YetAnotherClasUVWxYZs.DDDDDD'),
+    (('_Exteasdfghnd', ['yMCyClassolo', 'yolo', '900000000', 's3cr3tK3y', 'GIMMETH3L00TZ!']), '_Exteasdfghnd.GIMMETH3L00TZ!'),
+]

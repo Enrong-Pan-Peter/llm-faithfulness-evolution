@@ -1,0 +1,707 @@
+{
+  "benchmark": "humanevalfix",
+  "rejected": [
+    {
+      "id": "humanevalfix_002",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_004",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_005",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_007",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_008",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_009",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_011",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_012",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_013",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_015",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_016",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_021",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_022",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_023",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_026",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_027",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_028",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_029",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 2,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_030",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_033",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_034",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 1,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 20,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_035",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 2,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 20,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_041",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_042",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 1,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_045",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 3,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_048",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 6,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_051",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        0
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_052",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_054",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 6,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_057",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 8,
+      "forced_dev_by_prompt_example": [
+        1,
+        2,
+        3
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 6,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_058",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 4,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_060",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        3,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_062",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 4,
+      "n_hidden": 21,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_064",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 24,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_070",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 6,
+      "forced_dev_by_prompt_example": [
+        0,
+        4,
+        5
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 6,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_077",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 3,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 7,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_084",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_086",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        4
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_101",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 6,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 3,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_112",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 9,
+      "seeded_loaded": true,
+      "seeded_failing": 9,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 24,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_115",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 2,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_116",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 7,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 22,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_120",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 11,
+      "seeded_loaded": true,
+      "seeded_failing": 10,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 26,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_122",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 5,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 2,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_132",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 14,
+      "seeded_loaded": true,
+      "seeded_failing": 5,
+      "forced_dev_by_prompt_example": [
+        0,
+        1,
+        2,
+        3,
+        9,
+        10
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 10,
+      "n_hidden": 24,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_137",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 8,
+      "seeded_loaded": true,
+      "seeded_failing": 1,
+      "forced_dev_by_prompt_example": [
+        1
+      ],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 23,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_158",
+      "reason": "could not inject 3 extra defects",
+      "n_cases": 10,
+      "seeded_loaded": true,
+      "seeded_failing": 4,
+      "forced_dev_by_prompt_example": [],
+      "forced_hidden_by_length": [],
+      "n_dev": 5,
+      "n_hidden": 25,
+      "dropped_base_inputs": 0,
+      "plus_hidden_added": 20
+    },
+    {
+      "id": "humanevalfix_160",
+      "reason": "no usable test inputs (reference produced no JSON outputs)"
+    },
+    {
+      "id": "humanevalfix_162",
+      "reason": "no usable test inputs (reference produced no JSON outputs)"
+    }
+  ]
+}

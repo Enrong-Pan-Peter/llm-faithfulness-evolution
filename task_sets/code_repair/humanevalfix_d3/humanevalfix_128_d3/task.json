@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_128_d3",
+  "entry_point": "prod_signs",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef prod_signs(arr):\n    \"\"\"\n    You are given an array arr of integers and you need to return\n    sum of magnitudes of integers multiplied by product of all signs\n    of each number in the array, represented by 1, -1 or 0.\n    Note: return None for empty arr.\n\n    Example:\n    >>> prod_signs([1, 2, 2, -4]) == -9\n    >>> prod_signs([0, 1]) == 0\n    >>> prod_signs([]) == None\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/128",
+    "humaneval_id": "HumanEval/128",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 3: constant 1 changed by one",
+      "line 3: constant 0 changed by one",
+      "line 3: operator Mult -> FloorDiv"
+    ],
+    "extra_defects_seed": 0
+  }
+}

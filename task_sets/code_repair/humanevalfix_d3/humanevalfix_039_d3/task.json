@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_039_d3",
+  "entry_point": "prime_fib",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/39",
+    "humaneval_id": "HumanEval/39",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": null,
+    "extra_defects": [
+      "line 14: constant 1 changed by one",
+      "line 15: constant 1 changed by one",
+      "line 5: comparison Lt -> LtE"
+    ],
+    "extra_defects_seed": 0
+  }
+}

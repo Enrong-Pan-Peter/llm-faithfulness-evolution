@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_125_d3",
+  "entry_point": "split_words",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef split_words(txt):\n    '''\n    Given a string of words, return a list of words split on whitespace, if no whitespaces exists in the text you\n    should split on commas ',' if no commas exists you should return the number of lower-case letters with odd order in the\n    alphabet, ord('a') = 0, ord('b') = 1, ... ord('z') = 25\n    Examples\n    split_words(\"Hello world!\") ➞ [\"Hello\", \"world!\"]\n    split_words(\"Hello,world!\") ➞ [\"Hello\", \"world!\"]\n    split_words(\"abcdef\") == 3 \n    '''\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/125",
+    "humaneval_id": "HumanEval/125",
+    "bug_type": "value misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 7: constant 2 changed by one",
+      "line 7: constant 0 changed by one",
+      "line 7: And -> Or"
+    ],
+    "extra_defects_seed": 0
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "quixbugs_subsequences_d3",
+  "entry_point": "subsequences",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef subsequences(a, b, k):\n    \"\"\"\n    Subsequences\n\n\n    Input:\n        a: An int\n        b: An int\n        k: A positive int\n\n    Output:\n        A list of all length-k ascending sequences of ints in range(a, b)\n\n    Example:\n        >>> subsequences(a=1, b=5, k=3)\n        [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "subsequences",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 6: constant 1 changed by one",
+      "line 6: operator Add -> Sub",
+      "line 8: operator Add -> Sub"
+    ],
+    "extra_defects_seed": 0
+  }
+}

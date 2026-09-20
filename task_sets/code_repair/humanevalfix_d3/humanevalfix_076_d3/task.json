@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_076_d3",
+  "entry_point": "is_simple_power",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef is_simple_power(x, n):\n    \"\"\"Your task is to write a function that returns true if a number x is a simple\n    power of n and false in other cases.\n    x is a simple power of n if n**int=x\n    For example:\n    is_simple_power(1, 4) => true\n    is_simple_power(2, 2) => true\n    is_simple_power(8, 2) => true\n    is_simple_power(3, 2) => false\n    is_simple_power(3, 1) => false\n    is_simple_power(5, 3) => false\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/76",
+    "humaneval_id": "HumanEval/76",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "infinite loop",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: constant 1 changed by one",
+      "line 4: constant 1 changed by one",
+      "line 3: comparison Eq -> NotEq"
+    ],
+    "extra_defects_seed": 0
+  }
+}

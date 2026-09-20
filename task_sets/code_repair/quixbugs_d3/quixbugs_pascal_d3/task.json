@@ -1,0 +1,18 @@
+{
+  "id": "quixbugs_pascal_d3",
+  "entry_point": "pascal",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef pascal(n):\n    \"\"\"\n    Pascal's Triangle\n    pascal\n\n\n\n    Input:\n        n: The number of rows to return\n\n    Precondition:\n        n >= 1\n\n    Output:\n        The first n rows of Pascal's triangle as a list of n lists\n\n    Example:\n        >>> pascal(5)\n        [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]\n    \"\"\"\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "pascal",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 6: operator Sub -> Add",
+      "line 6: comparison Gt -> GtE",
+      "line 3: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

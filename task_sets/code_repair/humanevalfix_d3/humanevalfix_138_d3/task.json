@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_138_d3",
+  "entry_point": "is_equal_to_sum_even",
+  "language": "python",
+  "prompt": "Implement the function below.\n\ndef is_equal_to_sum_even(n):\n    \"\"\"Evaluate whether the given number n can be written as the sum of exactly 4 positive even numbers\n    Example\n    is_equal_to_sum_even(4) == False\n    is_equal_to_sum_even(6) == False\n    is_equal_to_sum_even(8) == True\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/138",
+    "humaneval_id": "HumanEval/138",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 2: constant 8 changed by one",
+      "line 2: comparison GtE -> Gt",
+      "line 2: constant 8 changed by one"
+    ],
+    "extra_defects_seed": 0
+  }
+}

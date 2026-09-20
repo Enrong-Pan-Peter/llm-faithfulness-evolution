@@ -1,0 +1,21 @@
+{
+  "id": "humanevalfix_001_d3",
+  "entry_point": "separate_paren_groups",
+  "language": "python",
+  "prompt": "Implement the function below.\n\nfrom typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/1",
+    "humaneval_id": "HumanEval/1",
+    "bug_type": "operator misuse",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 7: constant 0 changed by one",
+      "line 11: constant 1 changed by one",
+      "line 13: comparison Eq -> NotEq"
+    ],
+    "extra_defects_seed": 0
+  }
+}

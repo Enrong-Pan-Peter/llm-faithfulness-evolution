@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('abcdef\nghijklm',), 'bcdf\nghjklm'),
+    (('eeeee',), ''),
+    (('EcBOO',), 'cB'),
+    (('twhawbcd',), 'twhwbcd'),
+    (('This is ahhellhellooelThis sentt!helloThis is ai am using python Test!: alhellooi am using python Test!',), 'Ths s hhllhlllThs sntt!hllThs s  m sng pythn Tst!: lhll m sng pythn Tst!'),
+    (('yYzZbraaaaAAAABBBCCCdddDaEEEE!ownE',), 'yYzZbrBBBCCCdddD!wn'),
+    (('Th!s 1s @ str!ng w1!th nuHello1a2b3c4d5e6fz7g8h9i10jkldoeloIZdDLmnopqrstuvwxyzzzzzzzaaaHello wd!aAAAABBBCCCdddDEEEE! worldThe!mb3rs, punctuat!on, and vvar!ousar!ous caps.AzZE',), 'Th!s 1s @ str!ng w1!th nHll12b3c4d56fz7g8h910jkldlZdDLmnpqrstvwxyzzzzzzzHll wd!BBBCCCdddD! wrldTh!mb3rs, pnctt!n, nd vvr!sr!s cps.zZ'),
+    (('puzZE',), 'pzZ'),
+    (('AEIOUeoiouq',), 'q'),
+    (('vvar!ouusavrxXZE',), 'vvr!svrxXZ'),
+    (('mFjoeHello',), 'mFjHll'),
+    (('abqabcd\n\n\n\nefghvijnklmnopqrstuvwxyzuickvcd',), 'bqbcd\n\n\n\nfghvjnklmnpqrstvwxyzckvcd'),
+    (('dHello,',), 'dHll,'),
+    (('the',), 'th'),
+    (('wMdE',), 'wMd'),
+    (('The quick br ocaayoubcdwn foxr jumps ovner the lazy  dog.',), 'Th qck br cybcdwn fxr jmps vnr th lzy  dg.'),
+    (('efgxkfHeZTldAEIOUaeHellohijklmnopqrustuvwxyz',), 'fgxkfHZTldHllhjklmnpqrstvwxyz'),
+    (('1a2b3c4d5e6fz7g8h9i10jkldoeloIZdDLmnopqrstuvwxyzzzzzzzaaaHello wd!aAAAABBBCCCdddDEEEE!',), '12b3c4d56fz7g8h910jkldlZdDLmnpqrstvwxyzzzzzzzHll wd!BBBCCCdddD!'),
+    (('AEEIOUaeHelHlo',), 'HlHl'),
+    (('vvar!worcaps.AYxXyYzZEld!ousar!ous',), 'vvr!wrcps.YxXyYzZld!sr!s'),
+    (('Hello, hTh!sare you today?',), 'Hll, hTh!sr y tdy?'),
+    (('aaexample@example.comTheaaAAAABabcd\np\n\nc\nefghijklmnopquickytoday?jklmnoprstuvwxyzzzzzzzz!',), 'xmpl@xmpl.cmThBbcd\np\n\nc\nfghjklmnpqckytdy?jklmnprstvwxyzzzzzzzz!'),
+    (('anThe quick brown fox jumps over the lazyog.dd',), 'nTh qck brwn fx jmps vr th lzyg.dd'),
+]

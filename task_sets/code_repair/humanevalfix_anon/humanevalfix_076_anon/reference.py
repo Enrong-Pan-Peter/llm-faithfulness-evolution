@@ -1,0 +1,7 @@
+def solve(v1, v2):
+    if v2 == 1:
+        return v1 == 1
+    v3 = 1
+    while v3 < v1:
+        v3 = v3 * v2
+    return v3 == v1

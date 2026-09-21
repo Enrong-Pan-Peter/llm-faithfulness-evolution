@@ -1,0 +1,25 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('asdasnakj',), 9),
+    (('str1g',), 5),
+    (('The quick brzown fox jumps over the leazy Thisis is aaracter dog',), 64),
+    (('TTh!s40lsh!s',), 12),
+    (('        functoion   ',), 20),
+    (('zPyWTI',), 6),
+    (('function',), 8),
+    (('w1th',), 4),
+    ((' cJH1th1s 4         funthec    lwiiw1ths !nsampleto 1t\n',), 55),
+    (('Laàèìòùáéíóúùýâê   \n\n  1s  îôûãñõäëïöüÿçQFoQxukyicky',), 52),
+    (('hCV',), 3),
+    (('etoo',), 4),
+    (('whyNcJH1thFox',), 13),
+    (('eeTe',), 4),
+    (('\n',), 1),
+    (('RDogmCLazyGGTk',), 14),
+    (('Jum5ymb0lsmfunction',), 19),
+    ((' ',), 1),
+    (('leOvMNhqThe CQuick Brown Fox oJumps Ovepr The BrownLazy DogmCVering',), 67),
+    (('MN!nhqmCCdV',), 11),
+    (('1t',), 2),
+]

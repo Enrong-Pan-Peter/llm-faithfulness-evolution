@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    ((['xxx', 'asd', 'aaaxxy', 'john doe', 'xxxAAA', 'xxx'], 'xx'), ['xxx', 'aaaxxy', 'xxxAAA', 'xxx']),
+    (([], 'john'), []),
+    ((['abcdefg', 'abcdefg'], 'To be or not to be, that is the question.'), []),
+    (([], 'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.'), []),
+    ((['abcdefg', 'abcdefg'], 'universally'), []),
+    ((['Washington', 'DC', 'New York City', 'Boston', 'Los Angeles', 'San Francisco', 'Miami', 'Washington'], 'an'), ['San Francisco']),
+    ((['The cat in the hat', 'Green eggs and ham', 'One fish two fish', 'Red fish blue fish'], 'fish'), ['One fish two fish', 'Red fish blue fish']),
+    ((['The quick brown fox jumps ove  zy dog', 'The quick brown fox jumps over the lazy dog', 'Pack my box with five dozen liquor jugs', 'Jackdaws love my big sphinx of quartz', 'The quick brown fox jumps ove  zy dog'], 'oxx'), []),
+    ((['Washington', 'MMiami', 'New York City', 'San Francisco', 'Miami', 'New York Cicreateddty', 'Washington', 'New York Cicreateddty'], 'nabc(d)e'), []),
+    ((['We the people of the United States of America, in order to form a more perfect union, establish justice, insure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity, do ordain and establish this Constitution for the United States of America.', 'To be or not to be, that is the question.', 'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.', 'I have a dream that one day this nation will rise up and live out the true meaning of its creed: "We hold these truths to be self-evident, that all men are created equal."', 'Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.', 'I have a dream that one day this nation will rise up and live out the true meaning of its creed: "We hold these truths to be self-evident, that all men are created equal."'], 'Star Wars'), []),
+    ((['Washington', 'DC', 'New York City', 'Boston', 'Los Angeles', 'San Francisco', 'Miami', 'New York City'], 'an'), ['San Francisco']),
+    ((['cat', 'dog', 'elephant', 'rhinoceros', 'seagull'], 'e'), ['elephant', 'rhinoceros', 'seagull']),
+    ((['The q uick brown fox jumps over the lazy dog', 'Pack my box with five dozen liquor jugs', 'How vexingly quick daft zebras jump', 'Jackdaws love my big sphinx of quartz'], 'oConstitutionx'), []),
+    ((['supercalifragilisticexpialidocious', 'antidisestablishementarianism', 'floccinaucinihilipilification', 'supercalifragilisticexpialidocious'], 'ili'), ['supercalifragilisticexpialidocious', 'floccinaucinihilipilification', 'supercalifragilisticexpialidocious']),
+    ((['The Godfather', 'The Dark Knight', 'DCt', 'The Lord of the Rings', 'union,', 'posterity,', 'Forrest Gump', 'union,'], 'h'), ['The Godfather', 'The Dark Knight', 'The Lord of the Rings']),
+    (([], 'substring'), []),
+    (([], 'Star'), []),
+    ((['hello', 'world', 'python', 'numpy', 'pandas'], 'py'), ['python', 'numpy']),
+    ((['abcdefg', 'abcdefg'], 'm'), []),
+    ((['We the people of the United States of America, in order to form a more perfect union, establish justice, insure domestic tranquility, provide for the common defense, promote the general welfare, and secure the blessings of liberty to ourselves and our posterity, do ordain and establish this Constitution for the United States of America.', 'To be or not to be, that is the question.', 'It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.', 'I have a dream that one day this nation will rise up and live out the true meaning of its creed: "We hold these truths to be self-evident, that all men are created equal."', 'Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.'], 'Citywan'), []),
+    ((['Washington', 'New York City', 'Boston', 'Los Angeles', 'San Francisco', 'Miami', 'Washington'], 'nan'), []),
+    ((['abc', 'bcd', 'cbd', 'dbc', 'cda', 'cfloccinaucinihilipilificatilinionda', 'dcbd', 'cfloaccinaucinihilipilificatilinionda'], 'bbc'), []),
+]

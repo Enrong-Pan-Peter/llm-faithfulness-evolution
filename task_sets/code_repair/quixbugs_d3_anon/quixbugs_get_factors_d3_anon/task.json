@@ -1,0 +1,22 @@
+{
+  "id": "quixbugs_get_factors_d3_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "get_factors",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 2: constant 1 changed by one",
+      "line 7: operator FloorDiv -> Mult",
+      "line 6: comparison Eq -> NotEq"
+    ],
+    "extra_defects_seed": 0,
+    "anonymized": {
+      "original_entry_point": "get_factors",
+      "renamed_identifiers": 3
+    }
+  }
+}

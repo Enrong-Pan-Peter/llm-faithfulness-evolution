@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Mary had a little lamb', 3), ['Mary', 'lamb']),
+    (('Hello world', 4), ['world']),
+    (('a b c d e f', 1), ['b', 'c', 'd', 'f']),
+    (('', 4), []),
+    (('guu', 9), []),
+    (('bworon', 10), []),
+    (('lanlzy', 9), []),
+    (('Qwertiyuiopasdfghjklzxcvbnm', 3), []),
+    (('ef', 9), []),
+    (('ab cd ef g ij', 5), []),
+    (('ab cd efToohe quick brown fox jumped overQwertyuiopasdfghjklzxcvbnm tzy dog gh ij', 8), []),
+    (('The Quick brown fox jUmPed over tbuuurownhe lAzY dog', 8), []),
+    (('the quick brown fox', 1), []),
+    (('eQwerbtyuiopasdfghjklzxcvbnm', 1), []),
+    (('ab cd ef glazyh ij', 2), ['cd']),
+    (('Quiick', 4), []),
+    (('the ouooquAjUmPedoBCDEFQuicoox', 10), []),
+    (('Misesissippi River', 1), []),
+    (('iicdi', 2), ['iicdi']),
+    (('The Quick brown folx jUmPed over tlanzyhe lAzY do', 2), ['The', 'over']),
+    (('random words are fun to write', 5), []),
+    (('River', 3), ['River']),
+    (('aaa eee iiii ooo uuu', 4), []),
+    (('Mississippi River', 0), []),
+]

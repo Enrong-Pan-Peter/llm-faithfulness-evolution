@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('One, two, three, four, five, six',), ['One', 'two', 'three', 'four', 'five', 'six']),
+    (('One,, two, three, four, five, six,',), ['One', 'two', 'three', 'four', 'five', 'six']),
+    (('',), []),
+    (('spaces',), ['spaces']),
+    (('spacesNWUyMDDWJAr',), ['spacesNWUyMDDWJAr']),
+    (('   A  sranadom    string    with     no    dcommaAs     or   spaces',), ['A', 'sranadom', 'string', 'with', 'no', 'dcommaAs', 'or', 'spaces']),
+    (('   A  rand om   i string    with      no   commas     or with',), ['A', 'rand', 'om', 'i', 'string', 'with', 'no', 'commas', 'or', 'with']),
+    (('Multi\nline\nstTherHwords,r\n',), ['Multi', 'line', 'stTherHwords', 'r']),
+    (('saspa   A  random    string    wiorth     no    c ommas     or   spacesacedding',), ['saspa', 'A', 'random', 'string', 'wiorth', 'no', 'c', 'ommas', 'or', 'spacesacedding']),
+    (('President, John, F, KennedyThe,quick,brown,fox,jumps,over,the,lazy,dog.',), ['President', 'John', 'F', 'KennedyThe', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog.']),
+    (('K,ennedyThe,quicjumpsk,brown,fox,jumps,over,Hi,',), ['K', 'ennedyThe', 'quicjumpsk', 'brown', 'fox', 'jumps', 'over', 'Hi']),
+    (('m',), ['m']),
+    (('brli A  neen',), ['brli', 'A', 'neen']),
+    (('HoJohye,ou?uKenneodyThe,orq,uick,brown,fox,jumps,over,the,lazy,dog.',), ['HoJohye', 'ou?uKenneodyThe', 'orq', 'uick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog.']),
+    (('The quick browne fox jumps over tarelazy doTwo spaces aaf,ter,  one space before  , and no speaces in betweeng.',), ['The', 'quick', 'browne', 'fox', 'jumps', 'over', 'tarelazy', 'doTwo', 'spaces', 'aaf', 'ter', 'one', 'space', 'before', 'and', 'no', 'speaces', 'in', 'betweeng.']),
+    (('yuu?',), ['yuu?']),
+    (('ulazy',), ['ulazy']),
+    (('ss',), ['ss']),
+    (('The quick brown fox jumg.',), ['The', 'quick', 'brown', 'fox', 'jumg.']),
+    (('Hi, myJoychangVqVVNGVKVe,Hi,   t',), ['Hi', 'myJoychangVqVVNGVKVe', 'Hi', 't']),
+    (('         apple,',), ['apple']),
+    (('e',), ['e']),
+    (('beThe,quick,rbrown,feox,jumps,over,the,lazy,dog.focommas!ou?mre',), ['beThe', 'quick', 'rbrown', 'feox', 'jumps', 'over', 'the', 'lazy', 'dog.focommas!ou?mre']),
+]

@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('aaaaAAAAaaaa',), 1),
+    (('',), 0),
+    (('r"ee",eepeating',), 10),
+    (('distinct.!@wnting',), 11),
+    (('This is another sentence with repeating characters, such as "te", "h", and "i". The two sentences combined should return 26 distinct characters.',), 24),
+    (('"t",rlazy',), 8),
+    (('al1iThi1l',), 6),
+    (('iis',), 2),
+    (('"Iubro1234$%?!123commppchasentencerlex?4$"e",%?!bro1234$%?!123?4$bro1234$%?Thisn@@wnuch',), 28),
+    (('comcomplcexple"i"i.xting',), 13),
+    (('This is  a sentenece with repeating characters, such as "srereepeatingea", "e", and "n".',), 18),
+    (('g"f punctuation!" said the fox.ureptingquic',), 21),
+    (('uuppercase',), 7),
+    (('This sentence contains a mix of uppercase and lowercase letters, but all characters should be treated as distinct.',), 22),
+    (('cormtworownppubro1234$%?!123commpplex?4$"e",%?!bro123@wn@@wnuchlex',), 25),
+    (('characteerse,',), 8),
+    (('"""This is anothdistinctercharacters.rsfs sentence with repeating charactiers, such as 1234$%?!@"t", "h", .and "i". The two sentences combined should return 26 distinct characters.Ichc!"£$%^&*()_+-={}[]|\\:;"<>,.?/~`aracters',), 56),
+    (('bro1234$%kEjzTF?!123?4$"e",%?!@@wn',), 22),
+    (('This sentence has repeating chasentencer acters suc"s".and "s". The quick brown foxasg.',), 23),
+    (('12The quick brown fox jumps over t1,2,3... go123hello12345The quick bbrown foxhellAbCdE world jumps ovTHISISALONGSTRINGWITHNOSPACESer the lazy doAbCdEfSGg67890g!he lazy doAbCdEfGg3456789aaaabbbbccccddddeeeeffffgggghhhhiiii0',), 40),
+    (('This is another sentence with repeating characters, such as "te", "h", and "i". The two sttocteheasharactersvveretnce,sces combined should return 26 distinct characters.',), 25),
+    (('octeheasharacThistersvver',), 10),
+]

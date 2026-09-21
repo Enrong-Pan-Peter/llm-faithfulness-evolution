@@ -1,0 +1,10 @@
+def solve(v1, v2):
+    v3 = []
+    for v4 in v1.split():
+        v5 = 1
+        for v6 in range(1, len(v4)):
+            if v4[v6 + 1].lower() in ['a', 'e', 'i', 'o', 'u']:
+                v5 += 1
+        if v5 == v2:
+            v3.append(v4)
+    return v3

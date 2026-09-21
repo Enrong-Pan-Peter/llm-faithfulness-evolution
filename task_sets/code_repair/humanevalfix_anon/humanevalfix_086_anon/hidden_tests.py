@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('number',), 'bemnru'),
+    (('',), ''),
+    (('Quick blThe quic jumps oiver thhe lazy dogDQHrown fox',), 'Qciku Tbehl ciqu jmpsu eiorv ehht alyz DHQdgnoorw fox'),
+    (('managmeqMy password is a secool!cret. Please do not teGll anyone.ui',), 'Maaegmmnqy adoprssw is a !.cceeloorst Paeels do not Gellt .aeinnouy'),
+    (('garbhfge',), 'abefgghr'),
+    (('Pytprogramminhon',), 'Paghimmnnooprrty'),
+    (('PytonsciequofickHnce,',), ',HPccceefiiknnooqstuy'),
+    (('rprroI',), 'Ioprrr'),
+    (('cootheabcdefghijklmnopqrstuvwxyzl!',), '!abccdeefghhijkllmnooopqrsttuvwxyz'),
+    (('ool!',), '!loo'),
+    (('sciencZYXWVUTSRCjumpsCQPODCBAe,',), ',ABCCCDOPQRSTUVWXYZcceeijmnpssu'),
+    (('generpuAbCdEfGhIjKlMnOpQrStUvWxYze',), 'ACEGIKMOQSUWYbdeeefghjlnnpprrtuvxz'),
+    (('Pyothon is an interpmrete d, high-levenl, general-purpose programming language.',), 'Phnooty is an eeeimnprrtt ,d ,-eeghhillnv -aeeeglnopprrsu aggimmnoprr .aaegglnu'),
+    (('oveorr',), 'eoorrv'),
+    (('I lovZYXWVUTSRQPONMLKAoquickmanagemendOTSAbCdEfGuhIjKlMnOMpQrStIHGFEDCBAment.thonordMye python programming. It issciequicknce,sci',), 'I .AAABCCDEEFGGHIIKKLMMMMNOOOPQQRSSSTTUVWXYZaabcdddeeeefghhijkllmmmnnnnnoooopqrrtttuuvy hnopty .aggimmnoprr It ,cccceeiiiiknqsssu'),
+    (('Mayyy',), 'Mayyy'),
+    (('IipsAbCdEfGhIjqruickKlMnKOpQrStUvWxYzZYXWVUTSRQPONdMLKXJIHGFEDCBAn',), 'AABCCDEEFGGHIIIJKKKLMMNOOPQQRSSTUUVWWXXYYZbcddfhiijklnnppqrrstuvxz'),
+    (('do.',), '.do'),
+    (('qu',), 'qu'),
+    ((' \t\n\x0c\r\x0b A B C   D E F     G H I      ',), ' \t\n\x0b\x0c\r A B C   D E F     G H I      '),
+    (('aThe',), 'Taeh'),
+    (('FI love python programming. It is so cool!',), 'FI elov hnopty .aggimmnoprr It is os !cloo'),
+]

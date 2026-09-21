@@ -1,0 +1,27 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('winemtt', 'tinem'), True),
+    (('xyzw', 'xyw'), False),
+    (('whattup', 'ptut'), False),
+    (('bbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaccccbbaaaccccbbaaaccccbbaaabc', 'abababababababababababbbbaaaaccbbaaaccccabbaaacccccabbaaaaccccbbaaaaccccbbaaaccccbbaa'), False),
+    (('thmicgl', 'thmiabcdltabpcdefghijklmnopqrstuvwxyzhmicefgcgl'), False),
+    (('bbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaccccbbaaaccccbbaaanmtanbbbaaaaccbbaaaccccabbaaacccccbbaaabbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaaccccbbaaaccccbbaaaccccbbaaabcaccccbbaaaaccccbothmicgloabaaaccccbbaaaccccbbaothmicgloaaaccccbbaaabccccacbbaaabc', 'bbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbothmicgloabaaaccccbbaaaccccbbaothmmanpipulationicgloaaaccccbbaaabc'), False),
+    (('thmicgl', 'thmicgl'), True),
+    (('yzabcdefghijklmnopqrstvnzrhmweyyrnilrxfziojjsvvucserwzggunqinzqkihncxxfchhuxjvlquvdnxlirainugnaolmshzduvwx', 'nbbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccabcdefghijklmnopqrstuvwxyzccbbaaaccccbbaaaccccbbaaaccccbbaaabcjkl'), False),
+    (('abcdlthmicebbbaaaaccbbaaaccccabbaaaccccccbbaaaaccccbbaaaacabcdcccbbaaaccccbbaaaccccbbaaaccccpowvnzrhmweyyvvucserwzggunqinzqkihncxxfchhuxjvlquvdnbbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbothmicgloabaaaccccbbaaaccccbbaothmicgoloaaaccccbbaaabcionmanninombaaabcfg', 'oonom'), False),
+    (('anmanni', 'nbbbaaaaccbaaccccabbaaacccccbbaaaaccccbbaaaaccabcdefghijklmnopqrstuvwxyzccbbaaaccccbbaaaccccbbaaaccccbbaaabcjkl'), False),
+    (('anmaini', 'anmani'), False),
+    (('lmono', 'onom'), True),
+    (('logiarithmic', 'abababababababababababbbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaccccbbaa'), False),
+    (('njabcdefghijklmnopkqrstuvwxyzknjkl', 'njknjkl'), False),
+    (('vnzrhmwehweyyrnilrxfziojjsvvucserwzaaionmanninotiiggunqinzqkihncxxfchhuxjvlquvdnxlirainugnaolmshzhdwmnmvznryyrnilrxfziojjsvvucserwzggunqinzqkihncxxfchhuxjvlquvdnxlirainugnaolmshzdabcdefghiklm', 'njknjkl'), False),
+    (('coffeemississpi', 'coffeemississpi'), True),
+    (('logiarithmicacgabacfg', 'nnjgabmanipulthweyyrnilrxfziojjsvvucserwzggunqinzqkihncxxfchhuxjvlquvdnxliraainugnaolmshzhdwmnmvznrationck'), False),
+    (('abicdefghijklm', 'abababababababababababbbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaccccbbaa'), False),
+    (('njknjkl', 'njknjkl'), True),
+    (('antionmani', 'aabationmvnzrhmweyyvvucserwzggunqinzqkihncxxfchhuxjvlquvdnxlirainugnaolmshzdaninomecdefgtionmaninom'), False),
+    (('aebcdefg', 'yzadefg'), False),
+    (('bbbaaaaccbbaaaccccabbaaacccccbbaaaaccccbbaaaaccccbbaaaccccbbaaaccccbbaaaccccbbaaabc', 'onom'), False),
+    (('njkabcdefgjklml', 'powerful'), False),
+]

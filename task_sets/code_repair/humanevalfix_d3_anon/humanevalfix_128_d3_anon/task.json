@@ -1,0 +1,25 @@
+{
+  "id": "humanevalfix_128_d3_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/128",
+    "humaneval_id": "HumanEval/128",
+    "bug_type": "excess logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 3: constant 1 changed by one",
+      "line 3: constant 0 changed by one",
+      "line 3: operator Mult -> FloorDiv"
+    ],
+    "extra_defects_seed": 0,
+    "anonymized": {
+      "original_entry_point": "prod_signs",
+      "renamed_identifiers": 5
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "benchmark": "humanevalfix",
+  "rejected": [
+    {
+      "id": "humanevalfix_160",
+      "reason": "no usable test inputs (reference produced no JSON outputs)"
+    },
+    {
+      "id": "humanevalfix_162",
+      "reason": "no usable test inputs (reference produced no JSON outputs)"
+    }
+  ]
+}

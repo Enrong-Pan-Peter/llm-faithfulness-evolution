@@ -1,0 +1,6 @@
+def solve(v1):
+    v2 = []
+    for v3 in range(2, v1 + 1):
+        if all((v3 % v4 > 0 for v4 in v2)):
+            v2.append(v3)
+    return v2

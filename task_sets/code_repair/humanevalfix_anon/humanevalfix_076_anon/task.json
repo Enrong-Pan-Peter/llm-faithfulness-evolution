@@ -1,0 +1,19 @@
+{
+  "id": "humanevalfix_076_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1, v2):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/76",
+    "humaneval_id": "HumanEval/76",
+    "bug_type": "variable misuse",
+    "failure_symptoms": "infinite loop",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "anonymized": {
+      "original_entry_point": "is_simple_power",
+      "renamed_identifiers": 4
+    }
+  }
+}

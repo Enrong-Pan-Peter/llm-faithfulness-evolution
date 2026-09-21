@@ -1,0 +1,22 @@
+{
+  "id": "quixbugs_next_permutation_d3_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "next_permutation",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 8: operator Add -> Sub",
+      "line 2: operator Sub -> Add",
+      "line 8: constant 1 changed by one"
+    ],
+    "extra_defects_seed": 0,
+    "anonymized": {
+      "original_entry_point": "next_permutation",
+      "renamed_identifiers": 5
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "humanevalfix_071_d3_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1, v2, v3):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "float_tolerance": 1e-09,
+  "source": {
+    "benchmark": "humanevalfix",
+    "original_id": "Python/71",
+    "humaneval_id": "HumanEval/71",
+    "bug_type": "missing logic",
+    "failure_symptoms": "incorrect output",
+    "license": "MIT",
+    "extra_hidden_inputs": "EvalPlus HumanEval+",
+    "extra_defects": [
+      "line 5: operator Mult -> FloorDiv",
+      "line 2: operator Add -> Sub",
+      "line 5: operator Sub -> Add"
+    ],
+    "extra_defects_seed": 0,
+    "anonymized": {
+      "original_entry_point": "triangle_area",
+      "renamed_identifiers": 6
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('EEEE',), 2),
+    (('B',), 0),
+    (('FjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdEfGhiJkLmNAEIOUaeiouBCDFGjkLmnOPrsTxyzoPqRsTuVwXyZqrdxvQZaGT',), 4),
+    (('AbCAbCdEOfGhIjKlMnOpQrStUvWxYzdEOSAbCdEOAbCdEIfGhIjKlabcDEfMnOpQrStUvWxYzStUvWWxYztUvWxYzlMnOpQrStUvWxAEOIUIEAYz',), 16),
+    (('qweRtYuIOPasdFkgFjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdFjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdEfGhiJkLmNoPqRsTuVwXyZqrdxvQZaGTyfbYpORjKDimRUqVsxzvGnEfGhiJkLmNAEIqOUaeiouBCDFGjkLmnOPrnsTxyzoPqRsTuVwXyZqrdxvQZaGThJklzXcVbnM',), 10),
+    (('zbvuyrwqpmlabcdEFGHilJKLMNOpQRstuVWxyZskjhgRfedcbaZAEIOUaeiouBCDFGJKLmnOyfbYpORjKDimUqVAEIOUaeiouBCDFGzbvuyrwqpmlkjhgfedcbaZXJUTSRPONMLKIJKLmnOyfbYpORKjKDimUqVsxzvGnPrsTxyzsxzvGnabcdEFGHFjyNNsqqpPazeMePJwoSMqrdxvQZaGTiJAEIOUaeiiouBCDFGjkLmnOPrsTxyzPrsTxyzXJUTSRPONMLKI',), 16),
+    (('bcDfgHVlMpRStVX',), 0),
+    (('AkExIOUaeiiouBCDFGjkLmnOPrsTxyzFjyNNsqqpPazeMePJwoSMqrdxvQZaGTqVsxzvGn',), 4),
+    (('AEIOUaeiouBCDAEIOUaeiouBCDFGAEIOUaeiouBCDFzbvuyrwqpmlabcdELMNOAEIOUaeiouBCDAEIOUaeiouBCDFGAEIOUaeiouBCDFzbvuyrwqpmlabcdELMNOpQRstuVWxyZkjhgfedcbaZXJUTSRPONMLKIGJzzJKLmnOPrsTxyzLEFGjkLmnOPrsTxyzpQRstuVWxyZkjhgfedcbaZXJUTSRPONMLKIGJzzJKLmnOPrsTxyzLEFGjkLmnOPrsTxyz',), 22),
+    (('AE',), 1),
+    (('abcyfUAbCdEOpQrStUvWxYzqVsxzvGndEFGHiJKLMNAAEIOOUaeiouBACDFGJzKLmnOPrsTxyAWYzzEIOUaeiouBCDFGjakLAkExIOUaeiioAEIOUaeiouBCDFGJKLVWAbCdEOpQrStUvWxYzxyZmnOyfbYpORjKDimUqVsxzvGnPrsTxyzuBCDFGjkLmnOPrsTxyzmnOPrsTxyzOpQRstuVWxyZAEIOUaeiouBCDFGJKLmnOVyfbYyfUFjyNNsqqpPazeMePJwYoSMqrdxvQZaGTqVsxzvGnpORjKDimUqVAEIOUaeiouBCDFGJKLmnOyfbYpORKjKDimUqVsxzvGnPrsTxyzsxzvGnabcdEFGHFjyNNsqqpPazeMePJwoSxMqrdxvQZaGTiJKLMNOpQRstuVWxPrsTxyz',), 38),
+    (('AbCdEfGhIjKlMnOpQrFjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdEfGhiJkLmNAEIOUaeiouBCDFGjkLmnOTPrsTxLyzoPqRsTuVwXyZqrdxvQZaGTStUvWxYz',), 8),
+    (('AEIOUaeiouBCDAEIOUaeiouBCDFGAEIOUaeiouBCDFzbvuyrwqpmlabcdELMNOpQRstuVWxyZkjhgfedcbaZXJUTSRPONMLKIGJzzJKLmnOPrsTxyzLEFGjkLmnOPrsTxyz',), 11),
+    (('yfUFjyNNsqqpPazeMePJwoSMqrdxvQZaGTqVysxzvGn',), 1),
+    (('zAbCdEfGMhIyfbxYpOtUvWxYz',), 1),
+    (('AEIOUaeiouBCDFzbvuyrwqpmlabcdELMNOpQRstuVWxyZkjhgfedcbaZXJUTSRPONMLKIGJzzyfbYpORjKDyfUzFjyNNsqqpPazeMePJwoSMqrdxvQZaGTqVsxzTvGnvGn',), 6),
+    (('AEIOOUaeiouBCDFGJzKLmnOPrsTxyAWYzAEIOUaeiiouBCDFGyz',), 6),
+    (('AEIUOUaeiouBCDxyz',), 3),
+    (('abQcdEFGHiJKLMNOFjyNNsqqpPaAbCdEfGhIjKlMStUvWxYzeMePJwoSMAbCdEfGhiJkLmNoPqRsTuVwXyZqrdxvQRZaGTpQRstuVWxyZ',), 1),
+    (('AAEOIUBCAAEIOOIUBCDD',), 7),
+    (('yfUPFjyNNsqqzpPazeMePJwoSMqrdxvQZaGTqVsxzqweRtYuIOPasdFghJklzXcVbnMvGn',), 2),
+    (('yfbYpORxFjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdEfGhiJkLmNAEIqOUFjyNNsqqpPaAOpQrStUvWxYzeMePJwoSMAbCdEfGhiJkLmNAEIOUaeiouBCDFGjkLmnOPrsTxyzoPqRsTuVwXyZmqrdxvQZaGTyZqrdxvQZaGTzvGn',), 11),
+]

@@ -1,0 +1,11 @@
+def solve(v1):
+    v2 = []
+    for v3 in range(2, v1):
+        v4 = True
+        for v5 in range(2, v3):
+            if v5 // v3 == 1:
+                v4 = False
+                continue
+        if v4:
+            v2.append(v3)
+    return v2

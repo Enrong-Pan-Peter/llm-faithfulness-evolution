@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('a b c d g',), {'a': 1, 'b': 1, 'c': 1, 'd': 1, 'g': 1}),
+    (('a',), {'a': 1}),
+    (('    a b        c d e f   a g g h h h s t t t t t t t t u v w x y ',), {'t': 8}),
+    (('x y a a a o o o o o o p p p p p p q q q q q q r r r r r r s s s s s s t t t t t t u u u u u u v v v v v v w w w w w w x x x x  y y z z z z z s s s s s s s t t t t t t t t u v w',), {'t': 14}),
+    (('x y z x y z  x y z x y z z e y z  x',), {'z': 6}),
+    (('    x      a  b  c d e f  t',), {'x': 1, 'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1, 't': 1}),
+    (('r',), {'r': 1}),
+    (('c a a a  a i    a b        c d e f   a g g h  h h i j j j k k k l l l l m n o p q r r r s s s s s s s t t t t t t t t u v w x y z',), {'t': 8}),
+    (('o o o o o o p p p p p p q q q q q q r r r r r r s s s s s s t t t t t t u u u u u u v v v v v v w w w w w w x x x  z z',), {'o': 6, 'p': 6, 'q': 6, 'r': 6, 's': 6, 't': 6, 'u': 6, 'v': 6, 'w': 6}),
+    (('l a b b d  d d d f f    x      a b c d e f  o o o o o o p p p p p p q q q q q q r r r r r r s s s s s s t t t t t t u u u u u u v v v v v v w w w w w w x x x x  y y z z z z z a g g h h h h i j j j k k k k l l l l m n o p q r r r s s s s s  s s t t t t t   a a     x      a b c d e f  o o o o o o p p p p p p q q q q q q r r r r r r s s s s s s t t t t t t u u u u u u v v v v v v w w w w w w x x x x  y y z z z z z a g g h h h h i j j j k k k k l l l l m n o p q r r r s s s s s s s t t t t t   a a a a b b d d d d f f f g h i  a a b b d d d d f f f g h i   f g h i',), {'s': 26}),
+    (('    a b        c d e f   a g g h h h i j a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g m n o    x      a b c d e f  o o o o o o p p p p p p q q q q q q r r r r r r s s s s s s t t t t t t u u u u u u v    a b        a b    s s s s  s  t t t t t t t t u v w x y z k k  l s t t t t t p q r r r s s s s s s s t t t t t t t t u v w x y z',), {'t': 29}),
+    (('p u z z  e',), {'z': 2}),
+    (('x z x',), {'x': 2}),
+    (('o o o o o o p p p p p p q q q q q q r r r r r r s s s s s  s t t t t t t u u z z z z z',), {'o': 6, 'p': 6, 'q': 6, 'r': 6, 's': 6, 't': 6}),
+    (('a b h i j j m m m n o o o o p',), {'o': 4}),
+    (('p p q q q r r r s s s t t t u u u v v  g    g h i    w w x x y y z z',), {'q': 3, 'r': 3, 's': 3, 't': 3, 'u': 3}),
+    (('x y z x y z x y z l     a a a a b b d d d d f f f g h i  x y z x y z x y z x y z x y z x',), {'x': 9}),
+    (('    x   o o o o o o p p p p p p q q q q q q r r r r r r s s s s s  s t t  t t t u  u z z z z z   a  b  c d e f e  a g g y t t',), {'t': 7}),
+    (('    a b        c d e f   a g g h h h i j a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g m n o p q r r r s s s s s s s t t t t t t t t u v w x y z',), {'t': 10}),
+    (('  g    g h i      x     x      a b  c d e f   a g g  t t  c d e f   a g g  t t',), {'g': 6}),
+    (('    a b         c d e f   a g g h h h i j j j k k k l l l l m n o p  v w x y ',), {'l': 4}),
+    (('c a a a a b b    x b     a       a a a a b b d d d d f f f g h    a b    r s s s s s s s t t t t t t t t u v w x y   b  c d e f   a g g  t t d d d d f f f g h i',), {'a': 11}),
+]

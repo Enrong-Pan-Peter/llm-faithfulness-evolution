@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (([1, -1, 3, 2],), ['Three', 'Two', 'One']),
+    (([],), []),
+    (([1, 1, 2, 2, 3, 3, 4, 4, 5, 0, 5, 6, -10, -20, -30, 7, 7, 9, 1, 4],), ['Nine', 'Seven', 'Seven', 'Six', 'Five', 'Five', 'Four', 'Four', 'Four', 'Three', 'Three', 'Two', 'Two', 'One', 'One', 'One']),
+    (([4, 2, 1, 9, 8, 7, 6, 2],), ['Nine', 'Eight', 'Seven', 'Six', 'Four', 'Two', 'Two', 'One']),
+    (([4, 8, 3, 4, 7, 5, 4, 3, 1, 7],), ['Eight', 'Seven', 'Seven', 'Five', 'Four', 'Four', 'Four', 'Three', 'Three', 'One']),
+    (([3, 3, 300, 3, 3, 2, 3],), ['Three', 'Three', 'Three', 'Three', 'Three', 'Two']),
+    (([1, 3, 3, 4, 5, 6, 7, 9, 9, 3, 7, 5, 7],), ['Nine', 'Nine', 'Seven', 'Seven', 'Seven', 'Six', 'Five', 'Five', 'Four', 'Three', 'Three', 'Three', 'One']),
+    (([100000, -1000, 4, 2, 8, 1, 9, 7, 5, 6, 0, 11, 20, 12, 13, 14, 15, 16, 17, 18, 19, 20, 18, 14],), ['Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Two', 'One']),
+    (([1, 1, 2, 2, 3, 3, 4, 4, 5, 6, 2, -10, 16, -30, 7, 8, 9, 1, -30],), ['Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Four', 'Three', 'Three', 'Two', 'Two', 'Two', 'One', 'One', 'One']),
+    (([1, 3, 4, 5, 25, 6, 7, 8, 9, 4],), ['Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Four', 'Three', 'One']),
+    (([1, 3, 3, 4, 5, 6, 7, 8, 3, 5, 5],), ['Eight', 'Seven', 'Six', 'Five', 'Five', 'Five', 'Four', 'Three', 'Three', 'Three', 'One']),
+    (([3, 11, 3, 3, 3, 3, 3, 3, 3, 3],), ['Three', 'Three', 'Three', 'Three', 'Three', 'Three', 'Three', 'Three', 'Three']),
+    (([100000, -1000, 4, 2, 8, 1, 9, 4, 3, 7, 5, 6, 0, 11, 13, 14, 15, 16, -4, 19, 19, 20, 18, 7, 8, 0, 7],), ['Nine', 'Eight', 'Eight', 'Seven', 'Seven', 'Seven', 'Six', 'Five', 'Four', 'Four', 'Three', 'Two', 'One']),
+    (([2, 71, 1, 64, 90, 24, 41],), ['Two', 'One']),
+    (([10, 8, 13, 6, 7, 100, 3, 1, 6, 1],), ['Eight', 'Seven', 'Six', 'Six', 'Three', 'One', 'One']),
+    (([9, 8, 7, 2, 6, 5, 4, 3, 2, 1],), ['Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two', 'Two', 'One']),
+    (([1, 2, 17, 8, -8, -7, 7, 8, 30, 30],), ['Eight', 'Eight', 'Seven', 'Two', 'One']),
+    (([1, 4, 5, 2, 3, -1000, 5, 6, 7, 8, 6],), ['Eight', 'Seven', 'Six', 'Six', 'Five', 'Five', 'Four', 'Three', 'Two', 'One']),
+    (([1, 1, 2, 100, 2, 3, 3, 4, 4, 7, 5, 5, 6, -20, -29, 6, 8, 9, 1],), ['Nine', 'Eight', 'Seven', 'Six', 'Six', 'Five', 'Five', 'Four', 'Four', 'Three', 'Three', 'Two', 'Two', 'One', 'One', 'One']),
+    (([-3, -1, -2, -3, -4, -5, -20, -7, -8, -9, -2],), []),
+    (([200, 8, 7, 6, 5, 4, 3, 2, 0, 6, 6],), ['Eight', 'Seven', 'Six', 'Six', 'Six', 'Five', 'Four', 'Three', 'Two']),
+    (([-1, 1, 7, 2, 3, 20, 11, 4, 5, 6, 7, 8, 9, 10, 10],), ['Nine', 'Eight', 'Seven', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two', 'One']),
+]

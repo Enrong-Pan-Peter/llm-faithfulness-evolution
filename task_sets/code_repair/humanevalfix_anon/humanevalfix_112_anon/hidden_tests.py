@@ -1,0 +1,28 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('abcdef', 'b'), ['acdef', False]),
+    (('dwik', 'w'), ['dik', False]),
+    (('abcdedcba', ''), ['abcdedcba', True]),
+    (('vabba', 'v'), ['abba', True]),
+    (('elevzelv', 'elevzelv'), ['', True]),
+    (('kaayakasymmetr', ''), ['kaayakasymmetr', False]),
+    (('asymmetr', 'lmxxyz'), ['asetr', False]),
+    (('racaecaeir', 'racmadameceaeir'), ['', True]),
+    (('z', 'abracecar'), ['z', True]),
+    (('xyz', 'xyz'), ['', True]),
+    (('er', 'ervee'), ['', True]),
+    (('asymmetrical', 'lme'), ['asytrica', False]),
+    (('vnonrefere', 've'), ['nonrfr', False]),
+    (('maeccecardmam', 'acebb'), ['mrdmm', False]),
+    (('abracaecar', 'abracaecmamadaaasymmaeaietaceabcaalamar'), ['', True]),
+    (('xadmxzyz', 'bcdfghraccecarjklmnpqvkkaykwxyzxyz'), ['', True]),
+    (('arxyzacecar', 'xyz'), ['aracecar', False]),
+    (('ab', 'madaamasymmetical'), ['b', True]),
+    (('tattarrattartbcdfghraccecarjklmmnpqvkkaykwxyz', 'aa'), ['tttrrttrtbcdfghrccecrjklmmnpqvkkykwxyz', False]),
+    (('eelevlevelzelv', 'racecr'), ['lvlvlzlv', False]),
+    (('xyabcedebabaz', 'kayak'), ['xbcedebbz', False]),
+    (('raacecar', 'ammadalmxxyz'), ['rcecr', True]),
+    (('raderveenar', 've'), ['radrnar', False]),
+    (('bcdfghjebaz', 'bcdfghjebaz'), ['', True]),
+]

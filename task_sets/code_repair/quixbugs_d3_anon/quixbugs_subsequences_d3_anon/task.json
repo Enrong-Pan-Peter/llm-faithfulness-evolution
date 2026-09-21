@@ -1,0 +1,22 @@
+{
+  "id": "quixbugs_subsequences_d3_anon",
+  "entry_point": "solve",
+  "language": "python",
+  "prompt": "Repair the function below.\n\ndef solve(v1, v2, v3):\n    ...\n\nThere is no written specification. The intended behaviour of the function is defined by its tests alone: the development tests shown with each program are examples of it, and the hidden tests check the same behaviour on other inputs. Keep the function name and signature.\n",
+  "source": {
+    "benchmark": "quixbugs",
+    "original_id": "subsequences",
+    "defect": "one-line defect (QuixBugs)",
+    "license": "MIT",
+    "extra_defects": [
+      "line 6: constant 1 changed by one",
+      "line 6: operator Add -> Sub",
+      "line 8: operator Add -> Sub"
+    ],
+    "extra_defects_seed": 0,
+    "anonymized": {
+      "original_entry_point": "subsequences",
+      "renamed_identifiers": 7
+    }
+  }
+}

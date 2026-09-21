@@ -1,0 +1,26 @@
+# Hidden tests: (tuple of positional arguments, expected return value).
+# Never shown to the model; these decide success.
+TESTS = [
+    (('Example',), 'Example'),
+    (('Exa   mple',), 'Exa-mple'),
+    (('ithits',), 'ithits'),
+    ((' p ExaxmpleE  Expample a  2',), '_p_ExaxmpleE__Expample_a__2'),
+    (('c-c-c---sxeEtle',), 'c-c-c---sxeEtle'),
+    (('   le   ',), '-le-'),
+    (('   Hello World',), '-Hello_World'),
+    (('ExaxmpleEthitsxa3e',), 'ExaxmpleEthitsxa3e'),
+    (('  hExampleEthitssxahsE2xampleEthisxa3es3eis    EExam',), '__hExampleEthitssxahsE2xampleEthisxa3es3eis-EExam'),
+    (('mm',), 'mm'),
+    (('Hello r   spaces  eveThis is  a This This is  a This is  a  tes test  spaceNoSpacesHellThish isThis is  a Hello r  World tsTesting     1  2   3 a  This is  a ssttessto r   WorldHere is  a  tes testry  where   Word',), 'Hello_r-spaces__eveThis_is__a_This_This_is__a_This_is__a__tes_test__spaceNoSpacesHellThish_isThis_is__a_Hello_r__World_tsTesting-1__2-3_a__This_is__a_ssttessto_r-WorldHere_is__a__tes_testry__where-Word'),
+    (('pmp',), 'pmp'),
+    (('hisExampBig gaps    between words    in this sentenceleEthisxa3es',), 'hisExampBig_gaps-between_words-in_this_sentenceleEthisxa3es'),
+    (('t Biig gaps  e  between wordshis    in thce  his',), 't_Biig_gaps__e__between_wordshis-in_thce__his'),
+    (('  E  Ega psxample   2---sa-ac-c---',), '__E__Ega_psxample-2---sa-ac-c---'),
+    (('gsss',), 'gsss'),
+    (('EExpampl',), 'EExpampl'),
+    (('Helleo Worldhappyw 123 p spacThis iis  a sstees  every  where  ',), 'Helleo_Worldhappyw_123_p_spacThis_iis__a_sstees__every__where_'),
+    (('   x ExamEEpxample 2',), '-x_ExamEEpxample_2'),
+    (('se3n',), 'se3n'),
+    (('fwlMxhGm',), 'fwlMxhGm'),
+    (('EExa',), 'EExa'),
+]

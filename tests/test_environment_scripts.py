@@ -13,9 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts import (  # noqa: E402
+    assemble_task_subset,
     environment_calibration,
     environment_rationale_intervention,
     environment_selection_response,
+    pick_hard_tasks,
     planning_direct_solve_check,
 )
 from search import run as search_run  # noqa: E402
@@ -124,3 +126,57 @@ def test_planning_direct_solve_check(tmp_path):
     summary = json.loads((tmp_path / "dsc" / "direct_solve_check.json").read_text())
     assert summary["n_instances"] == 1 and summary["rows"][0]["samples"] == 2
     assert summary["rows"][0]["band"] in ("easy", "medium", "hard")
+
+
+def test_skip_existing_and_summary_name(planning_traces, capsys):
+    instance_id = json.loads(PILOT.read_text())["instances"][0]["instance_id"]
+    before = sorted(planning_traces.glob("ea_plan_operators_*.json"))
+    search_run.main([
+        "planning", "--instances", str(PILOT), "--task-ids", instance_id, "--provider", "scripted",
+        "--runs-per-task", "2", "--max-generations", "3", "--output", str(planning_traces),
+        "--skip-existing", "--summary-name", f"summary_{instance_id}.json",
+    ])
+    assert sorted(planning_traces.glob("ea_plan_operators_*.json")) == before  # nothing re-run
+    summary = json.loads((planning_traces / f"summary_{instance_id}.json").read_text())
+    assert summary["skipped_existing"] == 2 and summary["runs"] == []
+    assert "skipped" in capsys.readouterr().out
+
+
+def test_pick_hard_tasks_per_group(tmp_path, capsys):
+    rows = [
+        {"instance_id": "a", "solve_rate": 0.0, "mean_progress": 0.2, "optimal_plan_length": 18},
+        {"instance_id": "b", "solve_rate": 0.0, "mean_progress": 0.6, "optimal_plan_length": 18},
+        {"instance_id": "c", "solve_rate": 0.5, "mean_progress": 0.9, "optimal_plan_length": 18},
+        {"instance_id": "d", "solve_rate": 0.0, "mean_progress": 0.1, "optimal_plan_length": 20},
+    ]
+    summary = tmp_path / "s.json"
+    summary.write_text(json.dumps({"rows": rows}))
+    pick_hard_tasks.main([str(summary), "--max-rate", "0", "--group-key", "optimal_plan_length", "--per-group", "1"])
+    assert capsys.readouterr().out.split() == ["b", "d"]
+    pick_hard_tasks.main([str(summary), "--max-rate", "0", "--count", "2"])
+    assert capsys.readouterr().out.split() == ["b", "a"]
+
+
+def test_assemble_task_subset(tmp_path):
+    ids = [record["instance_id"] for record in json.loads(PILOT.read_text())["instances"][:2]]
+    out = tmp_path / "subset.json"
+    assemble_task_subset.main(["planning", "--sources", str(PILOT), "--ids", *ids, "--rule", "first two", "--output", str(out)])
+    data = json.loads(out.read_text())
+    assert [r["instance_id"] for r in data["instances"]] == ids and data["selection_rule"] == "first two"
+    envs = search_run.load_planning_environments(out, None)
+    assert [e.task_id for e in envs] == ids and all(e.expansion_cap is None for e in envs)  # exact length known -> exact fitness
+    code_out = tmp_path / "code_subset"
+    assemble_task_subset.main(["code_repair", "--sources", str(QUIXBUGS), "--ids", "quixbugs_gcd", "--output", str(code_out)])
+    index = json.loads((code_out / "index.json").read_text())
+    assert index["n_tasks"] == 1 and (code_out / "quixbugs_gcd" / "task.json").is_file()
+    with pytest.raises(SystemExit):
+        assemble_task_subset.main(["code_repair", "--sources", str(QUIXBUGS), "--ids", "nope", "--output", str(code_out)])
+
+
+def test_goal_count_fitness_for_instances_without_exact_length(tmp_path):
+    record = dict(json.loads(PILOT.read_text())["instances"][0])
+    record["optimal_plan_length"] = None
+    path = tmp_path / "unsolved.json"
+    path.write_text(json.dumps({"instances": [record]}))
+    env = search_run.load_planning_environments(path, None)[0]
+    assert env.expansion_cap == 0 and env.optimal_length is None

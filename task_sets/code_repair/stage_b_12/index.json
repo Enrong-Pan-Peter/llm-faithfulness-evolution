@@ -1,0 +1,311 @@
+{
+  "benchmark": "subset",
+  "subset_of": [
+    "task_sets/code_repair/quixbugs_d3_anon",
+    "task_sets/code_repair/humanevalfix_d3_anon"
+  ],
+  "selection_rule": "Screen C (out/screen_c/memorization_*_d3_anon, qwen3:14b, 5 direct repairs per task): the tasks never solved, ordered by mean hidden-test pass fraction (highest first): the 4 QuixBugs_d3_anon tasks (pick_hard_tasks.py --max-rate 0 --count 4) and the first 8 HumanEvalFix_d3_anon tasks (--max-rate 0 --count 8) among the first 40 screened",
+  "n_tasks": 12,
+  "tasks": [
+    {
+      "id": "quixbugs_mergesort_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 7,
+      "n_hidden": 7,
+      "source_set": "task_sets/code_repair/quixbugs_d3_anon",
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "mergesort",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 9: constant 1 changed by one",
+          "line 13: Or -> And",
+          "line 16: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "mergesort",
+          "renamed_identifiers": 9
+        }
+      }
+    },
+    {
+      "id": "quixbugs_longest_common_subsequence_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 5,
+      "n_hidden": 5,
+      "source_set": "task_sets/code_repair/quixbugs_d3_anon",
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "longest_common_subsequence",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 5: comparison Eq -> NotEq",
+          "line 11: constant 1 changed by one",
+          "line 6: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "longest_common_subsequence",
+          "renamed_identifiers": 3
+        }
+      }
+    },
+    {
+      "id": "quixbugs_hanoi_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 4,
+      "n_hidden": 4,
+      "source_set": "task_sets/code_repair/quixbugs_d3_anon",
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "hanoi",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 4: constant 2 changed by one",
+          "line 7: constant 1 changed by one",
+          "line 4: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "hanoi",
+          "renamed_identifiers": 6
+        }
+      }
+    },
+    {
+      "id": "quixbugs_knapsack_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 4,
+      "n_hidden": 5,
+      "source_set": "task_sets/code_repair/quixbugs_d3_anon",
+      "source": {
+        "benchmark": "quixbugs",
+        "original_id": "knapsack",
+        "defect": "one-line defect (QuixBugs)",
+        "license": "MIT",
+        "extra_defects": [
+          "line 14: operator Sub -> Add",
+          "line 6: operator Sub -> Add",
+          "line 14: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "knapsack",
+          "renamed_identifiers": 8
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_074_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 7,
+      "n_hidden": 22,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/74",
+        "humaneval_id": "HumanEval/74",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 6: constant 0 changed by one",
+          "line 2: constant 0 changed by one",
+          "line 10: comparison LtE -> Lt"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "total_match",
+          "renamed_identifiers": 6
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_040_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 7,
+      "n_hidden": 22,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/40",
+        "humaneval_id": "HumanEval/40",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 4: operator Add -> Sub",
+          "line 5: constant 0 changed by one",
+          "line 2: constant 1 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "triples_sum_to_zero",
+          "renamed_identifiers": 5
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_072_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 5,
+      "n_hidden": 21,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/72",
+        "humaneval_id": "HumanEval/72",
+        "bug_type": "operator misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 5: operator Sub -> Add",
+          "line 2: comparison Gt -> GtE",
+          "line 7: index i shifted by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "will_it_fly",
+          "renamed_identifiers": 5
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_010_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 3,
+      "n_hidden": 22,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/10",
+        "humaneval_id": "HumanEval/10",
+        "bug_type": "missing logic",
+        "failure_symptoms": "stackoverflow",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 13: constant 1 changed by one",
+          "line 15: operator Add -> Sub",
+          "line 10: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "make_palindrome",
+          "renamed_identifiers": 4
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_069_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 13,
+      "n_hidden": 32,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/69",
+        "humaneval_id": "HumanEval/69",
+        "bug_type": "value misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 2: constant 0 changed by one",
+          "line 7: constant 1 changed by one",
+          "line 2: operator Mult -> FloorDiv"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "search",
+          "renamed_identifiers": 5
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_019_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 2,
+      "n_hidden": 23,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/19",
+        "humaneval_id": "HumanEval/19",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 14: constant 8 changed by one",
+          "line 6: constant 0 changed by one",
+          "line 12: constant 6 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "sort_numbers",
+          "renamed_identifiers": 4
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_000_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 4,
+      "n_hidden": 23,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/0",
+        "humaneval_id": "HumanEval/0",
+        "bug_type": "missing logic",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 9: comparison Lt -> LtE",
+          "line 7: comparison NotEq -> Eq",
+          "line 8: operator Sub -> Add"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "has_close_elements",
+          "renamed_identifiers": 8
+        }
+      }
+    },
+    {
+      "id": "humanevalfix_032_d3_anon",
+      "entry_point": "solve",
+      "n_dev": 49,
+      "n_hidden": 70,
+      "source_set": "task_sets/code_repair/humanevalfix_d3_anon",
+      "source": {
+        "benchmark": "humanevalfix",
+        "original_id": "Python/32",
+        "humaneval_id": "HumanEval/32",
+        "bug_type": "variable misuse",
+        "failure_symptoms": "incorrect output",
+        "license": "MIT",
+        "extra_hidden_inputs": "EvalPlus HumanEval+",
+        "extra_defects": [
+          "line 19: comparison Gt -> GtE",
+          "line 14: comparison Gt -> GtE",
+          "line 19: constant 0 changed by one"
+        ],
+        "extra_defects_seed": 0,
+        "anonymized": {
+          "original_entry_point": "find_zero",
+          "renamed_identifiers": 9
+        }
+      }
+    }
+  ]
+}

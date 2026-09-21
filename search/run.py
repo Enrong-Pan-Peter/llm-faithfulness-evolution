@@ -17,7 +17,11 @@ Population settings come from the environment (``.env``: ``INITIAL_POPULATION``,
 ``SURVIVORS``, ``OFFSPRING_PER_PARENT``, ``SELECTION``, ``SELF_REPORT``,
 ``RATIONALE_CHANNEL``) and can be overridden on the command line. Run ``k`` of a
 task uses ``--seed + k``. One trace file per run (a JSON list of events, the
-Contexto layout) plus ``summary.json`` for the batch.
+Contexto layout) plus ``summary.json`` for the batch (``--summary-name`` for a
+different file name, so cluster jobs that share an output directory do not
+overwrite each other's summary). ``--skip-existing`` leaves out every run whose
+trace file is already in the output directory, so an interrupted batch can be
+started again with the same command.
 """
 
 from __future__ import annotations
@@ -171,9 +175,14 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
     model_name = args.model or app_config.OLLAMA_MODEL
     rows: list[dict[str, Any]] = []
     started = time.perf_counter()
+    skipped = 0
     for environment in environments:
         for run_index in range(args.runs_per_task):
             seed = args.seed + run_index
+            if args.skip_existing and _existing_trace(output_root, environment.method, environment.task_id, run_index):
+                print(f"{environment.task_id} run {run_index}: trace exists, skipped")
+                skipped += 1
+                continue
             settings = base_settings.with_seed(seed)
             if args.provider == "scripted":
                 model: Any = ScriptedModel(scripted_responder(environment, seed))
@@ -218,13 +227,21 @@ def run_batch(args: argparse.Namespace) -> dict[str, Any]:
         "settings": base_settings.to_dict(),
         "n_tasks": len(environments),
         "runs_per_task": args.runs_per_task,
+        "skipped_existing": skipped,
         "wall_time_s": round(time.perf_counter() - started, 1),
         "aggregate": _aggregate(rows),
         "runs": rows,
     }
-    (output_root / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    print(f"summary: {output_root / 'summary.json'}")
+    summary_path = output_root / args.summary_name
+    summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print(f"summary: {summary_path}")
     return summary
+
+
+def _existing_trace(output_root: Path, method: str, task_id: str, run_index: int) -> Path | None:
+    """The trace file of (task, run) already in ``output_root``, if any."""
+    matches = sorted(output_root.glob(f"{method}_{task_id}_run{run_index}_*.json"))
+    return matches[-1] if matches else None
 
 
 def _aggregate(rows: list[dict[str, Any]]) -> dict[str, Any]:
@@ -255,6 +272,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--seed", type=int, default=0, help="seed of run 0; run k uses seed + k")
     parser.add_argument("--label", default="", help="run label written into every RUN_CONFIG")
     parser.add_argument("--output", required=True, help="directory for the trace files and summary.json")
+    parser.add_argument("--summary-name", default="summary.json", help="file name of the batch summary inside --output")
+    parser.add_argument("--skip-existing", action="store_true", help="skip runs whose trace file already exists in --output")
     parser.add_argument("--max-generations", type=int, default=None)
     parser.add_argument("--initial-population", type=int, default=None)
     parser.add_argument("--survivors", type=int, default=None)

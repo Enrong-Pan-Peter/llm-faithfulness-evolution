@@ -6,6 +6,10 @@ ids with the lowest one-shot solve rate (ties: the highest mean progress /
 hidden pass fraction first, so instances with a fitness gradient are preferred).
 
     python scripts/pick_hard_tasks.py out/pilot_a/memorization_quixbugs_repair/memorization_check.json --count 5
+
+``--group-key optimal_plan_length --per-group 3`` picks the same way inside
+every group of a row field (three per optimal plan length, say), so a study
+set spans the difficulty range instead of clustering at one end.
 """
 
 from __future__ import annotations
@@ -16,16 +20,32 @@ import sys
 from pathlib import Path
 
 
-def pick(rows: list[dict], count: int, max_rate: float) -> list[str]:
-    def key(row: dict):
-        progress = row.get("mean_progress")
-        if progress is None:
-            progress = row.get("mean_hidden_pass_fraction")
-        return (row["solve_rate"], -(progress if progress is not None else 0.0))
+def _key(row: dict):
+    progress = row.get("mean_progress")
+    if progress is None:
+        progress = row.get("mean_hidden_pass_fraction")
+    return (row["solve_rate"], -(progress if progress is not None else 0.0))
 
+
+def _id(row: dict) -> str:
+    return row.get("instance_id") or row.get("task_id")
+
+
+def pick(rows: list[dict], count: int, max_rate: float) -> list[str]:
     eligible = [row for row in rows if row["solve_rate"] <= max_rate]
-    chosen = sorted(eligible, key=key)[:count]
-    return [row.get("instance_id") or row.get("task_id") for row in chosen]
+    chosen = sorted(eligible, key=_key)[:count]
+    return [_id(row) for row in chosen]
+
+
+def pick_per_group(rows: list[dict], group_key: str, per_group: int, max_rate: float) -> list[str]:
+    """``per_group`` ids per distinct value of ``group_key`` (groups in ascending order)."""
+    eligible = [row for row in rows if row["solve_rate"] <= max_rate and row.get(group_key) is not None]
+    groups = sorted({row[group_key] for row in eligible}, key=lambda value: (str(type(value)), value))
+    chosen: list[str] = []
+    for value in groups:
+        members = sorted((row for row in eligible if row[group_key] == value), key=_key)[:per_group]
+        chosen.extend(_id(row) for row in members)
+    return chosen
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -33,9 +53,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("summary", help="direct_solve_check.json or memorization_check.json")
     parser.add_argument("--count", type=int, default=5)
     parser.add_argument("--max-rate", type=float, default=1.0, help="ignore tasks solved more often than this")
+    parser.add_argument("--group-key", default=None, help="row field to group by (e.g. optimal_plan_length, n_blocks)")
+    parser.add_argument("--per-group", type=int, default=3, help="ids per group when --group-key is given")
     args = parser.parse_args(argv)
     data = json.loads(Path(args.summary).read_text(encoding="utf-8"))
-    ids = pick(data["rows"], args.count, args.max_rate)
+    if args.group_key:
+        ids = pick_per_group(data["rows"], args.group_key, args.per_group, args.max_rate)
+    else:
+        ids = pick(data["rows"], args.count, args.max_rate)
     if not ids:
         raise SystemExit("no task below the requested solve rate")
     print(" ".join(ids))

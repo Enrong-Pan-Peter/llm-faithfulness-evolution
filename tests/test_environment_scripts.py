@@ -17,6 +17,7 @@ from scripts import (  # noqa: E402
     environment_calibration,
     environment_rationale_intervention,
     environment_selection_response,
+    merge_screens,
     pick_hard_tasks,
     planning_direct_solve_check,
 )
@@ -180,3 +181,30 @@ def test_goal_count_fitness_for_instances_without_exact_length(tmp_path):
     path.write_text(json.dumps({"instances": [record]}))
     env = search_run.load_planning_environments(path, None)[0]
     assert env.expansion_cap == 0 and env.optimal_length is None
+
+
+def test_pick_spread_and_merge_screens(tmp_path, capsys):
+    first = {"rows": [
+        {"instance_id": "a", "samples": 6, "parsed": 6, "solved": 0, "solve_rate": 0.0, "band": "hard", "mean_progress": 0.9},
+        {"instance_id": "b", "samples": 6, "parsed": 6, "solved": 0, "solve_rate": 0.0, "band": "hard", "mean_progress": 0.5},
+        {"instance_id": "c", "samples": 6, "parsed": 6, "solved": 0, "solve_rate": 0.0, "band": "hard", "mean_progress": 0.1},
+        {"instance_id": "d", "samples": 6, "parsed": 6, "solved": 3, "solve_rate": 0.5, "band": "medium", "mean_progress": 0.7},
+    ]}
+    second = {"rows": [
+        {"instance_id": "a", "samples": 15, "parsed": 15, "solved": 3, "solve_rate": 0.2, "band": "medium", "mean_progress": 0.6},
+        {"instance_id": "b", "samples": 15, "parsed": 15, "solved": 0, "solve_rate": 0.0, "band": "hard", "mean_progress": 0.5},
+        {"instance_id": "c", "samples": 15, "parsed": 15, "solved": 0, "solve_rate": 0.0, "band": "hard", "mean_progress": 0.3},
+    ]}
+    (tmp_path / "c.json").write_text(json.dumps(first))
+    (tmp_path / "d.json").write_text(json.dumps(second))
+    merge_screens.main([str(tmp_path / "c.json"), str(tmp_path / "d.json"), "--output", str(tmp_path / "m.json")])
+    merged = json.loads((tmp_path / "m.json").read_text())
+    rows = {row["instance_id"]: row for row in merged["rows"]}
+    assert rows["a"]["samples"] == 21 and rows["a"]["solved"] == 3 and abs(rows["a"]["solve_rate"] - 3 / 21) < 1e-9
+    assert abs(rows["a"]["mean_progress"] - (0.9 * 6 + 0.6 * 15) / 21) < 1e-9 and rows["a"]["band"] == "hard"
+    assert rows["d"]["samples"] == 6 and merged["never_solved"] == ["b", "c"]
+    capsys.readouterr()
+    pick_hard_tasks.main([str(tmp_path / "m.json"), "--max-rate", "0", "--spread", "2"])
+    assert capsys.readouterr().out.split() == ["b", "c"]
+    pick_hard_tasks.main([str(tmp_path / "m.json"), "--spread", "3"])
+    assert capsys.readouterr().out.split() == ["b", "a", "d"]  # ranking b, c, a, d -> positions 0, 2, 3

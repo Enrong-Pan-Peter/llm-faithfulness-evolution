@@ -13,7 +13,7 @@
 # Everything is chosen through environment variables passed with sbatch
 # --export (see experiments/stage_b/README.md for the launch lines):
 #
-#   ENVIRONMENT       planning | code_repair
+#   SEARCH_ENV        planning | code_repair (not ENVIRONMENT: Slurm sets that to BATCH in every job)
 #   MODEL             Ollama tag (qwen3:14b, gemma4:12b, ministral-3:14b)
 #   TASK_SET          task_sets/planning/stage_b_12.json | task_sets/code_repair/stage_b_12
 #   OUTPUT            trace directory (created); one summary_<task>.json per array task
@@ -43,7 +43,8 @@ source "$VENV/bin/activate"
 export PATH="$HOME/.local/bin:$PATH"
 export OLLAMA_MODELS="${OLLAMA_MODELS:-$HOME/ollama_models}"
 
-ENVIRONMENT="${ENVIRONMENT:?planning or code_repair}"
+SEARCH_ENV="${SEARCH_ENV:?planning or code_repair}"
+case "$SEARCH_ENV" in planning|code_repair) ;; *) echo "ERROR: SEARCH_ENV must be planning or code_repair, got '$SEARCH_ENV'"; exit 1 ;; esac
 MODEL="${MODEL:?Ollama model tag}"
 TASK_SET="${TASK_SET:?instance set file or task set directory}"
 OUTPUT="${OUTPUT:?trace directory}"
@@ -59,11 +60,15 @@ LABEL="${LABEL:-stage_b}"
 if [ -n "${TASK_IDS:-}" ]; then
     read -r -a IDS <<< "$TASK_IDS"
 else
-    if [ "$ENVIRONMENT" = "planning" ]; then
+    if [ "$SEARCH_ENV" = "planning" ]; then
         mapfile -t IDS < <(python -c "import json,sys; d=json.load(open(sys.argv[1])); print('\n'.join(r['instance_id'] for r in (d['instances'] if isinstance(d,dict) else d)))" "$TASK_SET")
     else
         mapfile -t IDS < <(python -c "import sys,pathlib; print('\n'.join(sorted(p.name for p in pathlib.Path(sys.argv[1]).iterdir() if (p/'task.json').is_file())))" "$TASK_SET")
     fi
+fi
+if [ "${#IDS[@]}" -eq 0 ]; then
+    echo "ERROR: no task ids found in $TASK_SET for SEARCH_ENV=$SEARCH_ENV"
+    exit 1
 fi
 if [ "$SLURM_ARRAY_TASK_ID" -ge "${#IDS[@]}" ]; then
     echo "array index $SLURM_ARRAY_TASK_ID beyond the ${#IDS[@]} tasks of $TASK_SET; nothing to do"
@@ -85,7 +90,7 @@ METADATA="$OUTPUT/ollama_metadata_${TASK}_job${SLURM_JOB_ID}_${SLURM_ARRAY_TASK_
 
 echo "===== SEARCH BATCH JOB ====="
 echo "Job ID: $SLURM_JOB_ID  array task: $SLURM_ARRAY_TASK_ID  host: $(hostname)  date: $(date)"
-echo "environment=$ENVIRONMENT model=$MODEL task=$TASK set=$TASK_SET"
+echo "environment=$SEARCH_ENV model=$MODEL task=$TASK set=$TASK_SET"
 echo "runs=$RUNS seed=$SEED generations=$GENERATIONS selection=$SELECTION channel=$RATIONALE_CHANNEL self_report=$SELF_REPORT"
 echo "OLLAMA_BASE_URL=$OLLAMA_BASE_URL OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH:-default}"
 python --version
@@ -115,14 +120,14 @@ fi
     echo; echo "OLLAMA_CONTEXT_LENGTH=${OLLAMA_CONTEXT_LENGTH:-default}"
 } > "$METADATA"
 
-if [ "$ENVIRONMENT" = "planning" ]; then
+if [ "$SEARCH_ENV" = "planning" ]; then
     SET_ARGS=(--instances "$TASK_SET")
 else
     SET_ARGS=(--tasks "$TASK_SET")
 fi
 
 echo "===== START ====="
-python -m search.run "$ENVIRONMENT" "${SET_ARGS[@]}" --task-ids "$TASK" \
+python -m search.run "$SEARCH_ENV" "${SET_ARGS[@]}" --task-ids "$TASK" \
     --provider ollama --model "$MODEL" \
     --runs-per-task "$RUNS" --seed "$SEED" --max-generations "$GENERATIONS" \
     --selection "$SELECTION" --rationale-channel "$RATIONALE_CHANNEL" --self-report "$SELF_REPORT" \

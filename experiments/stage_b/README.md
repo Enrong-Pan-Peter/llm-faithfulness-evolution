@@ -51,8 +51,8 @@ cd $REPO_DIR
 ## Smoke test first (one task, one run, two generations, about 40 min)
 
 ```bash
-sbatch --array=0-0 --time=02:00:00 --export=ALL,ENVIRONMENT=planning,MODEL=qwen3:14b,TASK_SET=task_sets/planning/stage_b_12.json,OUTPUT=traces/smoke_cluster/planning,LABEL=smoke,RUNS=1,GENERATIONS=2 infra/slurm/run_search_batch.sh
-sbatch --array=0-0 --time=02:00:00 --export=ALL,ENVIRONMENT=code_repair,MODEL=qwen3:14b,TASK_SET=task_sets/code_repair/stage_b_12,OUTPUT=traces/smoke_cluster/code_repair,LABEL=smoke,RUNS=1,GENERATIONS=2 infra/slurm/run_search_batch.sh
+sbatch --array=0-0 --time=02:00:00 --export=ALL,SEARCH_ENV=planning,MODEL=qwen3:14b,TASK_SET=task_sets/planning/stage_b_12.json,OUTPUT=traces/smoke_cluster/planning,LABEL=smoke,RUNS=1,GENERATIONS=2 infra/slurm/run_search_batch.sh
+sbatch --array=0-0 --time=02:00:00 --export=ALL,SEARCH_ENV=code_repair,MODEL=qwen3:14b,TASK_SET=task_sets/code_repair/stage_b_12,OUTPUT=traces/smoke_cluster/code_repair,LABEL=smoke,RUNS=1,GENERATIONS=2 infra/slurm/run_search_batch.sh
 squeue -u $USER
 tail -n 30 logs/search_<jobid>_0.out            # "===== FINISHED task=... status=0" when done
 ls traces/smoke_cluster/planning traces/smoke_cluster/code_repair

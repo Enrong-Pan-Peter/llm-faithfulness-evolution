@@ -14,7 +14,7 @@
 # run index k of every task (run0 files, run1 files, ...), which keeps a job
 # at about 12 tasks x EVENTS x 5 conditions calls.
 #
-#   ENVIRONMENT   planning | code_repair
+#   SEARCH_ENV    planning | code_repair (not ENVIRONMENT: Slurm sets that to BATCH)
 #   MODEL         the model the traces were run with (re-runs use the same model)
 #   TRACES        directory of the search batch (its *_run<k>_*.json files are used)
 #   TASK_SET      code_repair only: the task set directory the traces were run on
@@ -36,7 +36,7 @@ source "$VENV/bin/activate"
 export PATH="$HOME/.local/bin:$PATH"
 export OLLAMA_MODELS="${OLLAMA_MODELS:-$HOME/ollama_models}"
 
-ENVIRONMENT="${ENVIRONMENT:?planning or code_repair}"
+SEARCH_ENV="${SEARCH_ENV:?planning or code_repair}"
 MODEL="${MODEL:?Ollama model tag}"
 TRACES="${TRACES:?directory of the search traces}"
 OUTPUT="${OUTPUT:?output directory}"
@@ -63,7 +63,7 @@ METADATA="$OUTPUT/run${RUN_INDEX}/ollama_metadata_job${SLURM_JOB_ID}_${SLURM_ARR
 
 echo "===== INTERVENTION BATCH JOB ====="
 echo "Job ID: $SLURM_JOB_ID  array task: $SLURM_ARRAY_TASK_ID  host: $(hostname)  date: $(date)"
-echo "environment=$ENVIRONMENT model=$MODEL traces=$PATTERN events=$EVENTS output=$OUTPUT/run${RUN_INDEX}"
+echo "environment=$SEARCH_ENV model=$MODEL traces=$PATTERN events=$EVENTS output=$OUTPUT/run${RUN_INDEX}"
 python --version
 nvidia-smi || true
 
@@ -92,7 +92,7 @@ fi
 } > "$METADATA"
 
 TASK_ARGS=()
-if [ "$ENVIRONMENT" = "code_repair" ]; then
+if [ "$SEARCH_ENV" = "code_repair" ]; then
     TASK_ARGS=(--tasks "${TASK_SET:?code_repair needs TASK_SET}")
 fi
 

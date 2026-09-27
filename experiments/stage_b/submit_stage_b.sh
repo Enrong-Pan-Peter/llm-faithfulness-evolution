@@ -36,7 +36,7 @@ submit_search() {   # env model output label selection channel self_report [task
     local array="0-11%12"; [ -n "$ids" ] && array="0-5%6"
     local jid
     jid=$(sbatch --parsable --array="$array" \
-        --export=ALL,ENVIRONMENT="$env",MODEL="$model",TASK_SET="$(set_for "$env")",OUTPUT="$output",LABEL="$label",SELECTION="$selection",RATIONALE_CHANNEL="$channel",SELF_REPORT="$report",TASK_IDS="$ids",CONTEXT_LENGTH="$(ctx "$model")" \
+        --export=ALL,SEARCH_ENV="$env",MODEL="$model",TASK_SET="$(set_for "$env")",OUTPUT="$output",LABEL="$label",SELECTION="$selection",RATIONALE_CHANNEL="$channel",SELF_REPORT="$report",TASK_IDS="$ids",CONTEXT_LENGTH="$(ctx "$model")" \
         infra/slurm/run_search_batch.sh)
     echo "$(date +%F_%T) $jid search $env $model $label" | tee -a "$LOG"
     echo "$jid"
@@ -47,7 +47,7 @@ submit_intervention() {   # env model traces output after_jobid
     local taskset=""; [ "$env" = "code_repair" ] && taskset="$(set_for "$env")"
     local jid
     jid=$(sbatch --parsable --dependency=afterany:"$after" \
-        --export=ALL,ENVIRONMENT="$env",MODEL="$model",TRACES="$traces",TASK_SET="$taskset",OUTPUT="$output",EVENTS=10,CONTEXT_LENGTH="$(ctx "$model")" \
+        --export=ALL,SEARCH_ENV="$env",MODEL="$model",TRACES="$traces",TASK_SET="$taskset",OUTPUT="$output",EVENTS=10,CONTEXT_LENGTH="$(ctx "$model")" \
         infra/slurm/run_intervention_batch.sh)
     echo "$(date +%F_%T) $jid intervention $env $model (after $after)" | tee -a "$LOG"
 }

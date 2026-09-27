@@ -13,7 +13,9 @@ records where each task came from):
         --ids quixbugs_mergesort_d3_anon humanevalfix_040_d3_anon --rule "..." --output task_sets/code_repair/stage_b_12
 
 ``--rule`` is free text stored with the set: how the ids were chosen (the
-screening file and the pick command), so the choice is on record.
+screening file and the pick command), so the choice is on record;
+``--screen`` names the (merged) screening file(s) whose row for each chosen
+task is copied into the set as ``screen`` (attempts, solves, partial progress).
 """
 
 from __future__ import annotations
@@ -27,7 +29,17 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 
-def assemble_planning(sources: list[Path], ids: list[str], rule: str, output: Path) -> int:
+def load_screen_rows(paths: list[Path] | None) -> dict[str, dict]:
+    rows: dict[str, dict] = {}
+    for path in paths or []:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        for row in data["rows"]:
+            rows.setdefault(row.get("instance_id") or row.get("task_id"), row)
+    return rows
+
+
+def assemble_planning(sources: list[Path], ids: list[str], rule: str, output: Path, screen: list[Path] | None = None) -> int:
+    screen_rows = load_screen_rows(screen)
     wanted = list(dict.fromkeys(ids))
     found: dict[str, dict] = {}
     headers: list[dict] = []
@@ -39,6 +51,8 @@ def assemble_planning(sources: list[Path], ids: list[str], rule: str, output: Pa
         for record in records:
             if record["instance_id"] in wanted and record["instance_id"] not in found:
                 found[record["instance_id"]] = {**record, "source_set": str(path)}
+                if record["instance_id"] in screen_rows:
+                    found[record["instance_id"]]["screen"] = screen_rows[record["instance_id"]]
     missing = [task_id for task_id in wanted if task_id not in found]
     if missing:
         raise SystemExit(f"ids not found in the sources: {' '.join(missing)}")
@@ -46,6 +60,7 @@ def assemble_planning(sources: list[Path], ids: list[str], rule: str, output: Pa
         "subset_of": [str(path) for path in sources],
         "source_headers": headers,
         "selection_rule": rule,
+        "screen_files": [str(path) for path in screen or []],
         "n_instances": len(wanted),
         "instances": [found[task_id] for task_id in wanted],
     }
@@ -55,9 +70,10 @@ def assemble_planning(sources: list[Path], ids: list[str], rule: str, output: Pa
     return 0
 
 
-def assemble_code(sources: list[Path], ids: list[str], rule: str, output: Path) -> int:
+def assemble_code(sources: list[Path], ids: list[str], rule: str, output: Path, screen: list[Path] | None = None) -> int:
     from environments.code_repair.tasks import TASK_FILE, load_task
 
+    screen_rows = load_screen_rows(screen)
     wanted = list(dict.fromkeys(ids))
     origin: dict[str, Path] = {}
     for root in sources:
@@ -83,12 +99,14 @@ def assemble_code(sources: list[Path], ids: list[str], rule: str, output: Path) 
                 "n_hidden": len(task.hidden_tests),
                 "source_set": str(origin[task_id].parent),
                 "source": task.source,
+                **({"screen": screen_rows[task_id]} if task_id in screen_rows else {}),
             }
         )
     index = {
         "benchmark": "subset",
         "subset_of": [str(path) for path in sources],
         "selection_rule": rule,
+        "screen_files": [str(path) for path in screen or []],
         "n_tasks": len(entries),
         "tasks": entries,
     }
@@ -103,12 +121,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--sources", nargs="+", required=True, help="instance set files (planning) or task set directories (code_repair)")
     parser.add_argument("--ids", nargs="+", required=True)
     parser.add_argument("--rule", default="", help="how the ids were chosen, stored with the set")
+    parser.add_argument("--screen", nargs="*", default=None, help="merged screening file(s); the row of each chosen task is stored in the set")
     parser.add_argument("--output", required=True)
     args = parser.parse_args(argv)
     sources = [Path(path) for path in args.sources]
+    screen = [Path(path) for path in args.screen] if args.screen else None
     if args.environment == "planning":
-        return assemble_planning(sources, args.ids, args.rule, Path(args.output))
-    return assemble_code(sources, args.ids, args.rule, Path(args.output))
+        return assemble_planning(sources, args.ids, args.rule, Path(args.output), screen)
+    return assemble_code(sources, args.ids, args.rule, Path(args.output), screen)
 
 
 if __name__ == "__main__":

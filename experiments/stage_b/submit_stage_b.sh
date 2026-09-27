@@ -1,6 +1,7 @@
 #!/bin/bash
 # Submit the Stage B jobs (three models x two environments) in priority order.
 #
+#     module load python/3.11.5 && source $HOME/venvs/lfe/bin/activate
 #     export REPO_DIR=$HOME/llm-faithfulness-evolution VENV=$HOME/venvs/lfe
 #     bash experiments/stage_b/submit_stage_b.sh main        # main condition + its interventions (queued after it)
 #     bash experiments/stage_b/submit_stage_b.sh controls    # random / report-rewarded selection, no report, prospective
@@ -21,9 +22,14 @@ ctx()  { if [ "$1" = "ministral-3:14b" ]; then echo 8192; else echo ""; fi; }
 
 set_for() { if [ "$1" = "planning" ]; then echo task_sets/planning/stage_b_12.json; else echo task_sets/code_repair/stage_b_12; fi; }
 
-# every other task of the study lists: the control subset (6 per environment)
-PLANNING_CONTROL_IDS="bw07_s6088 bw07_s7850 bw07_s5132 bw07_s0027 bw07_s5845 bw07_s2129"
-CODE_CONTROL_IDS="quixbugs_mergesort_d3_anon quixbugs_hanoi_d3_anon humanevalfix_074_d3_anon humanevalfix_072_d3_anon humanevalfix_069_d3_anon humanevalfix_000_d3_anon"
+# every other task of the study lists (positions 0, 2, 4, ...): the control subset, 6 per environment
+control_ids() {   # env
+    if [ "$1" = "planning" ]; then
+        python -c "import json; d=json.load(open('task_sets/planning/stage_b_12.json')); print(' '.join(r['instance_id'] for r in d['instances'][::2]))"
+    else
+        python -c "import json; d=json.load(open('task_sets/code_repair/stage_b_12/index.json')); print(' '.join(t['id'] for t in d['tasks'][::2]))"
+    fi
+}
 
 submit_search() {   # env model output label selection channel self_report [task_ids]
     local env=$1 model=$2 output=$3 label=$4 selection=$5 channel=$6 report=$7 ids="${8:-}"
@@ -56,7 +62,7 @@ for model in "${MODELS[@]}"; do
                 submit_intervention "$env" "$model" "${base}_main" "${base}_intervention" "$jid"
                 ;;
             controls)
-                ids="$PLANNING_CONTROL_IDS"; [ "$env" = "code_repair" ] && ids="$CODE_CONTROL_IDS"
+                ids="$(control_ids "$env")"
                 submit_search "$env" "$model" "${base}_random_selection" "stageB_random" random inherited 1 "$ids" >/dev/null
                 submit_search "$env" "$model" "${base}_report_rewarded" "stageB_report_rewarded" report_rewarded inherited 1 "$ids" >/dev/null
                 submit_search "$env" "$model" "${base}_noreport" "stageB_noreport" mu_plus_lambda inherited 0 "$ids" >/dev/null

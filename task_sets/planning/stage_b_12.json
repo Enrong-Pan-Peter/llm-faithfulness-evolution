@@ -15,9 +15,116 @@
       "n_instances": 41
     }
   ],
-  "selection_rule": "Screen C (out/screen_c/planning_deep_6to7, qwen3:14b, 6 direct attempts per instance): of the 31 instances never solved, three per optimal plan length (18, 20, 22, 24) with the highest mean partial progress: pick_hard_tasks.py --max-rate 0 --group-key optimal_plan_length --per-group 3",
+  "selection_rule": "Screening rounds C+D (qwen3:14b, 16 direct attempts per instance; task_sets/screens/planning_deep_6to7_qwen3_14b.json): of the 21 instances never solved, 12 evenly spaced along the ranking by mean partial progress, from near-solvable to deep: pick_hard_tasks.py --max-rate 0 --spread 12",
+  "screen_files": [
+    "task_sets/screens/planning_deep_6to7_qwen3_14b.json"
+  ],
   "n_instances": 12,
   "instances": [
+    {
+      "instance_id": "bw07_s4884",
+      "n_blocks": 7,
+      "seed": 4884,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "clear",
+          "d"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "c"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "on",
+          "d",
+          "f"
+        ],
+        [
+          "on",
+          "e",
+          "g"
+        ],
+        [
+          "on",
+          "f",
+          "e"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "g"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "e"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "d",
+          "f"
+        ],
+        [
+          "on",
+          "e",
+          "g"
+        ],
+        [
+          "on",
+          "g",
+          "b"
+        ],
+        [
+          "ontable",
+          "b"
+        ],
+        [
+          "ontable",
+          "f"
+        ]
+      ],
+      "optimal_plan_length": 20,
+      "optimal_length_known": true,
+      "blocks_to_move": 6,
+      "actions_lower_bound": 12,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s4884",
+        "n_blocks": 7,
+        "optimal_plan_length": 20,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.6607142857142857,
+        "mean_fitness": 16.178136605020796,
+        "mean_plan_length": 13.5
+      }
+    },
     {
       "instance_id": "bw07_s6088",
       "n_blocks": 7,
@@ -111,12 +218,129 @@
       "optimal_length_known": true,
       "blocks_to_move": 7,
       "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s6088",
+        "n_blocks": 7,
+        "optimal_plan_length": 18,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.5446428571428572,
+        "mean_fitness": 14.985346480521113,
+        "mean_plan_length": 18.0625
+      }
     },
     {
-      "instance_id": "bw07_s1332",
+      "instance_id": "bw07_s1086",
       "n_blocks": 7,
-      "seed": 1332,
+      "seed": 1086,
+      "initial_state": [
+        [
+          "clear",
+          "f"
+        ],
+        [
+          "clear",
+          "g"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "b",
+          "a"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "on",
+          "e",
+          "d"
+        ],
+        [
+          "on",
+          "f",
+          "b"
+        ],
+        [
+          "on",
+          "g",
+          "e"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "c"
+        ],
+        [
+          "on",
+          "d",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "f"
+        ],
+        [
+          "on",
+          "f",
+          "b"
+        ],
+        [
+          "on",
+          "g",
+          "d"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "optimal_plan_length": 18,
+      "optimal_length_known": true,
+      "blocks_to_move": 5,
+      "actions_lower_bound": 10,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s1086",
+        "n_blocks": 7,
+        "optimal_plan_length": 18,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.45535714285714285,
+        "mean_fitness": 13.973973651960783,
+        "mean_plan_length": 15.625
+      }
+    },
+    {
+      "instance_id": "bw07_s0042",
+      "n_blocks": 7,
+      "seed": 42,
       "initial_state": [
         [
           "clear",
@@ -124,7 +348,7 @@
         ],
         [
           "clear",
-          "c"
+          "f"
         ],
         [
           "handempty"
@@ -132,12 +356,7 @@
         [
           "on",
           "a",
-          "d"
-        ],
-        [
-          "on",
-          "b",
-          "f"
+          "g"
         ],
         [
           "on",
@@ -151,19 +370,90 @@
         ],
         [
           "on",
-          "f",
-          "g"
+          "e",
+          "d"
+        ],
+        [
+          "on",
+          "g",
+          "c"
         ],
         [
           "ontable",
-          "e"
+          "b"
         ],
         [
           "ontable",
-          "g"
+          "f"
         ]
       ],
       "goal": [
+        [
+          "on",
+          "a",
+          "f"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "on",
+          "e",
+          "g"
+        ],
+        [
+          "on",
+          "f",
+          "e"
+        ],
+        [
+          "on",
+          "g",
+          "c"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 22,
+      "optimal_length_known": true,
+      "blocks_to_move": 7,
+      "actions_lower_bound": 14,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s0042",
+        "n_blocks": 7,
+        "optimal_plan_length": 22,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.39285714285714285,
+        "mean_fitness": 17.430786492358543,
+        "mean_plan_length": 21.1875
+      }
+    },
+    {
+      "instance_id": "bw07_s2789",
+      "n_blocks": 7,
+      "seed": 2789,
+      "initial_state": [
+        [
+          "clear",
+          "g"
+        ],
+        [
+          "handempty"
+        ],
         [
           "on",
           "a",
@@ -172,37 +462,87 @@
         [
           "on",
           "b",
-          "c"
-        ],
-        [
-          "on",
-          "c",
           "e"
         ],
         [
           "on",
-          "e",
+          "c",
+          "d"
+        ],
+        [
+          "on",
+          "d",
           "f"
         ],
         [
           "on",
-          "f",
-          "d"
+          "e",
+          "c"
+        ],
+        [
+          "on",
+          "g",
+          "a"
         ],
         [
           "ontable",
-          "d"
-        ],
-        [
-          "ontable",
-          "g"
+          "f"
         ]
       ],
-      "optimal_plan_length": 18,
+      "goal": [
+        [
+          "on",
+          "a",
+          "d"
+        ],
+        [
+          "on",
+          "b",
+          "e"
+        ],
+        [
+          "on",
+          "d",
+          "f"
+        ],
+        [
+          "on",
+          "e",
+          "g"
+        ],
+        [
+          "on",
+          "f",
+          "b"
+        ],
+        [
+          "on",
+          "g",
+          "c"
+        ],
+        [
+          "ontable",
+          "c"
+        ]
+      ],
+      "optimal_plan_length": 24,
       "optimal_length_known": true,
-      "blocks_to_move": 6,
-      "actions_lower_bound": 12,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "blocks_to_move": 7,
+      "actions_lower_bound": 14,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s2789",
+        "n_blocks": 7,
+        "optimal_plan_length": 24,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.3482142857142857,
+        "mean_fitness": 21.26553591008772,
+        "mean_plan_length": 19.6875
+      }
     },
     {
       "instance_id": "bw07_s7850",
@@ -293,12 +633,25 @@
       "optimal_length_known": true,
       "blocks_to_move": 6,
       "actions_lower_bound": 12,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s7850",
+        "n_blocks": 7,
+        "optimal_plan_length": 18,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.33928571428571425,
+        "mean_fitness": 14.75630679285079,
+        "mean_plan_length": 17.625
+      }
     },
     {
-      "instance_id": "bw07_s4884",
+      "instance_id": "bw07_s5351",
       "n_blocks": 7,
-      "seed": 4884,
+      "seed": 5351,
       "initial_state": [
         [
           "clear",
@@ -306,74 +659,74 @@
         ],
         [
           "clear",
-          "d"
+          "g"
         ],
         [
           "handempty"
         ],
         [
           "on",
-          "a",
-          "c"
-        ],
-        [
-          "on",
           "c",
-          "b"
-        ],
-        [
-          "on",
-          "d",
           "f"
         ],
         [
           "on",
+          "d",
+          "c"
+        ],
+        [
+          "on",
           "e",
-          "g"
+          "d"
         ],
         [
           "on",
           "f",
+          "b"
+        ],
+        [
+          "on",
+          "g",
           "e"
         ],
         [
           "ontable",
-          "b"
+          "a"
         ],
         [
           "ontable",
-          "g"
+          "b"
         ]
       ],
       "goal": [
         [
           "on",
           "a",
-          "e"
-        ],
-        [
-          "on",
-          "c",
-          "a"
-        ],
-        [
-          "on",
-          "d",
           "f"
         ],
         [
           "on",
-          "e",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "d",
           "g"
         ],
         [
           "on",
+          "e",
+          "a"
+        ],
+        [
+          "on",
           "g",
-          "b"
+          "e"
         ],
         [
           "ontable",
-          "b"
+          "c"
         ],
         [
           "ontable",
@@ -382,15 +735,136 @@
       ],
       "optimal_plan_length": 20,
       "optimal_length_known": true,
-      "blocks_to_move": 6,
-      "actions_lower_bound": 12,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "blocks_to_move": 7,
+      "actions_lower_bound": 14,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s5351",
+        "n_blocks": 7,
+        "optimal_plan_length": 20,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.30357142857142855,
+        "mean_fitness": 16.327515530863895,
+        "mean_plan_length": 21.9375
+      }
     },
     {
-      "instance_id": "bw07_s5132",
+      "instance_id": "bw07_s4188",
       "n_blocks": 7,
-      "seed": 5132,
+      "seed": 4188,
       "initial_state": [
+        [
+          "clear",
+          "f"
+        ],
+        [
+          "clear",
+          "g"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "c",
+          "b"
+        ],
+        [
+          "on",
+          "d",
+          "e"
+        ],
+        [
+          "on",
+          "e",
+          "a"
+        ],
+        [
+          "on",
+          "f",
+          "d"
+        ],
+        [
+          "on",
+          "g",
+          "c"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "c",
+          "a"
+        ],
+        [
+          "on",
+          "e",
+          "g"
+        ],
+        [
+          "on",
+          "f",
+          "c"
+        ],
+        [
+          "on",
+          "g",
+          "b"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "d"
+        ]
+      ],
+      "optimal_plan_length": 18,
+      "optimal_length_known": true,
+      "blocks_to_move": 6,
+      "actions_lower_bound": 12,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s4188",
+        "n_blocks": 7,
+        "optimal_plan_length": 18,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.26785714285714285,
+        "mean_fitness": 15.095718443627451,
+        "mean_plan_length": 17.875
+      }
+    },
+    {
+      "instance_id": "bw07_s2764",
+      "n_blocks": 7,
+      "seed": 2764,
+      "initial_state": [
+        [
+          "clear",
+          "b"
+        ],
         [
           "clear",
           "d"
@@ -401,6 +875,41 @@
         [
           "on",
           "b",
+          "e"
+        ],
+        [
+          "on",
+          "c",
+          "g"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "on",
+          "f",
+          "a"
+        ],
+        [
+          "on",
+          "g",
+          "f"
+        ],
+        [
+          "ontable",
+          "a"
+        ],
+        [
+          "ontable",
+          "e"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
           "g"
         ],
         [
@@ -411,76 +920,59 @@
         [
           "on",
           "d",
-          "f"
+          "e"
         ],
         [
           "on",
           "e",
-          "b"
+          "c"
         ],
         [
           "on",
           "f",
-          "e"
+          "d"
         ],
         [
           "on",
           "g",
-          "c"
-        ],
-        [
-          "ontable",
-          "a"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "a",
-          "e"
-        ],
-        [
-          "on",
-          "b",
-          "g"
-        ],
-        [
-          "on",
-          "d",
-          "a"
-        ],
-        [
-          "on",
-          "f",
           "b"
         ],
         [
           "ontable",
-          "c"
-        ],
-        [
-          "ontable",
-          "e"
-        ],
-        [
-          "ontable",
-          "g"
+          "b"
         ]
       ],
       "optimal_plan_length": 20,
       "optimal_length_known": true,
       "blocks_to_move": 7,
       "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s2764",
+        "n_blocks": 7,
+        "optimal_plan_length": 20,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.24999999999999997,
+        "mean_fitness": 18.337678161299486,
+        "mean_plan_length": 21.625
+      }
     },
     {
-      "instance_id": "bw07_s3523",
+      "instance_id": "bw07_s9068",
       "n_blocks": 7,
-      "seed": 3523,
+      "seed": 9068,
       "initial_state": [
         [
           "clear",
-          "e"
+          "a"
+        ],
+        [
+          "clear",
+          "g"
         ],
         [
           "handempty"
@@ -488,53 +980,123 @@
         [
           "on",
           "a",
-          "c"
-        ],
-        [
-          "on",
-          "b",
-          "a"
-        ],
-        [
-          "on",
-          "c",
           "d"
         ],
         [
           "on",
+          "b",
+          "e"
+        ],
+        [
+          "on",
           "d",
-          "f"
+          "b"
         ],
         [
           "on",
           "e",
-          "g"
+          "f"
         ],
         [
           "on",
-          "g",
-          "b"
+          "f",
+          "c"
         ],
         [
           "ontable",
-          "f"
+          "c"
+        ],
+        [
+          "ontable",
+          "g"
         ]
       ],
       "goal": [
         [
           "on",
           "a",
-          "e"
-        ],
-        [
-          "on",
-          "b",
-          "a"
+          "d"
         ],
         [
           "on",
           "c",
-          "d"
+          "f"
+        ],
+        [
+          "on",
+          "d",
+          "e"
+        ],
+        [
+          "on",
+          "e",
+          "b"
+        ],
+        [
+          "on",
+          "f",
+          "g"
+        ],
+        [
+          "on",
+          "g",
+          "a"
+        ],
+        [
+          "ontable",
+          "b"
+        ]
+      ],
+      "optimal_plan_length": 18,
+      "optimal_length_known": true,
+      "blocks_to_move": 7,
+      "actions_lower_bound": 14,
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s9068",
+        "n_blocks": 7,
+        "optimal_plan_length": 18,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.21428571428571427,
+        "mean_fitness": 17.395239727592667,
+        "mean_plan_length": 18.8125
+      }
+    },
+    {
+      "instance_id": "bw07_s4021",
+      "n_blocks": 7,
+      "seed": 4021,
+      "initial_state": [
+        [
+          "clear",
+          "a"
+        ],
+        [
+          "handempty"
+        ],
+        [
+          "on",
+          "a",
+          "f"
+        ],
+        [
+          "on",
+          "c",
+          "e"
+        ],
+        [
+          "on",
+          "d",
+          "b"
+        ],
+        [
+          "on",
+          "e",
+          "g"
         ],
         [
           "on",
@@ -544,31 +1106,76 @@
         [
           "on",
           "g",
-          "b"
-        ],
-        [
-          "ontable",
           "d"
         ],
         [
           "ontable",
+          "b"
+        ]
+      ],
+      "goal": [
+        [
+          "on",
+          "a",
+          "g"
+        ],
+        [
+          "on",
+          "b",
+          "d"
+        ],
+        [
+          "on",
+          "c",
+          "f"
+        ],
+        [
+          "on",
+          "d",
+          "c"
+        ],
+        [
+          "on",
+          "e",
+          "b"
+        ],
+        [
+          "on",
+          "g",
           "e"
+        ],
+        [
+          "ontable",
+          "f"
         ]
       ],
       "optimal_plan_length": 20,
       "optimal_length_known": true,
       "blocks_to_move": 7,
       "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s4021",
+        "n_blocks": 7,
+        "optimal_plan_length": 20,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.17857142857142858,
+        "mean_fitness": 15.883274668040293,
+        "mean_plan_length": 26.0
+      }
     },
     {
-      "instance_id": "bw07_s0027",
+      "instance_id": "bw07_s6519",
       "n_blocks": 7,
-      "seed": 27,
+      "seed": 6519,
       "initial_state": [
         [
           "clear",
-          "f"
+          "d"
         ],
         [
           "handempty"
@@ -576,100 +1183,12 @@
         [
           "on",
           "a",
-          "g"
-        ],
-        [
-          "on",
-          "c",
           "e"
-        ],
-        [
-          "on",
-          "d",
-          "c"
-        ],
-        [
-          "on",
-          "e",
-          "a"
-        ],
-        [
-          "on",
-          "f",
-          "d"
-        ],
-        [
-          "on",
-          "g",
-          "b"
-        ],
-        [
-          "ontable",
-          "b"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "c",
-          "e"
-        ],
-        [
-          "on",
-          "d",
-          "a"
-        ],
-        [
-          "on",
-          "e",
-          "g"
-        ],
-        [
-          "on",
-          "f",
-          "b"
-        ],
-        [
-          "on",
-          "g",
-          "f"
-        ],
-        [
-          "ontable",
-          "a"
-        ],
-        [
-          "ontable",
-          "b"
-        ]
-      ],
-      "optimal_plan_length": 22,
-      "optimal_length_known": true,
-      "blocks_to_move": 6,
-      "actions_lower_bound": 12,
-      "source_set": "task_sets/planning/deep_6to7.json"
-    },
-    {
-      "instance_id": "bw07_s2580",
-      "n_blocks": 7,
-      "seed": 2580,
-      "initial_state": [
-        [
-          "clear",
-          "a"
-        ],
-        [
-          "handempty"
-        ],
-        [
-          "on",
-          "a",
-          "b"
         ],
         [
           "on",
           "b",
-          "c"
+          "a"
         ],
         [
           "on",
@@ -679,184 +1198,7 @@
         [
           "on",
           "d",
-          "f"
-        ],
-        [
-          "on",
-          "f",
-          "e"
-        ],
-        [
-          "on",
-          "g",
-          "d"
-        ],
-        [
-          "ontable",
-          "e"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "b",
-          "g"
-        ],
-        [
-          "on",
-          "c",
           "b"
-        ],
-        [
-          "on",
-          "d",
-          "c"
-        ],
-        [
-          "on",
-          "e",
-          "f"
-        ],
-        [
-          "on",
-          "g",
-          "e"
-        ],
-        [
-          "ontable",
-          "a"
-        ],
-        [
-          "ontable",
-          "f"
-        ]
-      ],
-      "optimal_plan_length": 22,
-      "optimal_length_known": true,
-      "blocks_to_move": 7,
-      "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
-    },
-    {
-      "instance_id": "bw07_s5845",
-      "n_blocks": 7,
-      "seed": 5845,
-      "initial_state": [
-        [
-          "clear",
-          "b"
-        ],
-        [
-          "handempty"
-        ],
-        [
-          "on",
-          "a",
-          "g"
-        ],
-        [
-          "on",
-          "b",
-          "e"
-        ],
-        [
-          "on",
-          "c",
-          "f"
-        ],
-        [
-          "on",
-          "d",
-          "c"
-        ],
-        [
-          "on",
-          "e",
-          "d"
-        ],
-        [
-          "on",
-          "f",
-          "a"
-        ],
-        [
-          "ontable",
-          "g"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "a",
-          "e"
-        ],
-        [
-          "on",
-          "b",
-          "f"
-        ],
-        [
-          "on",
-          "d",
-          "c"
-        ],
-        [
-          "on",
-          "e",
-          "d"
-        ],
-        [
-          "on",
-          "f",
-          "g"
-        ],
-        [
-          "on",
-          "g",
-          "a"
-        ],
-        [
-          "ontable",
-          "c"
-        ]
-      ],
-      "optimal_plan_length": 22,
-      "optimal_length_known": true,
-      "blocks_to_move": 7,
-      "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
-    },
-    {
-      "instance_id": "bw07_s2789",
-      "n_blocks": 7,
-      "seed": 2789,
-      "initial_state": [
-        [
-          "clear",
-          "g"
-        ],
-        [
-          "handempty"
-        ],
-        [
-          "on",
-          "a",
-          "b"
-        ],
-        [
-          "on",
-          "b",
-          "e"
-        ],
-        [
-          "on",
-          "c",
-          "d"
-        ],
-        [
-          "on",
-          "d",
-          "f"
         ],
         [
           "on",
@@ -866,100 +1208,11 @@
         [
           "on",
           "g",
-          "a"
+          "f"
         ],
         [
           "ontable",
           "f"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "a",
-          "d"
-        ],
-        [
-          "on",
-          "b",
-          "e"
-        ],
-        [
-          "on",
-          "d",
-          "f"
-        ],
-        [
-          "on",
-          "e",
-          "g"
-        ],
-        [
-          "on",
-          "f",
-          "b"
-        ],
-        [
-          "on",
-          "g",
-          "c"
-        ],
-        [
-          "ontable",
-          "c"
-        ]
-      ],
-      "optimal_plan_length": 24,
-      "optimal_length_known": true,
-      "blocks_to_move": 7,
-      "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
-    },
-    {
-      "instance_id": "bw07_s2129",
-      "n_blocks": 7,
-      "seed": 2129,
-      "initial_state": [
-        [
-          "clear",
-          "b"
-        ],
-        [
-          "handempty"
-        ],
-        [
-          "on",
-          "a",
-          "f"
-        ],
-        [
-          "on",
-          "b",
-          "d"
-        ],
-        [
-          "on",
-          "c",
-          "e"
-        ],
-        [
-          "on",
-          "d",
-          "c"
-        ],
-        [
-          "on",
-          "e",
-          "a"
-        ],
-        [
-          "on",
-          "f",
-          "g"
-        ],
-        [
-          "ontable",
-          "g"
         ]
       ],
       "goal": [
@@ -971,12 +1224,12 @@
         [
           "on",
           "b",
-          "c"
+          "e"
         ],
         [
           "on",
           "c",
-          "a"
+          "d"
         ],
         [
           "on",
@@ -991,7 +1244,7 @@
         [
           "on",
           "f",
-          "d"
+          "a"
         ],
         [
           "ontable",
@@ -1000,98 +1253,22 @@
       ],
       "optimal_plan_length": 24,
       "optimal_length_known": true,
-      "blocks_to_move": 6,
-      "actions_lower_bound": 12,
-      "source_set": "task_sets/planning/deep_6to7.json"
-    },
-    {
-      "instance_id": "bw07_s7973",
-      "n_blocks": 7,
-      "seed": 7973,
-      "initial_state": [
-        [
-          "clear",
-          "e"
-        ],
-        [
-          "handempty"
-        ],
-        [
-          "on",
-          "a",
-          "g"
-        ],
-        [
-          "on",
-          "c",
-          "a"
-        ],
-        [
-          "on",
-          "d",
-          "f"
-        ],
-        [
-          "on",
-          "e",
-          "d"
-        ],
-        [
-          "on",
-          "f",
-          "c"
-        ],
-        [
-          "on",
-          "g",
-          "b"
-        ],
-        [
-          "ontable",
-          "b"
-        ]
-      ],
-      "goal": [
-        [
-          "on",
-          "a",
-          "f"
-        ],
-        [
-          "on",
-          "b",
-          "d"
-        ],
-        [
-          "on",
-          "c",
-          "e"
-        ],
-        [
-          "on",
-          "e",
-          "b"
-        ],
-        [
-          "on",
-          "f",
-          "g"
-        ],
-        [
-          "on",
-          "g",
-          "c"
-        ],
-        [
-          "ontable",
-          "d"
-        ]
-      ],
-      "optimal_plan_length": 24,
-      "optimal_length_known": true,
       "blocks_to_move": 7,
       "actions_lower_bound": 14,
-      "source_set": "task_sets/planning/deep_6to7.json"
+      "source_set": "task_sets/planning/deep_6to7.json",
+      "screen": {
+        "instance_id": "bw07_s6519",
+        "n_blocks": 7,
+        "optimal_plan_length": 24,
+        "samples": 16,
+        "parsed": 16,
+        "solved": 0,
+        "solve_rate": 0.0,
+        "band": "hard",
+        "mean_progress": 0.08928571428571427,
+        "mean_fitness": 20.14618257814489,
+        "mean_plan_length": 21.0625
+      }
     }
   ]
 }

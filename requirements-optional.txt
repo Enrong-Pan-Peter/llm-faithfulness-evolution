@@ -1,0 +1,2 @@
+pyarrow>=15          # reads the HumanEvalPack parquet file when building task sets (scripts/build_code_repair_tasks.py humanevalfix)
+matplotlib>=3.8      # reliability-curve PNGs from scripts/calibration_report.py

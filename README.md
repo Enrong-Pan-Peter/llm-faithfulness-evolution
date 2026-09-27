@@ -39,7 +39,7 @@ infra/slurm/              cluster job script for the rationale-intervention runs
 ```
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+pip install -r requirements.txt            # add -r requirements-optional.txt to build HumanEvalFix task sets or draw plots
 Copy-Item .env.example .env        # then edit; .env is git-ignored
 python -m pytest
 ```

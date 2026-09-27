@@ -30,9 +30,9 @@ cd $HOME/llm-faithfulness-evolution
 module load python/3.11.5
 python -m venv $HOME/venvs/lfe
 source $HOME/venvs/lfe/bin/activate
-pip install -r requirements.txt
+pip install -r requirements.txt                      # requests, numpy, scipy, pytest only; pyarrow is not needed here
 cp .env.example .env
-python -m pytest -q                                  # 313 passed, 4 skipped
+python -m pytest -q                                  # 312 passed, 5 skipped (the parquet test skips without pyarrow)
 ls $HOME/ollama_models/manifests/registry.ollama.ai/library/    # must list qwen3, gemma4, ministral-3
 mkdir -p logs
 ```
@@ -65,6 +65,10 @@ bash experiments/stage_b/submit_stage_b.sh main       # 6 array jobs x 12 tasks 
 bash experiments/stage_b/submit_stage_b.sh controls   # 24 array jobs x 6 tasks + 6 intervention jobs (prospective)
 squeue -u $USER
 ```
+
+Partitions: Slurm routes a job by its time limit (`--time=02:00:00` went to
+`gpubase_6hrs`; the 16 h search jobs and the 1-day Contexto jobs go to the
+24 h GPU partition), so no `--partition` flag is passed.
 
 Main condition per task: 2 runs, 10 generations, (mu + lambda) selection,
 inherited rationale, self-report on; about 115 calls per run when nothing is

@@ -14,6 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts import (  # noqa: E402
     assemble_task_subset,
+    check_stage_b,
     environment_calibration,
     environment_rationale_intervention,
     environment_selection_response,
@@ -208,3 +209,25 @@ def test_pick_spread_and_merge_screens(tmp_path, capsys):
     assert capsys.readouterr().out.split() == ["b", "c"]
     pick_hard_tasks.main([str(tmp_path / "m.json"), "--spread", "3"])
     assert capsys.readouterr().out.split() == ["b", "a", "d"]  # ranking b, c, a, d -> positions 0, 2, 3
+
+
+def test_check_stage_b_reports_gaps_and_completeness(tmp_path, capsys):
+    root = tmp_path / "stage_b"
+    cond = root / "qwen3_14b" / "planning_main"
+    instance_id = json.loads(PILOT.read_text())["instances"][0]["instance_id"]
+    search_run.main([
+        "planning", "--instances", str(PILOT), "--task-ids", instance_id, "--provider", "scripted",
+        "--runs-per-task", "2", "--max-generations", "1", "--output", str(cond), "--summary-name", f"summary_{instance_id}.json",
+    ])
+    assert check_stage_b.main(["--root", str(root), "--runs", "2"]) == 1  # 1 of 12 study tasks: a gap
+    out = capsys.readouterr().out
+    assert "only 1 of 12 tasks" in out and f"{instance_id}" in out and "with parsed report" in out
+    control = root / "qwen3_14b" / "planning_random_selection"
+    search_run.main([
+        "planning", "--instances", str(PILOT), "--task-ids", instance_id, "--provider", "scripted",
+        "--runs-per-task", "2", "--max-generations", "1", "--output", str(control), "--summary-name", f"summary_{instance_id}.json",
+    ])
+    (cond / f"summary_{instance_id}.json").unlink()
+    check_stage_b.main(["--root", str(root), "--runs", "2"])
+    out = capsys.readouterr().out
+    assert "has no summary_" in out and "planning_random_selection: 2 runs on 1 tasks" in out

@@ -83,6 +83,17 @@ outputs for run index k.
 
 ## After the jobs
 
+Completeness check first (every expected trace, per-task summary and
+intervention output; per-run outcomes; parsed-report and failed-call counts;
+exit code 1 while anything is missing):
+
+```bash
+python scripts/check_stage_b.py                     # traces/stage_b, 2 runs per task
+```
+
+Then the two analyses per model and environment, and one archive for the
+Windows machine:
+
 ```bash
 for m in qwen3_14b gemma4_12b ministral3_14b; do for e in planning code_repair; do
   python scripts/environment_calibration.py "traces/stage_b/$m/${e}_main/*.json" --output-dir out/stage_b/$m/${e}_calibration
@@ -90,5 +101,18 @@ for m in qwen3_14b gemma4_12b ministral3_14b; do for e in planning code_repair; 
 done; done
 ```
 
-Copy `traces/stage_b` and `out/stage_b` back to the Windows machine for the
-paper analyses (both directories are git-ignored).
+```bash
+tar czf $HOME/stage_b_$(date +%F).tgz traces/stage_b out/stage_b logs experiments/stage_b/submitted_jobs.txt
+ls -lh $HOME/stage_b_*.tgz
+```
+
+On Windows (PowerShell, from the repository root; `_incoming\` is git-ignored,
+and the archive's paths are relative to the repository root, so the traces
+land in `traces\stage_b\` and the analyses in `out\stage_b\`):
+
+```
+New-Item -ItemType Directory -Force _incoming | Out-Null
+scp hpc6237@<login host>:stage_b_<date>.tgz _incoming\
+tar -xzf _incoming\stage_b_<date>.tgz
+python scripts\check_stage_b.py
+```

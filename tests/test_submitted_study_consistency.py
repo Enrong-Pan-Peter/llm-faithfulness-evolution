@@ -89,6 +89,8 @@ class PromptFingerprintTests(unittest.TestCase):
 
 class PromptAppendixParityTests(unittest.TestCase):
     def test_appendix_templates_match_code(self) -> None:
+        if not PROMPT_APPENDIX.is_file():
+            self.skipTest(f"{PROMPT_APPENDIX.relative_to(ROOT)} is a working note (docs/ is not versioned)")
         appendix = _parse_prompt_appendix(PROMPT_APPENDIX)
         expected_names = {
             "S_MUTATION_PROMPT",

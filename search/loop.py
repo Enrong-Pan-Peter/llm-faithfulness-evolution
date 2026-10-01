@@ -282,7 +282,9 @@ class EvolutionarySearch:
                 operator = self._sample_operator()
                 block, rationale, prospective = self._rationale_slot(parent)
                 prompt = self.environment.operator_prompt(operator, parent, block, self_report=self.settings.self_report)
-                self.environment.check_prompt(prompt)
+                # The slot text is written by the model (inherited reason, prospective strategy),
+                # so it cannot leak solver-side facts; the guard checks everything around it.
+                self.environment.check_prompt(prompt.replace(block, "", 1) if block else prompt)
                 parsed, raw, error = self.model.complete_json(prompt)
                 child = self._make_individual(
                     parsed, raw, error, prompt, origin=f"mutation_{operator}", operator=operator, parent=parent,

@@ -382,6 +382,10 @@ def assert_no_hidden_information(
     plan appearing as a contiguous sequence (``reference_plan`` given). When
     the parent plan legitimately equals the reference plan, pass
     ``parent_plan`` so that one occurrence is not counted as a leak.
+
+    Callers pass the prompt with the rationale slot removed: the slot holds
+    text the model wrote (an inherited reason, a prospective strategy), which
+    cannot leak solver-side facts but may well contain words like "optimal".
     """
     lowered = prompt.lower()
     for phrase in HIDDEN_INFORMATION_PHRASES:

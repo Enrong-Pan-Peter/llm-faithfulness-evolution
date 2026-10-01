@@ -190,7 +190,9 @@ def condition_prompt(call: StoredCall, environment: Any, slot: str) -> str:
     prompt = call.prompt.replace(call.slot_text, slot, 1)
     if slot == call.slot_text:
         assert prompt == call.prompt
-    environment.check_prompt(prompt)
+    # Slot text is model-written (or the environment's own hint); the leak guard
+    # covers the rest of the prompt, as in the search loop.
+    environment.check_prompt(prompt.replace(slot, "", 1) if slot else prompt)
     return prompt
 
 

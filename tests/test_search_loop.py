@@ -240,6 +240,28 @@ class TestLoop:
         assert child["rationale"] == {"channel": "none", "text": "", "hash": None}
         assert "prior rationale" not in child["prompt"]
 
+    def test_model_written_rationale_may_use_guarded_words(self):
+        """A parent whose reason says "optimal" must not trip the hidden-information guard (ministral, Stage B)."""
+        env, optimal = planning_env()
+        base = planning_responder(optimal, 0.0)
+
+        def respond(prompt):
+            answer = base(prompt)
+            if isinstance(answer, dict):
+                answer["reason"] = "This is the optimal and shortest order: clear the top blocks first."
+                answer["basis_words"] = ["optimal", "shortest"]
+            return answer
+
+        for channel in ("inherited", "prospective"):
+            settings = SearchSettings(rationale_channel=channel, max_generations=1, random_seed=3)
+            result = EvolutionarySearch(env, ScriptedModel(respond), settings, run_label="t").run()
+            assert result.n_candidates == 25
+        strategy_responder = lambda prompt: {"strategy": "Take the optimal route: shortest path to the goal tower."} if "Do not write the plan yet" in prompt else base(prompt)
+        settings = SearchSettings(rationale_channel="prospective", max_generations=1, random_seed=3)
+        assert EvolutionarySearch(env, ScriptedModel(strategy_responder), settings, run_label="t").run().n_candidates == 25
+        with pytest.raises(AssertionError):
+            env.check_prompt("Hint: the optimal plan has 6 actions.")  # the guard itself still works on environment text
+
     def test_parse_failures_are_logged_and_kept_out_of_the_pool(self):
         env, optimal = planning_env()
         counter = {"n": 0}

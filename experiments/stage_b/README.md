@@ -83,28 +83,18 @@ outputs for run index k.
 
 ## After the jobs
 
-Completeness check first (every expected trace, per-task summary and
-intervention output; per-run outcomes; parsed-report and failed-call counts;
-exit code 1 while anything is missing):
+One command runs the completeness check (every expected trace, per-task
+summary and intervention output; per-run outcomes; parsed-report and
+failed-call counts; a "gaps" list that reads "none" when complete), the two
+analyses for every condition that has traces, and packs one archive:
 
 ```bash
-python scripts/check_stage_b.py                     # traces/stage_b, 2 runs per task
+bash experiments/stage_b/analyse_stage_b.sh
 ```
 
-Then the two analyses per model and environment, and one archive for the
-Windows machine:
-
-```bash
-for m in qwen3_14b gemma4_12b ministral3_14b; do for e in planning code_repair; do
-  python scripts/environment_calibration.py "traces/stage_b/$m/${e}_main/*.json" --output-dir out/stage_b/$m/${e}_calibration
-  python scripts/environment_selection_response.py "traces/stage_b/$m/${e}_main/*.json" --output-dir out/stage_b/$m/${e}_selection --permutations 1000
-done; done
-```
-
-```bash
-tar czf $HOME/stage_b_$(date +%F).tgz traces/stage_b out/stage_b logs experiments/stage_b/submitted_jobs.txt
-ls -lh $HOME/stage_b_*.tgz
-```
+It leaves `out/stage_b/<model>/<condition>_calibration` and `_selection`,
+`out/stage_b_check.txt` and `$HOME/stage_b_<date>.tgz` (traces, analyses,
+logs, job list).
 
 On Windows (PowerShell, from the repository root; `_incoming\` is git-ignored,
 and the archive's paths are relative to the repository root, so the traces

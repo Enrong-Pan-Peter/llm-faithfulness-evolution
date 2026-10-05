@@ -29,6 +29,8 @@ from search.analysis import extract_candidates  # noqa: E402
 
 TRACE_RE = re.compile(r"^(?P<method>ea_(?:plan|code)_operators)_(?P<task>.+)_run(?P<run>\d+)_\d{8}_\d{6}\.json$")
 STUDY_TASKS = {"planning": 12, "code_repair": 12}
+CONTROL_TASKS = 6  # every other task of the study list (submit_stage_b.sh)
+CONTROL_SUFFIXES = ("_random_selection", "_report_rewarded", "_noreport", "_prospective")
 
 
 def scan_condition(directory: Path, expected_runs: int, expected_tasks: int | None) -> dict:
@@ -118,7 +120,12 @@ def main(argv: list[str] | None = None) -> int:
                           + (f" from {info['calls']} stored calls, {info['errors']} failed calls, per condition {info['conditions']}" if info["records"] else ""))
                 continue
             environment = "planning" if cond_dir.name.startswith("planning") else "code_repair"
-            expected_tasks = STUDY_TASKS[environment] if cond_dir.name.endswith("_main") else None
+            if cond_dir.name.endswith("_main"):
+                expected_tasks = STUDY_TASKS[environment]
+            elif cond_dir.name.endswith(CONTROL_SUFFIXES):
+                expected_tasks = CONTROL_TASKS
+            else:
+                expected_tasks = None
             info = scan_condition(cond_dir, args.runs, expected_tasks)
             gaps.extend(info["gaps"])
             rows = [r for r in info["rows"] if not r.get("error")]

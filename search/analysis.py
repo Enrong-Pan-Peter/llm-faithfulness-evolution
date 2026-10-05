@@ -112,7 +112,8 @@ def expand_paths(patterns: Sequence[str]) -> list[str]:
     for pattern in patterns:
         matches = sorted(glob.glob(pattern))
         paths.extend(matches if matches else [pattern])
-    return [path for path in dict.fromkeys(paths) if not path.endswith("summary.json")]
+    # batch summaries (summary.json, summary_<task>.json) sit next to the traces and are not traces
+    return [path for path in dict.fromkeys(paths) if not Path(path).name.startswith("summary")]
 
 
 def run_config(events: list[dict[str, Any]]) -> dict[str, Any]:

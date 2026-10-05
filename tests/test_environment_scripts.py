@@ -231,3 +231,12 @@ def test_check_stage_b_reports_gaps_and_completeness(tmp_path, capsys):
     check_stage_b.main(["--root", str(root), "--runs", "2"])
     out = capsys.readouterr().out
     assert "has no summary_" in out and "planning_random_selection: 2 runs on 1 tasks" in out
+
+
+def test_expand_paths_skips_batch_summaries(tmp_path):
+    from search.analysis import expand_paths
+    (tmp_path / "ea_plan_operators_x_run0_20260101_000000.json").write_text("[]")
+    (tmp_path / "summary.json").write_text("{}")
+    (tmp_path / "summary_bw07_s4884.json").write_text("{}")
+    found = expand_paths([str(tmp_path / "*.json")])
+    assert [Path(p).name for p in found] == ["ea_plan_operators_x_run0_20260101_000000.json"]

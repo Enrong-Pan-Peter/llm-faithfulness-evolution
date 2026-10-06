@@ -33,7 +33,19 @@ CONTROL_TASKS = 6  # every other task of the study list (submit_stage_b.sh)
 CONTROL_SUFFIXES = ("_random_selection", "_report_rewarded", "_noreport", "_prospective")
 
 
-def scan_condition(directory: Path, expected_runs: int, expected_tasks: int | None) -> dict:
+def study_ids(environment: str) -> list[str]:
+    """Task ids of the study set in list order (controls use every other one)."""
+    try:
+        if environment == "planning":
+            data = json.loads(Path("task_sets/planning/stage_b_12.json").read_text(encoding="utf-8"))
+            return [record["instance_id"] for record in data["instances"]]
+        data = json.loads(Path("task_sets/code_repair/stage_b_12/index.json").read_text(encoding="utf-8"))
+        return [task["id"] for task in data["tasks"]]
+    except (OSError, ValueError, KeyError):
+        return []
+
+
+def scan_condition(directory: Path, expected_runs: int, expected_tasks: int | None, expected_ids: list[str] | None = None) -> dict:
     traces: dict[tuple[str, int], list[Path]] = defaultdict(list)
     for path in directory.glob("*.json"):
         match = TRACE_RE.match(path.name)
@@ -68,7 +80,9 @@ def scan_condition(directory: Path, expected_runs: int, expected_tasks: int | No
     expected_tasks = expected_tasks or len(tasks)
     gaps = []
     if expected_tasks and len(tasks) < expected_tasks:
-        gaps.append(f"{directory}: only {len(tasks)} of {expected_tasks} tasks have traces")
+        missing_ids = [task_id for task_id in (expected_ids or []) if task_id not in tasks]
+        detail = f" (missing: {' '.join(missing_ids)})" if missing_ids else ""
+        gaps.append(f"{directory}: only {len(tasks)} of {expected_tasks} tasks have traces{detail}")
     for task in tasks:
         runs = sorted(run for (t, run) in traces if t == task)
         missing = [k for k in range(expected_runs) if k not in runs]
@@ -120,13 +134,14 @@ def main(argv: list[str] | None = None) -> int:
                           + (f" from {info['calls']} stored calls, {info['errors']} failed calls, per condition {info['conditions']}" if info["records"] else ""))
                 continue
             environment = "planning" if cond_dir.name.startswith("planning") else "code_repair"
+            ids = study_ids(environment)
             if cond_dir.name.endswith("_main"):
-                expected_tasks = STUDY_TASKS[environment]
+                expected_tasks, expected_ids = STUDY_TASKS[environment], ids
             elif cond_dir.name.endswith(CONTROL_SUFFIXES):
-                expected_tasks = CONTROL_TASKS
+                expected_tasks, expected_ids = CONTROL_TASKS, ids[::2]
             else:
-                expected_tasks = None
-            info = scan_condition(cond_dir, args.runs, expected_tasks)
+                expected_tasks, expected_ids = None, None
+            info = scan_condition(cond_dir, args.runs, expected_tasks, expected_ids)
             gaps.extend(info["gaps"])
             rows = [r for r in info["rows"] if not r.get("error")]
             solved = sum(1 for r in rows if r["solved"])

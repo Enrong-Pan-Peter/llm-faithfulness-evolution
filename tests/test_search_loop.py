@@ -320,6 +320,28 @@ class TestCodeAdapter:
         assert "Diagnosis written before this repair" in child["prompt"]
         assert child["outcome"]["details"]["dev_total"] == len(task.dev_tests)
 
+    def test_model_written_program_may_mention_a_hidden_call(self):
+        """A parent program with a hidden-test call in a comment must not trip the leak guard (gemma, hanoi, Stage B)."""
+        from environments.code_repair.prompts import render_call
+
+        task = load_task(CODE_TASK)
+        env = CodeRepairSearchEnvironment(task)
+        hidden_call = render_call(task.entry_point, task.hidden_tests[0].args)
+
+        def respond(prompt):
+            if "Do not write code" in prompt:
+                return {"diagnosis": f"I checked {hidden_call} by hand."}
+            program = task.seeded_source + f"\n# self-check: {hidden_call}\n"
+            return {"program": program, "basis_words": ["check"], "reason": f"{hidden_call} still fails.",
+                    "predicted_bucket": "most_pass", "predicted_closeness": 0.6}
+
+        for channel in ("inherited", "prospective"):
+            settings = SearchSettings(rationale_channel=channel, max_generations=2, random_seed=2)
+            result = EvolutionarySearch(env, ScriptedModel(respond), settings, run_label="t").run()
+            assert result.n_candidates == 35 and not result.solved
+        with pytest.raises(AssertionError):
+            env.check_prompt(f"Example: {hidden_call}")  # the guard itself still works on environment text
+
 
 class TestPlanDistance:
     def test_plan_distance(self):

@@ -102,7 +102,15 @@ land in `traces\stage_b\` and the analyses in `out\stage_b\`):
 
 ```
 New-Item -ItemType Directory -Force _incoming | Out-Null
-scp hpc6237@<login host>:stage_b_<date>.tgz _incoming\
-tar -xzf _incoming\stage_b_<date>.tgz
+$cluster = "hpc6237@login.cac.queensu.ca"
+scp "${cluster}:stage_b_*.tgz" _incoming\
+tar -xzf (Get-ChildItem _incoming\stage_b_*.tgz | Sort-Object LastWriteTime | Select-Object -Last 1).FullName
 python scripts\check_stage_b.py
+python scripts\stage_b_tables.py
 ```
+
+`scripts/stage_b_tables.py` writes `out/stage_b/tables.md` and `table_a..d_*.csv`:
+search outcomes per condition (A), calibration of the main condition (B), the
+rationale intervention pooled over the two run indices with the fixed verdict
+rule (C) and the selection response per selection rule (D). Rerun it after
+every new archive; it only reads what is present.

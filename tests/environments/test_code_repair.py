@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import dataclasses
 import random
 import re
 import sys
@@ -301,11 +302,22 @@ def test_hidden_tests_never_appear_in_any_rendered_prompt(tasks, seeded_evaluati
             for case in task.hidden_tests:
                 assert render_call(task.entry_point, case.args) not in prompt
             assert "hidden_tests" not in prompt
-        leaked = prompts[1] + "\n" + render_call(task.entry_point, task.hidden_tests[0].args)
+        hidden_call = render_call(task.entry_point, task.hidden_tests[0].args)
+        leaked = prompts[1] + "\n" + hidden_call
         with pytest.raises(HiddenTestLeakError):
             assert_prompt_has_no_hidden_test_content(leaked, task)
+        # Task text that carries hidden-test content is a leak, whatever the parent program is.
+        leaked_task = dataclasses.replace(task, prompt=task.prompt + "\nExample: " + hidden_call)
         with pytest.raises(HiddenTestLeakError):
-            build_operator_prompt(OPERATORS[0], task, task.hidden_tests_source, evaluation)
+            build_operator_prompt(OPERATORS[0], leaked_task, task.seeded_source, evaluation)
+        # A parent program or a rationale the model wrote is not: the model never saw the hidden
+        # tests, and may well write such a call in a comment or a self-test (gemma did, on hanoi).
+        parent_with_call = task.seeded_source + f"\n# check: {hidden_call}\n"
+        rationale_with_call = f"\nParent rationale: \"I verified {hidden_call} by hand.\"."
+        for operator in OPERATORS:
+            build_operator_prompt(operator, task, parent_with_call, evaluation, rationale_with_call)
+        build_diagnosis_prompt(task, parent_with_call, evaluation)
+        build_repair_from_diagnosis_prompt(task, parent_with_call, evaluation, rationale_with_call)
 
 
 def test_corrective_hint_and_inherited_rationale_share_one_slot(tasks, seeded_evaluations):

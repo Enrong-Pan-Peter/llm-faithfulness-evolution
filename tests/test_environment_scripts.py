@@ -233,6 +233,85 @@ def test_check_stage_b_reports_gaps_and_completeness(tmp_path, capsys):
     assert "has no summary_" in out and "planning_random_selection: 2 runs on 1 tasks" in out
 
 
+def _write_intervention_run(run_dir: Path, differences: dict[str, list[float]], genuine_fitness: list[float]) -> None:
+    """Fake one intervention run directory: records (genuine + conditions) and the paired differences."""
+    run_dir.mkdir(parents=True)
+    records, rows = [], []
+    for i, fitness in enumerate(genuine_fitness):
+        call = {"trace_file": "t.json", "child_id": f"c{i}", "sample": 0, "parse_ok": True}
+        records.append({**call, "condition": "genuine", "fitness": fitness, "success": fitness == 0, "distance_to_genuine": None})
+        for condition, diffs in differences.items():
+            records.append({**call, "condition": condition, "fitness": fitness + diffs[i], "success": fitness + diffs[i] == 0,
+                            "distance_to_genuine": 0.5})
+            rows.append({"trace_file": "t.json", "child_id": f"c{i}", "condition": condition, "metric": "fitness",
+                         "genuine_value": fitness, "condition_value": fitness + diffs[i], "difference": diffs[i]})
+            rows.append({"trace_file": "t.json", "child_id": f"c{i}", "condition": condition, "metric": "success",
+                         "genuine_value": float(fitness == 0), "condition_value": float(fitness + diffs[i] == 0),
+                         "difference": float(fitness + diffs[i] == 0) - float(fitness == 0)})
+    (run_dir / "rationale_intervention_records.json").write_text(json.dumps({"records": records}))
+    with (run_dir / "paired_differences.csv").open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def test_stage_b_tables_from_a_small_tree(tmp_path, capsys):
+    from scripts import stage_b_tables
+
+    root, out = tmp_path / "traces", tmp_path / "out"
+    cond = root / "qwen3_14b" / "planning_main"
+    instance_id = json.loads(PILOT.read_text())["instances"][0]["instance_id"]
+    search_run.main([
+        "planning", "--instances", str(PILOT), "--task-ids", instance_id, "--provider", "scripted",
+        "--runs-per-task", "2", "--max-generations", "2", "--output", str(cond), "--summary-name", f"summary_{instance_id}.json",
+    ])
+    environment_calibration.main([str(cond / "*.json"), "--output-dir", str(out / "qwen3_14b" / "planning_main_calibration")])
+    environment_selection_response.main([str(cond / "*.json"), "--output-dir", str(out / "qwen3_14b" / "planning_main_selection"),
+                                         "--permutations", "20"])
+    # Two run indices pooled: 8 genuine samples with fitness 1..8 (half IQR = 1.75); "unrelated" always +0.2
+    # (inside the margin), "absent" always +5 (a clear effect), "filler" wildly mixed (inconclusive).
+    genuine = [1.0, 2.0, 3.0, 4.0], [5.0, 6.0, 7.0, 8.0]
+    for k, fitness in enumerate(genuine):
+        _write_intervention_run(root / "qwen3_14b" / "planning_intervention" / f"run{k}", {
+            "unrelated": [0.2] * 4, "absent": [5.0] * 4, "filler": [-9.0, 9.0, -8.0, 10.0] if k else [9.0, -9.0, 8.0, -10.0],
+        }, list(fitness))
+
+    assert stage_b_tables.main(["--root", str(root), "--out", str(out)]) == 0
+    text = (out / "tables.md").read_text(encoding="utf-8")
+    assert "## A. Search outcomes" in text and "## D. Selection response" in text
+    with (out / "table_a_search_outcomes.csv").open(encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    assert len(rows) == 1 and rows[0]["runs"] == "2" and rows[0]["condition"] == "task selection, inherited rationale"
+    with (out / "table_c_intervention.csv").open(encoding="utf-8") as handle:
+        by_condition = {row["condition"]: row for row in csv.DictReader(handle)}
+    assert set(by_condition) == {"unrelated", "absent", "filler"}
+    assert all(row["stored_calls"] == "8" and row["n"] == "8" and row["channel"] == "inherited" for row in by_condition.values())
+    assert abs(float(by_condition["unrelated"]["margin"]) - 1.75) < 1e-9
+    assert by_condition["unrelated"]["verdict"] == "no measurable effect" and by_condition["unrelated"]["excludes_zero"] == "yes"
+    assert by_condition["absent"]["verdict"] == "effect" and by_condition["absent"]["share_worse"] == "1.0"
+    assert by_condition["filler"]["verdict"] == "inconclusive"
+    assert by_condition["unrelated"]["mean_distance_to_genuine"] == "0.5"
+    with (out / "table_d_selection_response.csv").open(encoding="utf-8") as handle:
+        d_rows = list(csv.DictReader(handle))
+    assert len(d_rows) == 1 and d_rows[0]["units"].isdigit()
+    with (out / "table_b_calibration.csv").open(encoding="utf-8") as handle:
+        b_rows = list(csv.DictReader(handle))
+    assert len(b_rows) == 1 and b_rows[0]["model"] == "qwen3:14b"
+    capsys.readouterr()
+
+
+def test_stage_b_tables_verdict_rule():
+    from scripts.stage_b_tables import verdict
+
+    assert verdict(-0.5, 0.5, 1.0) == "no measurable effect"
+    assert verdict(0.1, 0.9, 1.0) == "no measurable effect"  # excludes zero but inside the margin: the margin wins
+    assert verdict(0.1, 1.5, 1.0) == "effect"
+    assert verdict(-1.5, -0.2, 1.0) == "effect"
+    assert verdict(-1.5, 0.2, 1.0) == "inconclusive"
+    assert verdict(0.1, 0.9, None) == "effect"  # no margin available (fewer than 4 genuine samples)
+    assert verdict(float("nan"), float("nan"), 1.0) == "–"
+
+
 def test_expand_paths_skips_batch_summaries(tmp_path):
     from search.analysis import expand_paths
     (tmp_path / "ea_plan_operators_x_run0_20260101_000000.json").write_text("[]")

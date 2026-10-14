@@ -111,7 +111,10 @@ class PlanningSearchEnvironment:
     def corrective_hint_block(self, parent: Individual) -> str:
         return corrective_hint_block(parent.evaluation)
 
-    def check_prompt(self, prompt: str) -> None:
+    def check_prompt(self, prompt: str, model_written: Sequence[str] = ()) -> None:
+        for text in model_written:  # the parent plan, the slot: written by the model, so not a leak
+            if text:
+                prompt = prompt.replace(text, "", 1)
         assert_no_hidden_information(prompt, optimal_length=self.optimal_length)
 
     # --------------------------------------------------------- candidates

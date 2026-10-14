@@ -13,7 +13,7 @@ from __future__ import annotations
 import ast
 import difflib
 import hashlib
-from typing import Any
+from typing import Any, Sequence
 
 from search.individual import Individual
 
@@ -142,8 +142,8 @@ class CodeRepairSearchEnvironment:
             return ""
         return corrective_hint_block(self.task.entry_point, cases[0])
 
-    def check_prompt(self, prompt: str) -> None:
-        assert_prompt_has_no_hidden_test_content(prompt, self.task)
+    def check_prompt(self, prompt: str, model_written: Sequence[str] = ()) -> None:
+        assert_prompt_has_no_hidden_test_content(prompt, self.task, model_written)
 
     # --------------------------------------------------------- candidates
 

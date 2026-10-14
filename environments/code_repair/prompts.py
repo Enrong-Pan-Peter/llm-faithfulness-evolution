@@ -29,6 +29,7 @@ completion it is post-hoc, exactly as in Contexto.
 from __future__ import annotations
 
 import json
+from collections.abc import Sequence
 from typing import Any
 
 from contexto_solver.self_report import rationale_inheritance_block
@@ -181,7 +182,9 @@ def build_candidate_prompt(
         rationale_block=rationale_block,
         focus_case=focus_case_text(parent_evaluation, task.entry_point),
     )
-    assert_prompt_has_no_hidden_test_content(prompt, task)
+    # The parent program and the slot are written by the model, which never sees the
+    # hidden tests; a hidden call it happens to write (a comment, a self-test) is no leak.
+    assert_prompt_has_no_hidden_test_content(prompt, task, model_written=(parent_program.strip("\n"), rationale_block))
     return prompt
 
 
@@ -192,7 +195,7 @@ def build_diagnosis_prompt(task: Task, parent_program: str, parent_evaluation: C
         parent_program=parent_program.strip("\n"),
         dev_feedback=render_dev_feedback(parent_evaluation, task.entry_point),
     )
-    assert_prompt_has_no_hidden_test_content(prompt, task)
+    assert_prompt_has_no_hidden_test_content(prompt, task, model_written=(parent_program.strip("\n"),))
     return prompt
 
 
@@ -251,8 +254,22 @@ def hidden_test_fingerprints(task: Task) -> tuple[str, ...]:
     return tuple(dict.fromkeys(marks))
 
 
-def assert_prompt_has_no_hidden_test_content(prompt: str, task: Task) -> None:
-    """Raise ``HiddenTestLeakError`` if any hidden-test fingerprint appears in ``prompt``."""
+def strip_model_written(prompt: str, model_written: Sequence[str] = ()) -> str:
+    """Remove the parts of a prompt the model wrote (one occurrence each) before a leak check.
+
+    The model never sees the hidden tests, so a hidden call it happens to write
+    in a parent program (a comment, a self-test line) or in a rationale is not a
+    leak; the guard is about what the environment put around those parts.
+    """
+    for text in model_written:
+        if text:
+            prompt = prompt.replace(text, "", 1)
+    return prompt
+
+
+def assert_prompt_has_no_hidden_test_content(prompt: str, task: Task, model_written: Sequence[str] = ()) -> None:
+    """Raise ``HiddenTestLeakError`` if any hidden-test fingerprint appears in the environment-written part of ``prompt``."""
+    checked = strip_model_written(prompt, model_written)
     for mark in hidden_test_fingerprints(task):
-        if mark in prompt:
+        if mark in checked:
             raise HiddenTestLeakError(f"prompt for task {task.id!r} contains hidden-test content: {mark!r}")

@@ -262,7 +262,7 @@ class EvolutionarySearch:
             return block, {"channel": "corrective_hint", "text": block, "hash": _hash_or_none(block)}, None
         if channel == "prospective":
             prompt = self.environment.prospective_prompt(parent)
-            self.environment.check_prompt(prompt)
+            self.environment.check_prompt(prompt, model_written=(parent.candidate_text.strip("\n"),))
             parsed, raw, error = self.model.complete_json(prompt)
             text = self.environment.prospective_text(parsed) if parsed is not None else ""
             block = self.environment.prospective_block(text) if text else ""
@@ -282,9 +282,10 @@ class EvolutionarySearch:
                 operator = self._sample_operator()
                 block, rationale, prospective = self._rationale_slot(parent)
                 prompt = self.environment.operator_prompt(operator, parent, block, self_report=self.settings.self_report)
-                # The slot text is written by the model (inherited reason, prospective strategy),
-                # so it cannot leak solver-side facts; the guard checks everything around it.
-                self.environment.check_prompt(prompt.replace(block, "", 1) if block else prompt)
+                # The slot text (inherited reason, prospective strategy) and the parent candidate
+                # are written by the model, so they cannot leak solver-side facts; the guard
+                # checks everything around them.
+                self.environment.check_prompt(prompt, model_written=(block, parent.candidate_text.strip("\n")))
                 parsed, raw, error = self.model.complete_json(prompt)
                 child = self._make_individual(
                     parsed, raw, error, prompt, origin=f"mutation_{operator}", operator=operator, parent=parent,

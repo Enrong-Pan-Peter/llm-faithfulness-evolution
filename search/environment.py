@@ -64,8 +64,13 @@ class SearchEnvironment(Protocol):
     def distance(self, text_a: str, text_b: str) -> float:
         """Distance between two candidate texts in ``[0, 1]`` (for the intervention analysis)."""
 
-    def check_prompt(self, prompt: str) -> None:
-        """Raise if a rendered prompt leaks hidden information."""
+    def check_prompt(self, prompt: str, model_written: Sequence[str] = ()) -> None:
+        """Raise if the environment-written part of a rendered prompt leaks hidden information.
+
+        ``model_written`` lists texts in the prompt that the model wrote (the
+        parent candidate, the rationale slot); they are removed before the
+        check, since the model cannot leak what it never saw.
+        """
 
 
 def candidate_summary(individuals: Sequence[Individual]) -> dict[str, Any]:

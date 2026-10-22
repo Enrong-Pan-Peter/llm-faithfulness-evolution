@@ -231,6 +231,15 @@ def test_check_stage_b_reports_gaps_and_completeness(tmp_path, capsys):
     check_stage_b.main(["--root", str(root), "--runs", "2"])
     out = capsys.readouterr().out
     assert "has no summary_" in out and "planning_random_selection: 2 runs on 1 tasks" in out
+    # A run whose model calls all timed out (stalled server) ends with FAILED and an empty pool: a gap, not a result.
+    trace = sorted(control.glob("*_run1_*.json"))[-1]
+    events = json.loads(trace.read_text())
+    n = sum(1 for e in events if e["event"] in ("INITIAL_CANDIDATE", "OPERATOR_SAMPLED"))
+    events[1:1] = [{"event": "MODEL_CALL_FAILED", "generation": 0, "details": {"stage": "initial", "error": "ReadTimeout"}}] * n
+    trace.write_text(json.dumps(events))
+    check_stage_b.main(["--root", str(root), "--runs", "2"])
+    out = capsys.readouterr().out
+    assert f"run 1: {n} of {n} model calls failed (server stalled?)" in out
 
 
 def _write_intervention_run(run_dir: Path, differences: dict[str, list[float]], genuine_fitness: list[float]) -> None:

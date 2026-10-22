@@ -10,7 +10,9 @@ candidates carry a parsed self-report, and whether every task has its
 ``summary_<task>.json``. For every ``*_intervention*/run<k>`` directory: the
 number of intervention records and of stored calls per condition. The
 expected task count comes from the study sets (12) or, for control
-directories, from the ids present. Ends with a list of gaps, so an empty
+directories, from the ids present. A run in which half or more of the model
+calls failed (a stalled server times every call out, and the run ends with an
+empty pool) is listed as a gap too. Ends with a list of gaps, so an empty
 "gaps" section means the batch is complete.
 """
 
@@ -95,6 +97,10 @@ def scan_condition(directory: Path, expected_runs: int, expected_tasks: int | No
             gaps.append(f"{directory}: {row['task']} run {row['run']}: {row['error']}")
         elif not row["ended"]:
             gaps.append(f"{directory}: {row['task']} run {row['run']} has no SOLVED/FAILED event (truncated)")
+        elif row["model_failures"] and row["model_failures"] * 2 >= row["candidates"]:
+            # Every (or almost every) call timed out: the model server stalled, the run holds no search.
+            gaps.append(f"{directory}: {row['task']} run {row['run']}: {row['model_failures']} of {row['candidates']} model calls"
+                        " failed (server stalled?) - move the trace aside and rerun")
     return {"rows": rows, "tasks": tasks, "n_candidates": n_candidates, "n_reports": n_reports,
             "n_model_failures": n_model_failures, "gaps": gaps}
 
